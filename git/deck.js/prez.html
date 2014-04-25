@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Git - Pusher pour réussir</title>
+
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" media="screen" href="core/deck.core.css">
+
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" media="screen" href="themes/style/web-2.0.css">
+
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+	<!-- Basic black and white print styles -->
+	<link rel="stylesheet" media="print" href="core/print.css">
+
+	<style>
+		.todo {
+			background:
+			radial-gradient(black 15%, transparent 16%) 0 0,
+			radial-gradient(black 15%, transparent 16%) 8px 8px,
+			radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+			radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+			background-color:#282828;
+			background-size:16px 16px;
+			color: white;
+			padding: 1em;
+		}
+		.todo:after {
+			content: ' 'attr(data-todo);
+			background: none;
+		}
+		
+
+		q:before {
+			content: '« ';
+		}
+		q:after {
+			content: ' »';
+		}
+		img.main {
+			min-width: 40%;
+			width: 60%;
+			max-height: 80%;
+			margin-top: 3%;
+		}
+		
+		#about-coordinates{
+			position:absolute;
+			top:20px;
+			right:20px;
+			text-align: center;
+		}
+		#about-coordinates ul {
+			list-style-type: none;
+			padding-right: 2em;
+		}
+		#about-coordinates img {
+			float:left;
+		}
+
+		dl {
+			margin: 0;
+			padding: 0;
+		}
+
+		dt {
+			margin: 0;
+			padding: 0;
+			font-weight: bold;
+		}
+
+		dd 	{
+			margin: 0 0 1em 0;
+			padding: 0;
+		}
+
+		#object-types {
+			-webkit-column-count:2; /* Chrome, Safari, Opera */
+			-moz-column-count:2; /* Firefox */
+			column-count:2;
+			text-align: center;
+		}
+		.object-title {
+			display: block;
+			text-transform: uppercase;
+			font-weight: 900;
+		}
+
+		/* externalize this */
+		div.smileyface {
+			float:right;
+			width: 300px;
+			height: 300px;
+			position: relative;
+			border-radius: 150px;
+			-webkit-border-radius: 150px;
+			-moz-border-radius: 150px;
+			display: block;
+			background: #ffe632;
+			background: -webkit-gradient(linear, left top, left bottom, from(#fffe8d), to(#f6d23e));
+			background: -moz-linear-gradient(top,  #fffe8d,  #f6d23e);	
+			box-shadow: inset 0px -14px 14px rgba(0, 0, 0, .3), 0px 2px 20px rgba(0, 0, 0, .6);
+			-webkit-box-shadow: inset 0px -14px 14px rgba(0, 0, 0, .3), 0px 2px 20px rgba(0, 0, 0, .6);
+			-moz-box-shadow: inset 0px -14px 14px rgba(0, 0, 0, .3), 0px 2px 20px rgba(0, 0, 0, .6);
+		}
+
+		p.eyes {
+			width: 50px;
+			height: 80px;
+			background: #222;
+			border-radius: 100px/160px;
+			-webkit-border-radius: 100px 160px;
+			-moz-border-radius: 100px/160px;
+			position: absolute;
+			top: 40px;
+			box-shadow: 0 2px 0 rgba(255,255,255, 0.8);
+			-webkit-box-shadow: 0 2px 0 rgba(255,255,255, 0.8);
+			-moz-box-shadow: 0 2px 0 rgba(255,255,255, 0.8);
+		}	
+
+		p.eyes.lefteye {
+			left: 75px;
+		}
+		
+		p.eyes.righteye {
+			right: 75px;
+		}
+		
+		div.smile {
+			width: 200px;
+			height: 70px;
+			border: 10px solid #222;
+			border-top: 0;
+			background: rgba(0,0,0,0);
+			-moz-border-radius: 0 0 120px 120px / 0 0 90px 90px;
+			-webkit-border-radius: 0 0 120px 120px 0 0 90px 90px;
+			border-radius: 0 0 120px 120px / 0 0 90px 90px;
+			position: absolute;
+			bottom: 50px;
+			left: 38px;
+			box-shadow: 0 2px 0 rgba(255,255,255, 0.8);
+			-webkit-box-shadow: 0 2px 0 rgba(255,255,255, 0.8);
+			-moz-box-shadow: 0 2px 0 rgba(255,255,255, 0.8);
+		}
+
+		div.corner {
+			width: 10px;
+			height: 30px;
+			background: #222;
+			border-radius: 100px/160px;
+			-webkit-border-radius: 100px 160px;
+			-moz-border-radius: 100px/160px;
+			position: absolute;
+			top: -12px;
+			-webkit-transform: rotate(65deg);
+			-moz-transform: rotate(65deg);
+			left: -12px;
+		}
+
+		div.corner.right {
+			left: 202px;
+			-webkit-transform: rotate(-65deg);
+			-moz-transform: rotate(-65deg);		
+		}
+		/* */
+	</style>
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+	<script>
+		// Yay! :-)
+		// FIXME : do it more cleanly, or contribute it back
+		// add the mslide class that actually adds slide on every direct children
+		// Side note : only ul/li supported for the moment.
+		document.addEventListener('DOMContentLoaded', function(e) {
+			var mslideNodes = document.querySelectorAll('.mslide > li');
+			for(var i = 0; i<mslideNodes.length;++i) {
+				mslideNodes.item(i).classList.add("slide");
+			}
+		});
+	</script>
+</head>
+<body>
+	<div class="deck-container">
+
+		<section class="slide">
+			<h1><img src="ressources/git-logo.png" alt="Git" />Pusher pour réussir</h1>
+		</section>
+
+		<section class="slide" id="about">
+			<h2>Qui suis-je ?</h2>
+			<div id="about-coordinates">
+				<img src="ressources/me.png" alt="Me"/>
+				<ul>
+					<li>Baptiste Mathus</li>
+					<li><a href="http://twitter.com/bmathus">@bmathus</a></li>
+					<li><a href="http://batmat.net">http://batmat.net</a></li>
+				</ul>
+			</div>
+			<ul>
+				<li>Devops passionné</li>
+				<li>Fan et contributeur Open Source
+					<ul>
+						<li>Traduction communautaire du livre <a href="http://jenkins-le-guide-complet.github.io/">Jenkins – The Definitive Guide</a></li>
+						<li>Plugin Jenkins <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Trigger+Badge+Plugin">BuildTriggerBadge</a></li>
+						<li>Committer <a href="http://mojo.codehaus.org/">mojo@codehaus</a></li>
+					</ul>
+				</li>
+				<li>Membre de l'équipe du <a href="http://toulousejug.org">ToulouseJug</a></li>
+				<li>Utilisateur de Git depuis 2010</li>
+			</ul>
+		</section>
+
+		<section class="slide">
+			<h2>Git - finalement assez simple</h2>
+			<p><img src="ressources/git-fake.png" class="main" /></p>
+		</section>
+		<section class="slide">
+			<img src="ressources/lolcat.jpg" class="main"/>
+		</section>
+		<section class="slide">
+			<h1>Un peu d'histoire, quand même.</h1>
+		</section>
+		<section class="slide">
+			<h2>1900 → 2002 : le développement de Linux utilise tarball</h2>
+			<blockquote>For the first 10 years of kernel maintenance, we literally used tarballs and patches, which is a much superior source control management system than CVS is – Linus Torvalds</blockquote>
+		</section>
+		<section class="slide">
+			<h2>2002 : Passage à BitKeeper</h2>
+			<p>DVCS closed-source, licences offertes à l'OSS</p>
+		</section>
+		<section class="slide">
+			<h2>Avril 2005 : Fin annoncée de la licence gratuite</h2>
+			<p>Provoqué par un reverse-engineering du protocole BitKeeper par Andrew Tridgell</p>
+		</section>
+		<section class="slide">
+			<h2>7 Avril 2005 : Première version de Git</h2>
+			<blockquote>
+				I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'.
+				– Linus Torvalds
+			</blockquote>
+		</section>
+		<section class="slide">
+			<h2>Les quelques commandes de Git</h2>
+			<img src="ressources/commandes-git.png" class="slide" />
+		</section>
+
+		<section class="slide">
+			<h2>Super ! Mais en vrai, on utilise quoi ?</h2>
+			<img src="ressources/git-stats.png" class="main"/>
+		</section>
+
+
+		<section class="slide">
+			<h1>Les bases</h1>
+		</section>
+		<section class="slide">
+			<h2>DVCS</h2>
+			<h3><strong>Dé</strong>centralisé</h3>
+			<ul>
+				<li>Techniquement, pas besoin de serveur</li>
+				<li><small>(Presque)</small> Tout se passe donc en local</li>
+				<li>Après un clone, <strong>tout</strong> l'historique du projet est en local et ne nécessite plus aucun accès réseau pour le manipuler</li>
+			</ul>
+		</section>
+		<section class="slide">
+			<h1>Rapide, Git ?</h1>
+		</section>
+		<section class="slide">
+			<h2>Performances, les origines</h2>
+			<blockquote>
+				[…] to make that process really efficient. If it takes half a minute to apply a patch and remember the changeset boundary […] then a series of 250 emails […] takes two hours. If one of the patches in the middle doesn't apply, things are bad bad bad.
+			</blockquote>
+		</section>
+		<section class="slide">
+			<h1>Orienté <strong>contenu</strong></h1>
+		</section>
+		<section class="slide">
+			<h2>Des snapshots, pas des diff</h2>
+			<img src="ressources/snapshots-vs-delta.png" class="main" />
+		</section>
+		<section class="slide">
+			<!-- 
+			<h3>Git utilise des <span class="todo" data-todo="Expliquer ce que sont les hash">hashes</span> SHA-1 à plusieurs endroits</h3>
+		-->
+			<h2>Les 4 types d'objets</h2>
+			<ul id="object-types">
+				<li>
+					<span class='object-title'>blob</span>
+					<span class="object-definition">Contenu d'un fichier identifié par un hash <img src="ressources/object-blob.png" /></span>
+				</li>
+				<li>
+					<span class='object-title'>tree</span>
+					<span class="object-definition">Liste de références vers des hashes <img src="ressources/object-tree.png" /></span>
+				</li>
+				<li>
+					<span class='object-title'>commit</span> 
+					<span class="object-definition">Référence le hash d'un tree + métadonnées <img src="ressources/object-commit.png" /></span>
+				</li>
+				<li class="slide">
+					<span class='object-title'>tag</span>    
+					<span class="object-definition">Nom donné à un commit + métadonnées <img src="ressources/object-tag.png" /></span>
+				</li>
+			</ul>
+		</section>
+		<section class="slide">
+			<img src="ressources/git-objects-types.png" class="main" />
+		</section>
+		<section class="slide">
+			<h2>Les commits Git</h2>
+			<ul>
+				<li>Identifié par un hash <em>SHA-1</em></li>
+				<li>Version courte ≥ 4 caractères possible (si non ambiguë)
+					<ul>
+						<li>53b8 = <strong>53b8</strong>9fc7bb117aee396285f9bc6ce913599a6574</li>
+					</ul>
+				</li>
+				<li>1 à n parents</li>
+				<li>DAG : <em>Directed Acyclic Graph</em> <img src="ressources/dag-illustration.png" /></li>
+			</ul>
+		</section>
+		<section class="slide">
+			<h2>Sondage : qui a déjà utilisé les merges avec svn ?</h2>
+			<div style="text-align:center">
+				<h3 class="slide">Un peu de concentration<img src="ressources/merge-svn.gif" /></h3>
+				<div class="slide">
+				<h3>Quand ça plante pas</h3>
+					<img src="ressources/merge-svn2.gif"  style="display:inline" />
+					<img src="ressources/merge-svn3.gif"  style="display:inline"	/>
+				</div>
+			</div>
+		</section>
+		<section class="slide">
+			<h2>Avec Git, les merge <em>just</em> fonctionnent</h2>
+			<img src="ressources/happy.gif" class="main" />
+		</section>
+		<section class="slide">
+			<h1>Bref, les branches c'est la vie</h1>
+		</section>
+		<section class="slide">
+			<h2>Les branches ?</h2>
+			<ul class="mslide">
+				<li>Simple pointeur vers un commit</li>
+				<li>Git référence des <em>têtes</em></li>
+				<li>Tout commit non référencé par un nom finira supprimé (dans longtemps)
+					<ul>
+						<li>Commit non référencé : <em>Dangling ou </em>detached HEAD</em> <img src="ressources/dangling.png" /></li>
+						<li>Git a aussi un Garbage Collector ! :-)</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		
+		<section class="slide">
+			<h2>Bon, mais comment on démarre ?</h2>
+			<code><pre class="source">
+$ git config user.name "Baptiste Mathus"
+$ git config user.email batmat@batmat.net
+$ mkdir nouveaurepo
+$ cd nouveaurepo/
+$ git init
+Initialized empty Git repository in nouveaurepo/.git/
+$ git commit -m "Initial commit" --allow-empty
+[master (root-commit) 53b89fc] Initial commit
+$ touch pouet
+$ git add pouet
+$ git commit -m "Création du premier fichier indispensable."
+[master 2ce6ac4] Création du premier fichier indispensable.
+0 files changed
+create mode 100644 pouet
+			</pre></code>
+		</section>
+		<section class="slide">
+			<h2>En détails</h2>
+			<p><code>git commit -m "Initial commit" --allow-empty</code></p>
+
+			<p>Conseil : toujours un commit racine vide</p>
+
+		</section>
+		
+		<section class="slide">
+			<h1><code>git add</code><br />
+				⇒ ajout dans <strong>l'index</strong></h1>
+			</section>
+			<section class="slide">
+				<h2>L'index : espace de préparation du prochain commit</h2>
+				<img src="ressources/git-staging-area.png" alt="staging" class="main" />
+				<p>On peut <em>stager</em> morceau par morceau !</p>
+			</section>
+			<section class="slide">
+				<h1>Les commandes essentielles : merge &amp; rebase</h1>
+			</section>
+			<section class="slide">
+				<h2>Merge</h2>
+				<p>Créer un point de jonction entre plusieurs commits : un <q>merge-commit</q></p>
+				<img src="ressources/merge-commit.png"  class="main" />
+			</section>
+			<section class="slide">
+				<h2>Rebase</h2>
+				<p>Rejouer des commits par-dessus d'autres</p>
+				<h3>Avant :</h3>
+				<img src="ressources/rebase-before.png"  class="main" />
+			</section>
+			<section class="slide">
+				<h2>Rebase</h2>
+				<p>Rejouer des commits par-dessus d'autres</p>
+				<h3>Après :</h3>
+				<img src="ressources/rebase-after.png"  class="main" />
+			</section>
+			<section class="slide">
+				<h2>Concept très important : le <strong>fast-forward</strong></h2>
+				<p>Si possible, Git cherche à ne pas créer de <em>commit de merge</em> même si on lui demande un <em>merge</em></p>
+				<img src="ressources/ff.png" alt="Fast-forward illustration" />
+				<code><pre class="source">
+$ git checkout master
+$ git merge feature
+Updating 38d98a8..d92c9b5
+Fast-forward
+</pre></code>
+			</section>
+			<section class="slide">
+				<h2>Rebase interactif : <strong>réécrire l'histoire</strong> !</h2>
+<code><pre class="source">
+$ git rebase -i HEAD~3
+</pre></code>
+<code><pre class="source">
+pick 910f70a Message antépénultième commit
+pick 0e7f74d Message avant-dernier commit
+pick 77aab98 Message dernier commit
+
+# Rebase 77f6f4a..77aab98 onto 77f6f4a
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+</pre></code>
+			</section>
+			<section class="slide">
+				<h1>Quelques autres commandes intéressantes</h1>
+			</section>
+			<section class="slide">
+				<h2><code>git reflog</code></h2>
+				<p>Peut vous sauver la vie :-)</p>
+				<code>
+					<pre>
+Un filet de sécurité :
+$ git reflog
+2ce6ac4 HEAD@{0}: checkout: moving from nouvellebranche to master
+07df291 HEAD@{1}: checkout: moving from 07df291f4d7fc93b10f28ae25c04fff67d674f30 to nouvellebranche
+07df291 HEAD@{2}: commit: Nouveau commit
+53b89fc HEAD@{3}: checkout: moving from master to 53b89fc
+2ce6ac4 HEAD@{4}: commit: Création du premier fichier indispensable.
+53b89fc HEAD@{5}: commit (initial): Initial commit
+</pre>
+</code>
+
+</section>
+<section class="slide">
+	<h2>Bisect</h2>
+	<h3>killer-feature : recherche d'un commit problématique par dichotomie</h3>
+<code>
+<pre>
+$ git bisect log
+git bisect start
+# good: [aa630f76c8c3e8e0ee894538e5bf262890afb862] [maven-release-plugin] prepare release jenkins-1.423
+git bisect good aa630f76c8c3e8e0ee894538e5bf262890afb862
+# bad: [cbb2e30deb846414c203a36c9b4fdf00c1193c25] [maven-release-plugin] prepare release jenkins-1.424
+[...]
+git bisect bad cbba3c88a9ce76edd47a4ab9b9e54dc9bb05e606
+# bad: [1fd7fb2c11dd3cb46843d274fcd4aaf44f34213b] when tried stand-alone, I learned that those dependencies cannot be really excluded.
+git bisect bad 1fd7fb2c11dd3cb46843d274fcd4aaf44f34213b
+1fd7fb2c11dd3cb46843d274fcd4aaf44f34213b is the first bad commit
+commit 1fd7fb2c11dd3cb46843d274fcd4aaf44f34213b
+Author: Kohsuke Kawaguchi &lt;kk@kohsuke.org&gt;
+Date:   Sat Jul 30 09:59:07 2011 -0700
+
+    when tried stand-alone, I learned that those dependencies cannot be really excluded.
+
+:040000 040000 afe7deb89dae782db89ee79e36d767f348b6f1b5 e2be3a211e5a211ad0d91fee8e32095a888d4786 M      core
+</pre>
+</code>
+</section>
+<!--
+<section class="slide">
+	<h1>Les submodules</h1>
+</section>
+<section class="slide">
+	<h2 class="todo">TODO submodules</h2>
+</section>
+-->
+<section class="slide">
+	<h2>Les points faibles</h2>
+	<ul>
+		<li>Courbe d'apprentissage ardue pour les cas sortant du svn-like</li>
+		<li><p>Noms ou utilisation de commandes parfois déroutantes, notamment quand on vient de Svn</p>
+			<p>Quelques exemples :</p> 
+			<div class="smileyface">
+				<p class="eyes lefteye"></p>
+				<p class="eyes righteye"></p>
+				<div class="smile">
+					<div class="corner"></div>
+					<div class="corner right"></div>
+				</div>
+			</div>
+			<ul>
+				<li>git checkout = svn switch, ou revert pour un seul fichier...</li>
+				<li>git reset --hard = svn revert -R *</li>
+				<li>reset : pourrait nécessiter une présentation entière...</li>
+				<li>add : résoudre un conflit, ajouter tout ou partie d'un fichier...</li>
+			</ul>
+		</li>
+		
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Démo</h2>
+	<img src="ressources/two-thumbs-up.jpg" alt="Huhu" />
+</section>
+<section class="slide">
+	<h2>Conclusion &amp; Conseils</h2>
+	<ul>
+		<li>Git reste simple si on fait du svn-like
+			<ul><li>Commit, push, pull, commit, push, et voilà...</li></ul>
+		</li>
+		<li>En cas d'erreur, lisez ce qui est affiché...</li>
+		<li>Git est complexe pour les cas plus avancés</li>
+		<li>Mais <q>L'homme qui augmente sa capacité de comprendre augmente sa puissance d'agir.</q> – Abla Farhoud</li>
+		<li>Avec Git, sachez où vous êtes et où vous allez !</li>
+	</ul>
+</section>
+<section class="slide">
+	<h2>Références</h2>
+	<ul>
+		<li>Page web interactive mnémotechnique
+			http://ndpsoftware.com/git-cheatsheet.html
+		</li>
+
+		<li>Apprendre Git en ligne
+			http://pcottle.github.com/learnGitBranching/
+			http://try.github.com/levels/1/challenges/1
+		</li>
+		<li>Présentations de Sébastien Douche au ParisJUG
+			http://www.parleys.com/#id=2366&amp;st=5
+			http://www.parleys.com/#st=5&amp;id=2368
+		</li>
+		<li>Présentation de David Gageot au BreizhJug
+			http://www.parleys.com/#st=5&amp;id=2117&amp;sl=2
+		</li>
+		<li>Présentations de Scott Chacon
+			https://github.com/schacon/git-presentations
+		</li>
+		<li>Présentation Git par Linus Torvalds chez Google
+			http://www.youtube.com/watch?v=4XpnKHJAok8
+		</li>
+		<li>Un merci général à Internet pour certains graphes de cette présentation ;-)
+		</li>
+	</ul>
+</section>
+
+<!-- End slides. -->
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<div aria-role="navigation">
+	<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+	<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+</div>
+
+<!-- deck.status snippet -->
+<p class="deck-status" aria-role="status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- End extension snippets. -->
+</div>
+
+<!-- Required JS files. -->
+<script src="jquery.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>

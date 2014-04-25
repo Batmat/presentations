@@ -1,0 +1,78 @@
+Trame Démo
+==========
+
+Récapitulatif
+~~~~~~~~~~~~
+
+Deux branches :
+
+* une originale, sous JDK6 (pushée)
+* une migration aux lambdas à peine commencée (jamais encore pushée)
+
+Démo
+----
+
+* création *migration-java8*
+
+* commit pom.xml <jdk /> 1.8
+* commit premier et deuxième test : MOYENNE ET PLUS JEUNE
+* commit troisième test : PLUS VIEUX !
++
+* Pas glop, on splitte les deux commits !
+* git rebase -i HEAD~3
+* sélection du commit à splitter
+* git reset HEAD~
+* commit premier test
+* commit -C
+
+
+*master*
+
+* Un accent a été laissé dans le titre du test,
+* commit suppression accent
+
+
+
+*migration-java8*
+
+* Comme on n'a pas pushé, on peut rebaser migration-java8 sur master
+* On pushe migration-java8
+* Arf, on s'aperçoit qu'un autre truc plus moche est là :
+"org.toulouseju" manque un g.
+
+
+
+*master*
+
+* dans master, on effectue le renommage.
+* Parfait ?
+* il faudrait reporter sur migration-java8
+
+
+*migration-java8*
+
+* comme on a pushé, on ne peut (doit...) pas rebaser
+
+* git merge master
++
+
+* ajouter une méthode toString() à la classe _Jugger_
+* committer
+* ajouter un TU
+* avoir le TU qui va avec la classe métier, ça paraît pas mal, on va donc fusionner
+* commit --amend
+* push !
+
+
+
+* super évolution !
+* on voudrait la backporter sur master
+* on ne veut pas l'historique !
+* cherry-pick (sans -x)
+
+
+
+* ! attention ! on voudrait bien garder une trace !
+* donc on revient en arrière : git reset --hard HEAD~
+* cherry-pick -x
+
