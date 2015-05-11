@@ -1,0 +1,11 @@
+Take your Git practice to the next level - Lab index - Eclipse Con France 2015
+==============================================================================
+Baptiste Mathus <batmat@batmat.net>; Michaël Pailloncy <mpapo.dev@gmail.com>
+
+== Prerequisites
+
+Please link:prerequisites.html[check the prerequisites] before starting the lab.
+
+== Lab
+
+link:lab.html[Unleash Hell!]

@@ -1,0 +1,38 @@
+Take your Git practice to the next level
+========================================
+Baptiste Mathus <batmat@batmat.net>, Michaël Pailloncy <todo@todo.com>
+:backend: deckjs
+:split:
+:deckjs_transition: fade
+:deckjs_theme: swiss
+:navigation:
+:deckjsdir: ../.deck.js
+:nous: bla bla bla exemple de variable
+
+== About us
+
+TODO : {nous}...
+
+{draft}
+
+== Agenda
+
+NOTICE: This *is* a workshop. So there will be manipulation along the way, don't worry !
+
+[options="step"]
+* Basics reminder : 
+** Some History
+** The Git Data Model
+*** How Git tracks files? Does he?
+** Merge vs. Rebase
+** What's a fast-forward
+** The Index
+* The .git directory
+* Lab... rebase -i, cherry-pick, gems like bisect, add -p, plumbing, porcelain, the "index"...
+* JGit / EGit
+* Git _workflows_ discussion
+** Git flow
+** Gerrit
+
+== Ready to rumble
+See link:lab/index.html[the lab]

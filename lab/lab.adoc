@@ -1,0 +1,10 @@
+= Take your Git practice to the next level - Lab
+Eclipse con France 2015
+
+== Prerequisites
+
+See link:prerequisites.html[the prerequisites]
+
+== blah
+
+IMPORTANT: Now THIS is a Lab !

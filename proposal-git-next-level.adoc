@@ -1,0 +1,12 @@
+== Take your Git practice to the next level
+Already using Git, but you are still scared by those weird words like rebase -i, cherry-pick, gems like bisect, add -p, plumbing, porcelain, the "index"...
+And you'd like to go to the next level but never find the time to dig?
+This workshop is for you.
+
+After a reminder of the basics of Git, we'll start talking about the Git internals: how it stores things, why it's that quick, etc.
+
+Then we'll twiddle with some frontend and backend commands, explain things in details and take the opportunity to practice things you can never take time to.
+
+We'll also discuss some different Git "workflows", using Gerrit for example, git-flow and why you could use them.
+
+We'll practice in the command line by default, so that things are less magical and you can understand what Eclipse is doing for you, but we'll also try to show the equivalent features using EGit. 
