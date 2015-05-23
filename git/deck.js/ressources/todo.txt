@@ -1,4 +1,0 @@
-* Parler de fast-forward => démo
-* ajouter slide avec un graphe de commits
- 
-Note : MES statistiques début 2013, à ne pas généraliser
