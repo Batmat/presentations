@@ -1,0 +1,17 @@
+= Mes présentations
+Baptiste Mathus <batmat@batmat.net>
+
+== A propos de ces présentations
+
+J'ai l'intention d'ajouter autant que possible mes présentations dans ce link:github.com/batmat/presentations[site]. 
+
+Je suis aussi un _bagger_. Si cela vous dit, je peux venir parler des sujets que je connais chez vous entre midi et deux. Pour plus de détails, regardez le site link:http://www.brownbaglunch.fr/baggers.html#Baptiste_Mathus_Toulouse[http://www.brownbaglunch.fr/].
+
+== link:git/prez.html[Git]
+
+== Gerrit
+Pour l'instant, disponible uniquement en link:gerrit/prez-gerrit.odp[format OOo .odp]. Je suis en train de convertir en html.
+
+== link:gtd/reveal.js/prez-gtd.html[GTD]
+
+Support utilisé lors de la présentation associée au @ToulouseJug.
