@@ -1,0 +1,26 @@
+= Contenu en vrac des trucs à traiter
+
+contient ce qu'on veut évoquer, dans le désordre (à réordonner/modifier au fur et à mesure)
+
+* Basics reminder : 
+** Some History
+** basic commands
+*** git add, commit, diff, log, reset --hard...
+*** plumbing, porcelain
+** The Git Data Model
+*** How Git tracks files? Directories? Does he?
+** Merge vs. Rebase
+*** What's a fast-forward?
+** The Index
+** Stash?
+* The .git directory
+* Lab... rebase -i, cherry-pick, wonderful commands like bisect, add -p, , IMPORTANT: photo de chiotte !, the "index"...
+** log : how to follow history after renames
+* .gitattributes : newlines...
+* JGit / EGit
+* Git _workflows_ discussion
+** Git flow
+** Gerrit
+* submodule ?
+** vs. subtree ?
+* svn->Git migration
