@@ -17,22 +17,33 @@ TODO : {nous}...
 
 == Agenda
 
-NOTICE: This *is* a workshop. So there will be manipulation along the way, don't worry !
+NOTE: This *is* a workshop. So there will be manipulation along the way, don't worry !
 
 [options="step"]
 * Basics reminder : 
 ** Some History
+** Base commands
+*** git add, commit, diff, log, reset --hard...
+*** plumbing, porcelain
 ** The Git Data Model
-*** How Git tracks files? Does he?
+*** How Git tracks files? Directories? Does he?
 ** Merge vs. Rebase
-** What's a fast-forward
+*** What's a fast-forward?
 ** The Index
+** Stash?
 * The .git directory
-* Lab... rebase -i, cherry-pick, gems like bisect, add -p, plumbing, porcelain, the "index"...
+* Lab... rebase -i, cherry-pick, wonderful commands like bisect, add -p, , IMPORTANT: photo de chiotte !, the "index"...
+** log : how to follow history after renames
+* .gitattributes : newlines...
 * JGit / EGit
 * Git _workflows_ discussion
 ** Git flow
 ** Gerrit
+* submodule ?
+** vs. subtree ?
+* svn->Git migration
 
 == Ready to rumble
 See link:lab/index.html[the lab]
+
+http://ndpsoftware.com/git-cheatsheet.html
