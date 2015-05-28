@@ -4,10 +4,9 @@ contient ce qu'on veut évoquer, dans le désordre (à réordonner/modifier au f
 
 * Basics reminder : 
 ** Some History
+** The Git Data Model
 ** basic commands
 *** git add, commit, diff, log, reset --hard...
-*** plumbing, porcelain
-** The Git Data Model
 *** How Git tracks files? Directories? Does he?
 ** Merge vs. Rebase
 *** What's a fast-forward?
@@ -24,3 +23,9 @@ contient ce qu'on veut évoquer, dans le désordre (à réordonner/modifier au f
 * submodule ?
 ** vs. subtree ?
 * svn->Git migration
+
+* checkout -b, branches manipulation, maybe start with that?
+
+IDEES/QUESTIONS :
+
+* intercaler des labs au fur et à mesure. Pour cela trouver une image qui dit qu'on y retourne ?
