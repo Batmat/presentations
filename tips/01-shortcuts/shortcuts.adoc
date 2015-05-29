@@ -1,0 +1,19 @@
+== Find any class by name
+
+[role="shortcut tip"]
+Control-Shift-T
+
+== Find resources
+
+[role="shortcut tip"]
+Control-Shift-R
+
+== Use CamelCase
+
+image::camelcase-filtering.png[]
+
+<<<
+
+Or more selectively
+
+image::camelcase-filtering-more-selective.png[]

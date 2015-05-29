@@ -1,0 +1,36 @@
+= 50 slides of IDE
+Baptiste Mathus
+:backend: deckjs
+:deckjs_transition: fade
+:deckjs_theme: swiss
+:navigation:
+:deckjsdir: ../.deck.js
+:imagesdir: resources
+:split:
+
+== About me
+
+Du texte
+
+* et hop
+* et hop encore
+
+== First one: make saving things easier (and quicker lol) than clicking in the typical place where you usually find it in applications.
+
+CTRL-S (Yay!)
+
+This one is very useful. And alternatively you can also click (with the mouse) on the small icon that you will generally find on the left (because this is actually customisable, I've been told). 
+I like like it because it prevents you from going into the File/Save Menu. It took me years to find this one. I hope you will enjoy it too!
+
+I hope you will like it as much as I did. I hope.
+
+[canvas-image="resources/lol.gif"]
+== Lol
+
+Lol...
+
+== Let's go
+
+Let's now get a bit more serious, only 34 minutes left... 
+
+include::tips.adoc[]
