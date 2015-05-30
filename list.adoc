@@ -4,10 +4,13 @@ List of tips to cover
 . Shortcut: Ctrl-Shift-T & Ctrl-Shift-R
 . Shortcut: Ctrl-Shift-T then CamelCase initials to find classes
 . Refactoring: Extract method?
+. Shortcut: [Ctrl]-alt-arrow up or down to copy or move lines
+. Alt-Shift-x / T for the tests, ...
+. Do not always remember the shortcuts? Find any option with Ctrl-Shift-3
 . Refactoring: Replacing ternary with if/else
+
 . Typing: automatically place semicolons
 . Typing: escape text when pasting into a string literal
-. Do not always remember the shortcuts? Find any option with Ctrl-Shift-3
 . Organize imports: how to ignore javadoc
 . Formatter: don't touch my manually wrapped lines!
 . Formatter: don't touch that part (using begin/end tags). link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thx Emmanuel Fontan])
@@ -20,8 +23,6 @@ List of tips to cover
   annotated classes (Eclipse Mars)]
 . Save actions: automatic formating
 . Automatic contextualization inside an instanceof block (auto-add cast)
-. Shortcut: [Ctrl]-alt-arrow up or down to copy or move lines
-. Alt-Shift-x / T for the tests, ...
 . Type filters (to filter out java.awt.* for example...)
 . Type filter : filter out method coming from Object! (who wants to call notify...)
 . _Exception variable name in catch blocks_

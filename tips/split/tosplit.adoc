@@ -1,0 +1,71 @@
+== Typing: automatically place semicolons
+
+== Typing: escape text when pasting into a string literal
+
+== Organize imports: how to ignore javadoc
+
+== Formatter: don't touch my manually wrapped lines!
+
+== Formatter: don't touch that part (using begin/end tags)
+
+link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thx Emmanuel Fontan])
+
+== How to quick fix many issues outside of the Clean up menu
+
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956
+
+== Junit: add -ea to VM arguments... 
+
+good way to enable this option but not globally when you may be using libs that added a bunch of incorrect assertions
+
+== Favorites
+
+static imports
+
+== JSR305 annotations to help null analysis
+
+link:https://www.eclipse.org/eclipse/news/4.5/M6/#JDT[JSR305 externally annotated classes (Eclipse Mars)]
+
+== Save actions: automatic formating
+
+== Automatic contextualization inside an instanceof block (auto-add cast)
+
+== Type filters
+
+to filter out java.awt.* for example...
+
+<<<
+
+filter out method coming from Object! (who wants to call notify...)
+
+== _Exception variable name in catch blocks_
+
+== Multi-line Edit
+
+Alt-Shift-A or the icon
+
+(link:https://groups.google.com/d/msg/toulouse-jug/SpOWtYPxJa0/tGkr5LAbwU8J[thx Olivier Jaquemet]), as if Sublime invented it all :-)	
+
+== Step filtering
+
+(thx Sebastien Bordes for the reminder) : be able to filter out stack when debugging (?) (to be tested)
+
+== Filtering methods by categorizing them
+
+Categorize Filtering/choosing which methods to display in the _Outline_ using javadoc's _@category_ tags (thanks link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/Wdf3VMMDM0YJ[Jordi Barrère]).
+
+== Logical structure
+
+(way to present complex/weird data structure in a more logical that physical way).  
+
+see:  link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-logical_structures.htm[here] 
+
+and link:http://www.javalobby.org/java/forums/t16736.html[here] at least.
+
+
+== Organize imports ordering
+
+== Abreviate package name (Java/Appearance)
+
+== Working Sets
+

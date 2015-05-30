@@ -17,3 +17,27 @@ image::camelcase-filtering.png[]
 Or more selectively
 
 image::camelcase-filtering-more-selective.png[]
+
+== Move / Copy lines up and down
+
+:selectedtextdown: the currently selected lines down
+
+* Alt-arrow-down to move {selectedtextdown}
+* Ctrl-Arrow-Down to copy {selectedtextdown}
+
+== Quick contextual execution menu
+
+_Alt-Shift-x_ will display a contextual menu.
+
+Example: you're in a JUnit class, just type Alt-Shift-X then T to run the tests.
+
+image::alt-shift-x-menu.png[]
+
+== Quick fix
+
+Type _Ctrl-Shift-1_ to see what the possible actions are on the current focus
+
+== Meta-Shortcut
+
+Use _Ctrl-Shift-3_ on a selected item, then start typing to filter the possible actions in the _Quick access_ menu.
+

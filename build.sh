@@ -23,7 +23,7 @@ do
 	echo "Processing $currentDir"
 	for adocFile in $( ls $currentDir/*.adoc )
 	do
-	   cat $adocFile | sed "s/\(^==.*\)$/\1 ({counter:tip}\/$TIP_COUNT)/g" >> $TIPS_OUTPUT
+	   cat $adocFile | sed "s/^==\(.*\)$/== \[tip-count\]#({counter:tip}\/$TIP_COUNT)#\1/g" >> $TIPS_OUTPUT
 	   echo >> $TIPS_OUTPUT
 	   echo >> $TIPS_OUTPUT
 	done

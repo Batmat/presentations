@@ -7,6 +7,8 @@ Baptiste Mathus
 :deckjsdir: ../.deck.js
 :imagesdir: resources
 :split:
+:menu:
+:customcss: resources/bim.css
 
 == About me
 
@@ -34,3 +36,14 @@ Lol...
 Let's now get a bit more serious, only 34 minutes left... 
 
 include::tips.adoc[]
+
+
+== Acknowlegments
+
+* Thanks to the link:http://toulousejug.org[ToulouseJug] community for providing some of the tips here
+
+[canvas-image="resources/thanks.gif"]
+== Thank you
+
+[role="canvas-caption", position="left-up"]
+Questions?
