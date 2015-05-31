@@ -3,8 +3,24 @@ Eclipse con France 2015
 
 == Prerequisites
 
-See link:prerequisites.html[the prerequisites]
+IMPORTANT: See link:prerequisites.html[the prerequisites]
 
-== blah
+== Discovering the .git directory
 
-IMPORTANT: Now THIS is a Lab !
+TODO : Mettre une version offline de http://schacon.github.io/git/gitrepository-layout.html en offline pour proposer la doc
+
+* Create a repository
+* List the .git content and have a look	
+* Create a branch, what did it do?...  (refs/head, logs...)
+ 
+== Finding a needle in a...
+
+image::../ressources/needle-haystack.png[]
+
+TODO :
+
+* Décrire les étapes pour bisect
+* bisect run : script externe
+* script interne ? Comment faire ?
+** checkout -b (pas indispensable, mais mieux)
+** rebase -i

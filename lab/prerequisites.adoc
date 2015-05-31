@@ -6,21 +6,10 @@ Eclipse con France 2015
 
 * Have a working Git installation. Ideally >= 1.8.x, better with 2.x
 
+[source]
+$ git --version
+git version 2.1.4
+
 == Setting up your environment
 
 TODO : make clone a dedicated repo ? Initialize things?
-
-+++++++++++++++
-// ceci est une map : "titre", "bloc de code"
-def branches = [:]
-
-branches['pouet'] = { echo "pouet" ; sh "sleep 10" }
-branches['pof'] = { echo "pof" ; sh "sleep 25" }
-branches['paf'] = { echo "paf" ; sh "sleep 5" }
-
-node ('rhel') {
-   parallel branches
-
-   echo "bonjour, tout est fini"
-}
-++++++++++++++
