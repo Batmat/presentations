@@ -10,12 +10,12 @@
    to https://github.com/asciidoctor/asciidoctor-backends/issues/119 
    TODO : Propose a PR when more time (after the conf at least :-) 
 */
-.title:after {
+.icon:after {
   content: ' : ';
   margin-right: 0.5em;
 }
 
-.title {
+.icon {
   text-transform: uppercase;
 }
 

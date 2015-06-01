@@ -12,6 +12,7 @@ Baptiste Mathus <batmat@batmat.net>, Michaël Pailloncy <todo@todo.com>
 :source-highlighter: highlightjs
 :source-language: console
 :customcss: ressources/custom.css
+:customjs: ressources/custom.js
 
 :nous: image::ressources/lol.gif[]
 
@@ -23,14 +24,14 @@ image::ressources/prez-logo.png[]
 // TODO !
 
 |===
-a| a| image::ressources/baptiste.png[]
+a| image::ressources/michael.png[] a| image::ressources/baptiste.png[]
 | Michaël Pailloncy | link:http://batmat.net[Baptiste Mathus] 
 |===
 
 Working @MiPih as ToolSmiths
 
-[role="tags"]
-#jenkins #java #maven #nexus #sonarqube #build #docker #passion
+[role="tags"
+]#jenkins #java #maven #nexus #sonarqube #build #docker #passion
 
 == Agenda
 
@@ -82,7 +83,7 @@ Closed-source DVCS, free licenses provided to OSS.
 
 <<<
 
-* April 2005 : Annoucement of the end of the free license
+* April 2005 : Announcement of the end of the free license
 
 Triggered by Andrew Tridgell's BitKeeper protocol reverse-engineering
 
@@ -118,6 +119,25 @@ image::ressources/snapshots-vs-delta.png[]
 		
 // Expliquer ce que sont les hashes - sha1 everywhere :)
 
+== The Index
+
+image::ressources/git-staging-area.png[The Index]
+
+add:: adds to the index (-p lets you choose the parts of your file you actually want to add)
+index:: staging area (a sweet place to lovingly craft your commits)
+commit:: Captures the state of the index.
+
+== Quiz: git add
+
+[source]
+.What content has been committed for the _theFile_ file?
+----
+echo "dingdingdingbabababaaaaa" >> theFile # (1)
+git add theFile 
+echo "blah" > theFile # (2)
+git commit -m "done"
+----
+
 == Git Data Model: The 4 Object Types
 
 <<<
@@ -132,8 +152,17 @@ image::ressources/object-tree.png[]
 
 <<<
 
-commit:: References the (root) tree + metadata, identified by a hash 
+commit:: References the (root) tree + metadata, 0 to n parent commits, identified by a hash 
 image::ressources/object-commit.png[]
+
+[options="step"]
+----
+* DAG : _Directed Acyclic Graph_ 
+
+TODO 
+
+image::ressources/dag-illustration.png[]
+----
 
 <<<
 
@@ -143,21 +172,6 @@ image::ressources/object-tag.png[]
 == Git Data Model : wrap up
 		
 image::ressources/git-objects-types.png[]
-
-		
-== Git commits
-
-* _SHA-1_ hash
-* Short version ≥ 4 characters (if non ambiguous)
-		
-+53b8 = **53b8**9fc7bb117aee396285f9bc6ce913599a6574+
-			
-<<<
-
-* 1 to n parents
-* DAG : _Directed Acyclic Graph_ 
-
-image::ressources/dag-illustration.png[]
 
 [canvas-image="ressources/back-to-basics.png"]
 == Back to basics
@@ -213,6 +227,12 @@ image::ressources/dangling.png[]
 [role="todo"]
 When possible, Git will *NOT* create _merge-commits_
 
+REBASE = Merge if fastforwardable
+
+--no-ff if you want to force a merge-commit
+(git flow uses it)
+
+
 == Merge vs. Rebase
 
 What is it? How to choose one or another?
@@ -257,34 +277,29 @@ I would definitely argue that that may be the reason why Git is a tool for Softw
 
 == OK, back to Merge vs. Rebase
 
-* Merge:  when you want to express that it was side/sub-work
-* Rebase: when what you is you don't want your local history to be seen as side/sub-work
+What you want to express :
 
-== The Index
+* Merge: it was side/sub-work
+* Rebase: when you don't want your local history to be seen as side/sub-work
 
-image::ressources/git-rebase-illustration-lol.gif[]
+== Rebase
 
-image::ressources/git-staging-area.png[The Index]
+Before:
 
-add:: adds to the index (-p lets you choose the parts of your file you actually want to add)
-index:: staging area (a sweet place to lovingly craft your commits)
-commit:: Captures the state of the index.
+image::ressources/rebase-before.png[]
 
-== Quiz : git add
+<<<
 
-[source]
-.What content has been committed for the _theFile_ file?
-----
-echo "dingdingdingbabababaaaaa" >> theFile # (1)
-git add theFile 
-echo "blah" > theFile # (2)
-git commit -m "done"
-----
+After:
+
+image::ressources/rebase-after.png[]
+
 
 [canvas-image=ressources/git-rebase-illustration-lol.gif]
 == Rebase
 
 [role="canvas-caption", position="left-up"]
+Git Rebase!
 
 [canvas-image="ressources/lab.png"]
 == Lab !
