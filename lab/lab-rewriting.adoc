@@ -1,0 +1,5 @@
+== Rewriting
+
+TODO: Mikl
+
+repo avec de la merde committée. Et on demande à fusionner tels commits, splitter un autre, intercaler, inverser... Comme ça on pratique du rebase -i et on réutilise plus bas.

@@ -1,0 +1,11 @@
+== Finding a needle in a...
+
+image::../ressources/needle-haystack.png[]
+
+TODO :
+
+* Décrire les étapes pour bisect
+* bisect run : script externe
+* script interne ? Comment faire ?
+** checkout -b (pas indispensable, mais mieux)
+** rebase -i

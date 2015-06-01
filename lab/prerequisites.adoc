@@ -1,15 +1,25 @@
-= Take your Git practice to the next level - *Lab Prerequisites*
+= Take your Git practice to the next level -- *Lab Prerequisites*
 
-Eclipse con France 2015
+Eclipse Con France 2015
 
 == Prerequisites
 
-* Have a working Git installation. Ideally >= 1.8.x, better with 2.x
+* Have already used Git
+* Have a computer and working Git installation. Ideally >= 1.8.x, better with 2.x
 
 [source]
 $ git --version
 git version 2.1.4
 
+
+* Better to have, but should be provided:
+** have Eclipse with EGit installed (one bundle should be provided, though)
+
+** Clone the following repositories
+*** [red]+TODO+ : the following presentation (useful to go back to some slide, and so on)
+*** [red]+TODO+: The git bisect one
+
+
 == Setting up your environment
 
-TODO : make clone a dedicated repo ? Initialize things?
+[red]+TODO+ : make clone a dedicated repo ? Initialize things?

@@ -1,0 +1,9 @@
+== Discovering the .git directory
+
+TODO : Baptiste
+
+Mettre une version offline de http://schacon.github.io/git/gitrepository-layout.html en offline pour proposer la doc
+
+* Create a repository
+* List the .git content and have a look	
+* Create a branch, what did it do?...  (refs/head, logs...)
