@@ -410,3 +410,5 @@ Compléter
 * https://training.github.com/
 * link:http://schacon.github.io/git/gitrepository-layout.html[Repository layout]
 * Thanks to Scott Chacon's for some of the illustrations reused here
+
+image::ressources/evaluate_slide.png[]
