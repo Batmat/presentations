@@ -1,7 +1,7 @@
 == Discovering the .git directory
 :source-language: console
 
-NOTE: Use the link:gitrepository-layout.html[provided documentation if needed]
+NOTE: Use the link:../ressources/lab/gitrepository-layout.html[provided documentation if needed]
 
 * Create a Git repository
 * List the .git content and have a look
