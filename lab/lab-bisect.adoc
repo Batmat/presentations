@@ -1,6 +1,6 @@
 == Finding a needle in a...
 
-image::../ressources/needle-haystack.png[]
+image::../resources/needle-haystack.png[]
 
 TODO :
 

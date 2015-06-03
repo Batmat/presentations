@@ -11,6 +11,6 @@ for lab in `ls lab/*.adoc`; do
 done
 mkdir -p $DIST/lab
 mv -f lab/*.html $DIST/lab
-cp -R ressources _dist
+cp -R resources _dist
 
 echo "Generation ended. Please watch `pwd`/$DIST or browsing locally file:///`pwd`/$DIST/"

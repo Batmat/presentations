@@ -11,20 +11,20 @@ Baptiste Mathus <batmat@batmat.net>, Michaël Pailloncy <todo@todo.com>
 :deckjsdir: ../.deck.js
 :source-highlighter: highlightjs
 :source-language: console
-:customcss: ressources/custom.css
-:customjs: ressources/custom.js
+:customcss: resources/custom.css
+:customjs: resources/custom.js
 
-:nous: image::ressources/lol.gif[]
+:nous: image::resources/lol.gif[]
 
 [role="logo"]
-image::ressources/prez-logo.png[]
+image::resources/prez-logo.png[]
 
 == About us
 
 // TODO !
 
 |===
-a| image::ressources/michael.png[] a| image::ressources/baptiste.png[]
+a| image::resources/michael.png[] a| image::resources/baptiste.png[]
 | Michaël Pailloncy | link:http://batmat.net[Baptiste Mathus] 
 |===
 
@@ -115,13 +115,13 @@ I'm an egotistical bastard, and I name all my projects after myself. First 'Linu
 * *Content* oriented
 * Storing *snapshots*, not diffs
 
-image::ressources/snapshots-vs-delta.png[]
+image::resources/snapshots-vs-delta.png[]
 		
 // Expliquer ce que sont les hashes - sha1 everywhere :)
 
 == The Index
 
-image::ressources/git-staging-area.png[The Index]
+image::resources/git-staging-area.png[The Index]
 
 add:: adds to the index (-p lets you choose the parts of your file you actually want to add)
 index:: staging area (a sweet place to lovingly craft your commits)
@@ -143,17 +143,17 @@ git commit -m "done"
 <<<
 
 blob:: File content, identified by a hash 
-image::ressources/object-blob.png[]
+image::resources/object-blob.png[]
 
 <<<
 
 tree:: List of pointers to _blob_, or _tree_, identified by a hash
-image::ressources/object-tree.png[]
+image::resources/object-tree.png[]
 
 <<<
 
 commit:: References the (root) tree + metadata, 0 to n parent commits, identified by a hash 
-image::ressources/object-commit.png[]
+image::resources/object-commit.png[]
 
 [options="step"]
 ----
@@ -161,19 +161,19 @@ image::ressources/object-commit.png[]
 
 TODO 
 
-image::ressources/dag-illustration.png[]
+image::resources/dag-illustration.png[]
 ----
 
 <<<
 
 tag:: Name associated with a commit (+ potential metadata)
-image::ressources/object-tag.png[]
+image::resources/object-tag.png[]
 				
 == Git Data Model : wrap up
 		
-image::ressources/git-objects-types.png[]
+image::resources/git-objects-types.png[]
 
-[canvas-image="ressources/back-to-basics.png"]
+[canvas-image="resources/back-to-basics.png"]
 == Back to basics
 
 [role="canvas-caption", position="left-up"]
@@ -204,7 +204,7 @@ $ git branch
   paf
 ----
 
-image::ressources/applause.gif[]
+image::resources/applause.gif[]
 
 <<<
 
@@ -219,7 +219,7 @@ So... What are branches again?
 ** Each time you rebase (without *fast-forward*)
 
 [role="todo"]
-image::ressources/dangling.png[]
+image::resources/dangling.png[]
 // TODO : Update image above in english...
 
 == Fast-Forward?
@@ -286,29 +286,29 @@ What you want to express :
 
 Before:
 
-image::ressources/rebase-before.png[]
+image::resources/rebase-before.png[]
 
 <<<
 
 After:
 
-image::ressources/rebase-after.png[]
+image::resources/rebase-after.png[]
 
 
-[canvas-image=ressources/git-rebase-illustration-lol.gif]
+[canvas-image=resources/git-rebase-illustration-lol.gif]
 == Rebase
 
 [role="canvas-caption", position="left-up"]
 Git Rebase!
 
-[canvas-image="ressources/lab.png"]
+[canvas-image="resources/lab.png"]
 == Lab !
 
 [role="canvas-caption", position="left-up"]
 OK, enough talk, link:lab/lab.html[let's practice a bit]
 
 
-[canvas-image="ressources/dig.jpg"]
+[canvas-image="resources/dig.jpg"]
 == Digging
 
 [role="canvas-caption", position="center-down"]
@@ -411,4 +411,4 @@ Compléter
 * link:http://schacon.github.io/git/gitrepository-layout.html[Repository layout]
 * Thanks to Scott Chacon's for some of the illustrations reused here
 
-image::ressources/evaluate_slide.png[]
+image::resources/evaluate_slide.png[]
