@@ -12,6 +12,7 @@ done
 mkdir -p $DIST/labs
 mv -f labs/*.html $DIST/labs
 
-cp -R resources _dist
+echo "Copying resources"
+time cp -R resources _dist
 
 echo "Generation ended. Please watch `pwd`/$DIST or browsing locally file:///`pwd`/$DIST/"
