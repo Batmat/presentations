@@ -1,0 +1,52 @@
+======
+#Start à 12h20
+* Correction slide #5 :
+	** Date pourrie :-)
+	** Historique de Git, est-ce nécessaire ? peut être enlevé certaines choses pour se concentrer sur les TPs ?
+* TP avec une gestion de conflit ? est-ce utile ?
+* Corriger link/js externes, car la prez s'affiche mal si pas le net
+* Slide #13 :
+	** ajouter une précision dans la solution, pour montrer la différence avec SVN
+	** ajouter ou remettre image précédente pour expliquer la solution
+
+* #18
+	** Préciser author vs commiter ?
+	** Afficher en même temps le texte et l'image pour le graphe acyclique
+
+##################### Début du TP1 à 12h38
+* Corrections TP1 :
+	** créer un commit vide car sinon impossible de créer une branch car pas de commit
+	** ls-tree, préciser différence entre répertoire et SHA
+	** étape "echo -e "blob 27\0Hi Eclipse Con France 2015" | sha1sum" ne fonctionne pas sur Windows, pas de soucis sur Mac
+		-> voir si on peut pas fournir un environnement isolé (cygwin)
+##################### Début correction TP1 à 13h01
+##################### FIN correction TP1 à 13h16
+
+* corriger génération des slides pour que ce qui est généré dans _dist soit autonome (pas de dépendance vers ../.deck.js) + vérifier que le rsync copie bien les répertoires/fichiers cachés durant la copie sur la clé
+* rajouter approfondissements/TP sur .gitattributes (?)
+
+##################### Reprise des slides #23 à 13h16
+* #26 Ajouter une image pour présenter la notion de pointeur (HEAD, les branches, les tags, etc)
+* #27 Ajouter une image pour présenter la notion de fast-forward
+* A réfléchir : est-ce qu'il ne faut pas mettre l'explication du FF sans parler de "rebase", car le mec de MakinaCorp a fait une remarque pertinente : on explique le fast forward avant d'expliquer le rebase
+	=> Mettre avant l'explication du rebase quoi!
+* #42 correction "root commit" => "merge commit"
+#42 à 13h28
+* A voir si on peut utiliser http://pcottle.github.io/learnGitBranching/
+################## Start TP2 13h30
+
+* Enrichir les prereq avec vi, les bases de Git
+* Remettre version courte sha = version longue si non ambigü
+* Fournir pour le TP .git dir les commandes basiques de création de repo pour gagner du temps (et en général, revoir les TP avec ça en objectif)
+* Attention TP rewriting
+** split d'abord footer puis header, sinon le squash va avoir un commit encore sur 2 fichiers
+** attention à tout rebase -i en une fois, sinon tous les sha1 deviennent inutilisables (ou trouver autre chose)
+** pour rebaser un sha x il faut indiquer à -i le parent (au moins)
+
+################## Start correction TP2 13h56
+	* Correction non effectuée entièrement : à la place => ajout d'explication sur "git reset mixed/soft/hard" et "git add -p"
+
+################## Fin TP2 14h02
+
+* c'est parti en couille total :-)
+* mettre moins de test sur le git bisect 
