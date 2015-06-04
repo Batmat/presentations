@@ -5,16 +5,16 @@ NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documenta
 
 * Create a Git repository
 * List the .git content and have a look
-* Create a branch `git branch`, what did it create inside the .git directory?
+* Create a branch, what (and where) did it create inside the .git directory?
 * Checkout that branch, have a look inside `.git/logs`, what is used this directory for?
 ** Which git command does actually use that directory? 
-   (hint: use `git help -a` if needed, then `git help <COMMAND>`)
+   (hint: use `git help -a` if needed to find out, then `git help <COMMAND>`)
 * Create a file and `git add` it. Which file did it just create in the `.git` directory?
 * Execute `git config pim.pam.poum true` and find where that was stored.
 
 === Playing with the data model
 
-Execute precisely the following commands to create a commit a new file:
+In a Git repository, execute precisely the following commands to create a commit a new file:
 
 [source]
 echo "Hi Eclipse Con France 2015" > pof
@@ -32,10 +32,26 @@ And finally:
 git ls-tree HEAD
 
 * What's the role of the ls-tree command?
-* Compare the ls-tree output and the echo command output above. Conclude about how Git stores blobs
+* Compare the ls-tree output and the echo command output above. Conclude about how Git stores blobs.
 
 
 * Create a new directory, copy the `pof` file inside it, `git add` the whole directory and commit it. 
-* Use `git ls-tree HEAD` again to understand how the storage works
-* Use `git ls-tree` on the subdirectory to display its content. What's the sha of the file?
+* Use `git ls-tree HEAD` again to understand how the storage works (cf. slides)
+* Use `git ls-tree` on the subdirectory to display its content. 
+** What's the sha of the `pof` in that directory file?
 
+NOTE: There's two categories of Git commands: 
+      `porcelain` (example: git `checkout`) and
+      `plumbing` (example: git `ls-tree`). These categories actually respectively relate to high-level (user-oriented) and low-level commands. 
+
+TIP: To remember which is one: just remember, in toilets, are you more in contact with the porcelain or the plumbing?
+
+=== Garbage collect all the things
+
+NOTE: Having a GC is very hype those days. Git has one too! Git GC will actually execute automatically under some conditions (too many loose/dangling objects, too many branches/tags...). You generally won't run it manually like in the next part.
+
+* Execute `ls .git && ls -l .git/refs/heads` at your test repository root
+* Execute `git gc --aggressive --prune=now`
+* See what it changed. Explain the goal of the create file.
+
+Ok, hope you enjoyed it, back to slides.

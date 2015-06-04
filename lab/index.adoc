@@ -8,4 +8,4 @@ Please link:prerequisites.html[check the prerequisites] before starting the lab.
 
 == Lab
 
-link:lab.html[Unleash Hell!]
+link:all-labs.html[Unleash Hell!]

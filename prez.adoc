@@ -25,13 +25,13 @@ image::resources/prez-logo.png[]
 
 |===
 a| image::resources/michael.png[] a| image::resources/baptiste.png[]
-| Michaël Pailloncy | link:http://batmat.net[Baptiste Mathus] 
+| Michaël Pailloncy | Baptiste Mathus
 |===
 
 Working @MiPih as ToolSmiths
 
-[role="tags"
-]#jenkins #java #maven #nexus #sonarqube #build #docker #passion
+[role="tags"]
+#jenkins #java #maven #nexus #sonarqube #build #docker #passion
 
 == Agenda
 
@@ -39,16 +39,16 @@ NOTE: This *is* a workshop. So there will be manipulation along the way, don't w
 
 * Some History
 * The Git Data Model
+* Understanding the .git directory
 * Basics concepts & commands reminder
 ** Merge vs. Rebase
 ** What's a Fast-Forward?
 ** The Working Copy, The Index And The Commit
-* Understanding the .git directory
 * Rewiewing (and rewriting) changes
 
 <<<
 
-* Tips & tricks
+* [not-ready]*Tips & tricks*
 ////
 one lifecycle, if you need to tag a subdirectory, then you need two repos
 merge, two root commits if required
@@ -58,7 +58,7 @@ filter-branch
 ** granularity 
 ** aggregate 
 ** split 
-* EGit & JGit
+* [not-ready]*EGit & JGit*
 * Git _workflows_ discussion
 ** Git flow
 ** Gerrit
@@ -130,13 +130,25 @@ commit:: Captures the state of the index.
 == Quiz: git add
 
 [source]
-.What content has been committed for the _theFile_ file?
+.What content has been committed for the _theFile_ file? (1) or (2)?
 ----
 echo "dingdingdingbabababaaaaa" >> theFile # (1)
 git add theFile 
 echo "blah" > theFile # (2)
 git commit -m "done"
 ----
+
+[options="step"]
+Right answer: (1)
+
+// Because git add adds the content when called, not only the
+// reference to the file like SVN does for example
+
+[canvas-image="resources/dig.jpg"]
+== Digging
+
+[role="canvas-caption", position="center-up"]
+Let's get a bit deeper now
 
 == Git Data Model: The 4 Object Types
 
@@ -156,13 +168,10 @@ commit:: References the (root) tree + metadata, 0 to n parent commits, identifie
 image::resources/object-commit.png[]
 
 [options="step"]
-----
-* DAG : _Directed Acyclic Graph_ 
+DAG : _Directed Acyclic Graph_ 
 
-TODO 
-
+[options="step"]
 image::resources/dag-illustration.png[]
-----
 
 <<<
 
@@ -172,6 +181,16 @@ image::resources/object-tag.png[]
 == Git Data Model : wrap up
 		
 image::resources/git-objects-types.png[]
+
+
+[canvas-image="resources/lab.png"]
+== Lab !
+
+[role="canvas-caption", position="left-up"]
+Enough talk, link:lab/lab-git-directory.html[let's practice a bit]
+
+[role="canvas-caption", position="center-down"]
+Understanding the .git directory
 
 [canvas-image="resources/back-to-basics.png"]
 == Back to basics
@@ -218,19 +237,17 @@ So... What are branches again?
 ** _Dangling_ or _detached HEAD_
 ** Each time you rebase (without *fast-forward*)
 
-[role="todo"]
-image::resources/dangling.png[]
-// TODO : Update image above in english...
-
 == Fast-Forward?
 
-[role="todo"]
-When possible, Git will *NOT* create _merge-commits_
+* Fast-forward: just bumping the branch pointer
 
-REBASE = Merge if fastforwardable
+[options="step"]
+Indeed
 
---no-ff if you want to force a merge-commit
-(git flow uses it)
+[options="step"]
+* When possible, Git will *NOT* create _merge-commits_ and just `fast-forward`
+* You can prevent it using the `git merge --no-ff` option
+** (Note: used by _git flow_ for example)
 
 
 == Merge vs. Rebase
@@ -279,20 +296,8 @@ I would definitely argue that that may be the reason why Git is a tool for Softw
 
 What you want to express :
 
-* Merge: it was side/sub-work
-* Rebase: when you don't want your local history to be seen as side/sub-work
-
-== Rebase
-
-Before:
-
-image::resources/rebase-before.png[]
-
-<<<
-
-After:
-
-image::resources/rebase-after.png[]
+Rebase:: when you don't want your local history to be seen as side/sub-work
+Merge:: it was side/sub-work
 
 
 [canvas-image=resources/git-rebase-illustration-lol.gif]
@@ -301,48 +306,60 @@ image::resources/rebase-after.png[]
 [role="canvas-caption", position="left-up"]
 Git Rebase!
 
-[canvas-image="resources/lab.png"]
-== Lab !
+== Rebase
 
-[role="canvas-caption", position="left-up"]
-OK, enough talk, link:lab/lab.html[let's practice a bit]
+(on feature) git rebase master
 
+image::resources/rebase-before.png[]
 
-[canvas-image="resources/dig.jpg"]
-== Digging
+<<<
 
-[role="canvas-caption", position="center-down"]
-Understanding the .git directory
+Rewinding:
 
-== Understanding the .git directory
-[role="canvas-caption", position="left-up"]
-OK, enough talk, link:lab/lab.html[let's practice a bit]
+image::resources/rebase-rewind1.png[]
 
-[source]
-----
-$ git init repo && cd repo && ls .git
-$ ls -1u .git/*
-.git/config  .git/description  .git/HEAD
+<<<
 
-.git/branches:
+Rewinding:
 
-.git/hooks:
-applypatch-msg.sample  commit-msg.sample  post-update.sample  pre-applypatch.sample  pre-commit.sample  prepare-commit-msg.sample  pre-push.sample  pre-rebase.sample  update.sample
+image::resources/rebase-rewind2.png[]
 
-.git/info:
-exclude
+<<<
 
-.git/objects:
-info  pack
+Replaying:
 
-.git/refs:
-heads  tags
-----
+image::resources/rebase-replayed1.png[]
 
+<<<
+
+Replayed:
+
+image::resources/rebase-replayed2.png[]
+
+<<<
+
+Rebased:
+
+image::resources/rebase-after.png[]
+
+== Merge
+
+(on master) git merge feature
+
+image::resources/rebase-before.png[]
+
+<<<
+
+After (`root commit` created):
+
+image::resources/merge.png[]
+
+////
 == Tips & tricks
 
 [role="todo"]
 TODO
+////
 
 == Repository lifecycle & manipulations
 
@@ -363,12 +380,9 @@ One repository, one lifecycle.
 
 <<<
 
-*How to aggregate many repositories afterwards*
-
-Just merge!
+*How to aggregate many repositories afterwards?* Just merge!
 
 [source]
-.Example:
 ----
 git init repo1 && cd repo1 && git commit -m "Initial 1" --allow-empty && cd ..
 git init repo2 && cd repo2 && git commit -m "Initial 2" --allow-empty
@@ -390,16 +404,20 @@ git log --oneline --graph
 
 *filter-branch* is your friend.
 
+////
 == EGit & JGit
 
 [role="todo"]
 Probablement à supprimer en tant que tel, ou en tout cas à injecter au fur et à mesure.
 Mettre un bout de code JGit en exemple ?
 
+
 == Git _workflows_ discussion
 
 * Git flow
 * Gerrit
+
+////
 
 == References & useful links
 
@@ -409,6 +427,6 @@ Compléter
 * http://ndpsoftware.com/git-cheatsheet.html
 * https://training.github.com/
 * link:http://schacon.github.io/git/gitrepository-layout.html[Repository layout]
-* Thanks to Scott Chacon's for some of the illustrations reused here
+* Special thanks to Scott Chacon for many illustrations reused here
 
 image::resources/evaluate_slide.png[]
