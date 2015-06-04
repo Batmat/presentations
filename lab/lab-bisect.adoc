@@ -2,10 +2,17 @@
 
 image::../resources/needle-haystack.png[]
 
-TODO :
+NOTE: for this workshop, you need to use repository "git-next-level-workshop-bisect.git" (workshop resources).
 
-* Décrire les étapes pour bisect
-* bisect run : script externe
-* script interne ? Comment faire ?
-** checkout -b (pas indispensable, mais mieux)
-** rebase -i
+=== Find the bug !
+
+Open index.html of your repository and click to the button. A bug has been discovered !
+
+Use `git bisect` command to find the commit whose have introduced this bug. 
+
+NOTE: You can display help using `git help bisect`
+
+
+=== Find the bug auto-magically :-)
+
+TODO
