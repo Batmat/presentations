@@ -35,7 +35,7 @@ Working @MiPih as ToolSmiths
 
 == Agenda
 
-NOTE: This *is* a workshop. So there will be manipulation along the way, don't worry !
+_This *is* a workshop. So there will be manipulation along the way, don't worry !_
 
 * Some History
 * The Git Data Model
@@ -48,7 +48,7 @@ NOTE: This *is* a workshop. So there will be manipulation along the way, don't w
 
 <<<
 
-* [not-ready]*Tips & tricks*
+* Tips & tricks
 ////
 one lifecycle, if you need to tag a subdirectory, then you need two repos
 merge, two root commits if required
@@ -364,11 +364,21 @@ image::resources/rewriting.png[]
 
 Git reflog can save your a$$
 
+////
+TODO : créer un repo, changer de branche, etc. et afficher le reflog ensuite pr faire comprendre l'intérêt. 
+////
 <<<
 
-Git bisect
+What if you know you introduced a bug between one commit and another?
 
-link:labs/lab-bisect.html[Lab!]
+But there's 1000 commits between them?
+
+How to find out the offending one?
+
+[options="step"]
+* Git bisect: search bug by dichotomy!
+* link:labs/lab-bisect.html[Lab!]
+
 
 
 == Repository lifecycle & manipulations
@@ -410,7 +420,7 @@ git log --oneline --graph
 
 <<<
 
-*How to explode one repository into multiple ones, remove some file from all commits...(*
+*How to explode one repository into multiple ones, remove some file from all commits...*
 
 *filter-branch* is your friend.
 
@@ -431,6 +441,10 @@ Mettre un bout de code JGit en exemple ?
 * Git flow
 * Gerrit
 
+////
+
+////
+TODO : slide de conclusion
 ////
 
 == References & useful links

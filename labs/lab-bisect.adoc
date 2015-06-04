@@ -8,7 +8,7 @@ NOTE: for this workshop, you need to use repository "git-next-level-workshop-bis
 
 Open index.html of your repository and click to the button. A bug has been discovered !
 
-Use `git bisect` command to find the commit whose have introduced this bug. 
+Use `git bisect` command to find the commit which has introduced this bug. 
 
 NOTE: You can display help using `git help bisect`
 

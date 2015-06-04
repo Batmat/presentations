@@ -23,3 +23,6 @@ NOTE: you can use either `--commit-filter` or `--env-filter` options of filter-b
 
 NOTE: Git keeps track on all commit ! If you have trouble with filter-branch, you can restore the last state of your repository using `git reset --hard refs/original/refs/heads/master`
 
+////
+TODO : améliorer le repo associé pour splitter un repo en plusieurs. --subdirectory-filter etc.
+////
