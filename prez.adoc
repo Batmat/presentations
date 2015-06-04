@@ -40,7 +40,7 @@ NOTE: This *is* a workshop. So there will be manipulation along the way, don't w
 * Some History
 * The Git Data Model
 * Understanding the .git directory
-* Basics concepts & commands reminder
+* Basic concepts & commands reminder
 ** Merge vs. Rebase
 ** What's a Fast-Forward?
 ** The Working Copy, The Index And The Commit
@@ -354,12 +354,22 @@ After (`root commit` created):
 
 image::resources/merge.png[]
 
-////
+== Let's play again
+
+link:labs/lab-rewriting.html[Lab!]
+
+image::resources/rewriting.png[]
+
 == Tips & tricks
 
-[role="todo"]
-TODO
-////
+Git reflog can save your a$$
+
+<<<
+
+Git bisect
+
+link:labs/lab-bisect.html[Lab!]
+
 
 == Repository lifecycle & manipulations
 
@@ -400,9 +410,13 @@ git log --oneline --graph
 
 <<<
 
-*How to explode one repository into multiple ones*
+*How to explode one repository into multiple ones, remove some file from all commits...(*
 
 *filter-branch* is your friend.
+
+image::resources/lab.png[]
+
+link:labs/lab-filter-branch.html[Let's play with that!]
 
 ////
 == EGit & JGit
@@ -420,9 +434,6 @@ Mettre un bout de code JGit en exemple ?
 ////
 
 == References & useful links
-
-[role="todo"]
-Compléter
 
 * http://ndpsoftware.com/git-cheatsheet.html
 * https://training.github.com/
