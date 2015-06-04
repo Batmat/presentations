@@ -187,7 +187,7 @@ image::resources/git-objects-types.png[]
 == Lab !
 
 [role="canvas-caption", position="left-up"]
-Enough talk, link:lab/lab-git-directory.html[let's practice a bit]
+Enough talk, link:labs/lab-git-directory.html[let's practice a bit]
 
 [role="canvas-caption", position="center-down"]
 Understanding the .git directory
