@@ -14,7 +14,7 @@ link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thx E
 
 https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956
 
-== Junit: add -ea to VM arguments... 
+== Junit: add -ea to VM arguments..
 
 good way to enable this option but not globally when you may be using libs that added a bunch of incorrect assertions
 
@@ -24,7 +24,10 @@ static imports
 
 == JSR305 annotations to help null analysis
 
+== JSR 305 externally defined annotations
+
 link:https://www.eclipse.org/eclipse/news/4.5/M6/#JDT[JSR305 externally annotated classes (Eclipse Mars)]
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=461300
 
 == Save actions: automatic formating
 
@@ -38,14 +41,6 @@ to filter out java.awt.* for example...
 
 filter out method coming from Object! (who wants to call notify...)
 
-== _Exception variable name in catch blocks_
-
-== Multi-line Edit
-
-Alt-Shift-A or the icon
-
-(link:https://groups.google.com/d/msg/toulouse-jug/SpOWtYPxJa0/tGkr5LAbwU8J[thx Olivier Jaquemet]), as if Sublime invented it all :-)	
-
 == Step filtering
 
 (thx Sebastien Bordes for the reminder) : be able to filter out stack when debugging (?) (to be tested)
@@ -54,18 +49,31 @@ Alt-Shift-A or the icon
 
 Categorize Filtering/choosing which methods to display in the _Outline_ using javadoc's _@category_ tags (thanks link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/Wdf3VMMDM0YJ[Jordi Barrère]).
 
+== _Exception variable name in catch blocks_
+
+== Multi-line Edit
+
+Alt-Shift-A or the icon
+
+(link:https://groups.google.com/d/msg/toulouse-jug/SpOWtYPxJa0/tGkr5LAbwU8J[thx Olivier Jaquemet]), as if Sublime invented it all :-)	
+
 == Logical structure
 
-(way to present complex/weird data structure in a more logical that physical way).  
+(way to present complex/weird data structure in a more logical that physical way)\n==  
 
 see:  link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-logical_structures.htm[here] 
 
 and link:http://www.javalobby.org/java/forums/t16736.html[here] at least.
-
 
 == Organize imports ordering
 
 == Abreviate package name (Java/Appearance)
 
 == Working Sets
+
+== Using p2 Director (inside Docker) to create a customized Eclipse
+
+== asciidoctor in Eclipse
+
+== EGit : staging line by line
 

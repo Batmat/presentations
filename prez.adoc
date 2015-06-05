@@ -47,3 +47,7 @@ include::tips.adoc[]
 
 [role="canvas-caption", position="left-up"]
 Questions?
+
+== Don't forget to evaluate the session
+
+image::resources/resources/evaluate_slide_4_3.png[]
