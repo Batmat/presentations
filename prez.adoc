@@ -7,6 +7,7 @@ Baptiste Mathus <batmat@batmat.net>, Michaël Pailloncy <todo@todo.com>
 :deckjs_theme: swiss
 :navigation:
 :menu:
+:goto:
 :status:
 :deckjsdir: ../.deck.js
 :source-highlighter: highlightjs
@@ -67,7 +68,7 @@ filter-branch
 
 == Some History
 
-* 1900 -> 2002 : Linux development uses tarball
+* 1991 -> 2002 : Linux development uses tarball
 
 [quote, Linus Torvalds]
 For the first 10 years of kernel maintenance, we literally used tarballs and patches, which is a much superior source control management system than CVS is – Linus Torvalds
@@ -139,7 +140,11 @@ git commit -m "done"
 ----
 
 [options="step"]
-Right answer: (1)
+|====
+| Right answer: (1) a| image::resources/git-staging-area.png[The Index]
+|  (note: difference with svn => (2)) 
+a| []  
+|====
 
 // Because git add adds the content when called, not only the
 // reference to the file like SVN does for example
@@ -168,10 +173,13 @@ commit:: References the (root) tree + metadata, 0 to n parent commits, identifie
 image::resources/object-commit.png[]
 
 [options="step"]
-DAG : _Directed Acyclic Graph_ 
 
 [options="step"]
-image::resources/dag-illustration.png[]
+|====
+| Identified by a SHA-1 hash | Short version ≥ 4 characters if non ambiguous 
+a| `53b8` = ``53b8``9fc7bb117aee396285f9bc6ce913599a6574 a| []
+a| DAG : _Directed Acyclic Graph_ a| image::resources/dag-illustration.png[]
+|====
 
 <<<
 
@@ -350,7 +358,7 @@ image::resources/rebase-before.png[]
 
 <<<
 
-After (`root commit` created):
+After (`merge commit` created):
 
 image::resources/merge.png[]
 
