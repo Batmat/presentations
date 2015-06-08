@@ -2,6 +2,8 @@
 Baptiste Mathus <batmat@batmat.net>
 :backend: deckjs
 :split:
+:menu:
+:goto:
 :deckjs_transition: fade
 :deckjs_theme: swiss
 :navigation:
@@ -17,9 +19,9 @@ Baptiste Mathus <batmat@batmat.net>
 
 * Devops passionné
 * Fan et contributeur Open Source
-** Traduction communautaire du livre link:http://jenkins-le-guide-complet.github.io[Jenkins – The Definitive Guide]
-** Plugin Jenkins link:https://wiki.jenkins-ci.org/display/JENKINS/Build+Trigger+Badge+Plugin[BuildTriggerBadge]
 ** Committer link:http://www.mojohaus.org/[MojoHaus] (anciennement MOJO@Codehaus)
+** Plugin Jenkins link:https://wiki.jenkins-ci.org/display/JENKINS/Build+Trigger+Badge+Plugin[BuildTriggerBadge]
+** Traduction communautaire du livre link:http://jenkins-le-guide-complet.github.io[Jenkins – The Definitive Guide]
 * Membre de l'équipe du link:http://toulousejug.org[ToulouseJug]
 * Utilisateur de Git depuis 2010
 
@@ -29,12 +31,13 @@ image::ressources/me.png[Me]
 
 image::ressources/git-fake.png[]
 
-[options="step"]
+<<<
+
 image::ressources/lolcat.jpg[]
 
 == Un peu d'histoire, quand même.
 
-* 1900 → 2002 : le développement de Linux utilise tarball
+* 1991 → 2002 : le développement de Linux utilise tarball
 
 [quote, Linus Torvalds]
 For the first 10 years of kernel maintenance, we literally used tarballs and patches, which is a much superior source control management system than CVS is – Linus Torvalds
@@ -114,7 +117,7 @@ image::ressources/object-commit.png[]
 tag:: Nom donné à un commit + métadonnées 
 image::ressources/object-tag.png[]
 				
-<<<
+== Les 4 types d'objets - Récap
 		
 image::ressources/git-objects-types.png[]
 
@@ -124,8 +127,10 @@ image::ressources/git-objects-types.png[]
 * Identifié par un hash _SHA-1_
 * Version courte ≥ 4 caractères possible (si non ambiguë)
 		
-    53b8 = **53b8**9fc7bb117aee396285f9bc6ce913599a6574
-					
+`53b8` = ``53b8``9fc7bb117aee396285f9bc6ce913599a6574
+				
+<<<
+
 * 1 à n parents
 
 * DAG : _Directed Acyclic Graph_ 
@@ -158,10 +163,12 @@ image::ressources/happy.gif[]
 
 * Simple pointeur vers un commit
 * Git référence des _têtes_
+
+<<<
+
 * Tout commit non référencé par un nom finira supprimé (dans longtemps)
-		
 * Commit non référencé : _Dangling_ ou _detached HEAD_
-image::ressources/dangling.png" />
+image::ressources/dangling.png[]
 
 * Git a aussi un Garbage Collector ! :-)
 		
@@ -188,13 +195,13 @@ create mode 100644 pouet
 <<<		
     git commit -m "Initial commit" --allow-empty
 
-TIP: Conseil : toujours un commit racine vide
+Conseil : *toujours* un commit racine vide
 
 <<<
 
    git add
 
-NOTE: ajout dans *l'index*
+Ajout dans *l'index*
 	
 			
 == L'index : espace de préparation du prochain commit
@@ -202,34 +209,85 @@ NOTE: ajout dans *l'index*
 image::ressources/git-staging-area.png[]
 
 * On peut _stager_ morceau par morceau ! (et c'est conseillé)
-	
+
+== Quiz: git add
+
+[source]
+.What content has been committed for the _theFile_ file? (1) or (2)?
+----
+echo "dingdingdingbabababaaaaa" >> theFile # (1)
+git add theFile 
+echo "blah" > theFile # (2)
+git commit -m "done"
+----
+
+[options="step"]
+Right answer: (1)
+
+// Because git add adds the content when called, not only the
+// reference to the file like SVN does for example
 			
-== Les commandes essentielles : merge &amp; rebase
-	
+== Les commandes essentielles : rebase & merge
+
+What you want to express :
+
+Rebase:: when you don't want your local history to be seen as side/sub-work
+Merge:: it was side/sub-work
+
+
+[canvas-image=ressources/git-rebase-illustration-lol.gif]
+== Rebase
+
+[role="canvas-caption", position="left-up"]
+Git Rebase!
+
+== Rebase
+
+(on feature) git rebase master
+
+image::ressources/rebase-before.png[]
+
+<<<
+
+Rewinding:
+
+image::ressources/rebase-rewind1.png[]
+
+<<<
+
+Rewinding:
+
+image::ressources/rebase-rewind2.png[]
+
+<<<
+
+Replaying:
+
+image::ressources/rebase-replayed1.png[]
+
+<<<
+
+Replayed:
+
+image::ressources/rebase-replayed2.png[]
+
+<<<
+
+Rebased:
+
+image::ressources/rebase-after.png[]
 
 == Merge
 
-Créer un point de jonction entre plusieurs commits : un _merge-commit_
-
-image::ressources/merge-commit.png[]
-	
-== Rebase
-
-Rejouer des commits par-dessus d'autres
-
-<<<
-
-Avant :
+(on master) git merge feature
 
 image::ressources/rebase-before.png[]
-	
-Rejouer des commits par-dessus d'autres 
 
 <<<
 
-Après :
+After (`merge commit` created):
 
-image::ressources/rebase-after.png[]
+image::ressources/merge.png[]
 	
 == Concept très important : le *fast-forward*
 
