@@ -3,14 +3,27 @@
 
 NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documentation if needed]
 
-* Create a Git repository
-* List the .git content and have a look
-* Create a branch, what (and where) did it create inside the .git directory?
-* Checkout that branch, have a look inside `.git/logs`, what is used this directory for?
+* Create a new Git repository
+
+  git init repo && cd repo && git commit -m 'Initial' --allow-empty
+
+* List the .git directory content and have a look.
+* Create a branch _newbranch_, what (and where) did it create inside the .git directory?
+
+  git branch newbranch
+
+* Checkout that branch, then have a look inside `.git/logs`. 
+  What is used this directory for?
 ** Which git command does actually use that directory? 
    (hint: use `git help -a` if needed to find out, then `git help <COMMAND>`)
-* Create a file and `git add` it. Which file did it just create in the `.git` directory?
-* Execute `git config pim.pam.poum true` and find where that was stored.
+* Create a file and `git add` it. 
+
+  ls -l .git
+  touch somefile
+  git add somefile
+  ls -l .git
+
+* Which file did it just create in the `.git` directory?
 
 === Playing with the data model
 
@@ -36,8 +49,15 @@ git ls-tree HEAD
 
 
 * Create a new directory, copy the `pof` file inside it, `git add` the whole directory and commit it. 
+
+[source]
+mkdir newdirectory
+cp pof newdirectory
+git add newdirectory
+git commit -m "Added the new subdirectory"
+
 * Use `git ls-tree HEAD` again to understand how the storage works (cf. slides)
-* Use `git ls-tree` on the subdirectory to display its content. 
+* Use `git ls-tree` on the subdirectory to display its content (_hint:_ ls-tree takes a hash as parameter, not directory name). 
 ** What's the sha of the `pof` in that directory file?
 
 NOTE: There's two categories of Git commands: 
@@ -52,6 +72,6 @@ NOTE: Having a GC is very hype those days. Git has one too! Git GC will actually
 
 * Execute `ls .git && ls -l .git/refs/heads` at your test repository root
 * Execute `git gc --aggressive --prune=now`
-* See what it changed. Explain the goal of the create file.
+* See what it changed. Explain the goal of the created file.
 
 Ok, hope you enjoyed it, back to slides.
