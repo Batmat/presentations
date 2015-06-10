@@ -1,4 +1,4 @@
-=== Progress workshop #1
+== Progress workshop #1
 * Start à 12h20
 * Début du TP1 à 12h38
 * Début correction TP1 à 13h01
@@ -9,38 +9,70 @@
 * Start correction TP2 13h56
 * Fin TP2 14h02
 
+=> Michaël
 
 == TODO
 
+=== A faire pour EclipseCon
+
+* Ajouter partie eGIT / JGIT, au moins petite !
+
 === Idée à discuter ensemble 
-* Idée évoquée pendant le TP : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
+
 * Rajouter approfondissements/TP sur .gitattributes (?)
-* Est-ce qu'il ne faut pas mettre l'explication du FF sans parler de "rebase", car le mec de MakinaCorp a fait une remarque pertinente : on explique le fast forward avant d'expliquer le rebase
-* A voir si on peut utiliser http://pcottle.github.io/learnGitBranching/ pour les explications (tester en offline si pas de soucis)
-* TP1 - Est-ce qu'on ne devrait pas carrément supprimer la partie utilisant sha1sum pour pas s'emmerder avec Windows VS le reste du monde
-* Idée évoquée : explication sur "git reset mixed/soft/hard" et "git add -p" ?
+** a voir si temps ok => PAS TODO pour demain jeudi 11
 
 === Corrections de forme et de fond sur les slides
+
+=> Batimsse
+
 * Slide #5 : Historique de Git, est-ce nécessaire ? peut être enlevé certaines choses pour se concentrer sur les TPs ? A discuter
+** simplifier/raccourcir intro
 * Slide #18 : Préciser author vs commiter (car question posée pendant la prez, donc surement pas très clair au premier abord) ?
+** à voir si juste oral ou si ajout ligne au slide
 * Slide #26 Ajouter une image pour présenter la notion de pointeur (HEAD, les branches, les tags, etc)
-* Slide #27 Ajouter une image pour présenter la notion de fast-forward
+** A minima HEAD, à voir comment le faire visuel
+* Est-ce qu'il ne faut pas mettre l'explication du FF sans parler de "rebase", car le mec de MakinaCorp a fait une remarque pertinente : on explique le fast forward avant d'expliquer le rebase
+** TODO => mettre les slides FF après merge & rebase (reprendre le bouzin)
+* A voir si on peut utiliser http://pcottle.github.io/learnGitBranching/ pour les explications (tester en offline si pas de soucis)
+** TODO : ajouter aux réfs en fin de prez
+** voir comment le rendre dispo à la fois ang aide aux attendees ET à nous pour éventuellement expliquer en réponse à q°
+* Idée évoquée : explication sur "git reset mixed/soft/hard" et "git add -p" ?
+** TODO : voir pour reprendre explication orale de Benjamin Marguin avec un diagramme vertical
 
 === Correction génération des slides 
+
+=> Michaël
+
 * Corriger link/js externes, car la prez s'affiche mal si pas le net 
 * Corriger génération des slides pour que ce qui est généré dans _dist soit autonome (pas de dépendance vers ../.deck.js) + vérifier que le rsync copie bien les répertoires/fichiers cachés durant la copie sur la clé
 
 === Corrections TP1 Git repo :
 
-* Créer un commit vide en initial, car sinon impossible de créer une branch car pas de commit
-* ls-tree, préciser différence entre répertoire et SHA dans le TP
-* Etape "echo -e "blob 27\0Hi Eclipse Con France 2015" | sha1sum" ne fonctionne pas sur Windows, pas de soucis sur Mac
-* Fournir les commandes basiques de création de repo pour gagner du temps (et en général, revoir les TP avec ça en objectif)
+=> Michaël
 
-=== Corrections TP2 Rewritting :
+* Etape "echo -e "blob 27\0Hi Eclipse Con France 2015" | sha1sum" ne fonctionne pas sur Windows, pas de soucis sur Mac
+** TODO : mettre en optionnel et expliquer ce que ça fait pour la suite pr ceux qui peuvent pas l'exécuter.
+* Fournir les commandes basiques de création de repo pour gagner du temps (et en général, revoir les TP avec ça en objectif)
+** TODO : ajouter git init, git branch en prerequisites/rappel
+
+=== Corrections TP2 Rewriting :
+
+=> Batimsse
+
 * Split d'abord footer puis header, sinon le squash va avoir un commit encore sur 2 fichiers
 * Attention à tout rebase -i en une fois, sinon tous les sha1 deviennent inutilisables (ou trouver autre chose)
 * Pour rebaser un sha x il faut indiquer à -i le parent (au moins)
 
+* Idée évoquée pendant le TP : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
+** => OK
+*** + TP rewriting
+
+TODO global : plus guidé, et ptête supprimer des choses
+
 === Corrections TP3 Bisect :
+
+=> Michaël
+
 * Mettre moins de test sur le git bisect => 4 voir 5 passages suffisent
+** TODO : enlever genre les 100 derniers commits
