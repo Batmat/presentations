@@ -1,0 +1,46 @@
+=== Progress workshop #1
+* Start à 12h20
+* Début du TP1 à 12h38
+* Début correction TP1 à 13h01
+* FIN correction TP1 à 13h16
+* Reprise des slides à partir du #23 à 13h16
+* Slide #43 à 13h28
+* Start TP2 13h30
+* Start correction TP2 13h56
+* Fin TP2 14h02
+
+
+== TODO
+
+=== Idée à discuter ensemble 
+* Idée évoquée pendant le TP : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
+* Rajouter approfondissements/TP sur .gitattributes (?)
+* Est-ce qu'il ne faut pas mettre l'explication du FF sans parler de "rebase", car le mec de MakinaCorp a fait une remarque pertinente : on explique le fast forward avant d'expliquer le rebase
+* A voir si on peut utiliser http://pcottle.github.io/learnGitBranching/ pour les explications (tester en offline si pas de soucis)
+* TP1 - Est-ce qu'on ne devrait pas carrément supprimer la partie utilisant sha1sum pour pas s'emmerder avec Windows VS le reste du monde
+* Idée évoquée : explication sur "git reset mixed/soft/hard" et "git add -p" ?
+
+=== Corrections de forme et de fond sur les slides
+* Slide #5 : Historique de Git, est-ce nécessaire ? peut être enlevé certaines choses pour se concentrer sur les TPs ? A discuter
+* Slide #18 : Préciser author vs commiter (car question posée pendant la prez, donc surement pas très clair au premier abord) ?
+* Slide #26 Ajouter une image pour présenter la notion de pointeur (HEAD, les branches, les tags, etc)
+* Slide #27 Ajouter une image pour présenter la notion de fast-forward
+
+=== Correction génération des slides 
+* Corriger link/js externes, car la prez s'affiche mal si pas le net 
+* Corriger génération des slides pour que ce qui est généré dans _dist soit autonome (pas de dépendance vers ../.deck.js) + vérifier que le rsync copie bien les répertoires/fichiers cachés durant la copie sur la clé
+
+=== Corrections TP1 Git repo :
+
+* Créer un commit vide en initial, car sinon impossible de créer une branch car pas de commit
+* ls-tree, préciser différence entre répertoire et SHA dans le TP
+* Etape "echo -e "blob 27\0Hi Eclipse Con France 2015" | sha1sum" ne fonctionne pas sur Windows, pas de soucis sur Mac
+* Fournir les commandes basiques de création de repo pour gagner du temps (et en général, revoir les TP avec ça en objectif)
+
+=== Corrections TP2 Rewritting :
+* Split d'abord footer puis header, sinon le squash va avoir un commit encore sur 2 fichiers
+* Attention à tout rebase -i en une fois, sinon tous les sha1 deviennent inutilisables (ou trouver autre chose)
+* Pour rebaser un sha x il faut indiquer à -i le parent (au moins)
+
+=== Corrections TP3 Bisect :
+* Mettre moins de test sur le git bisect => 4 voir 5 passages suffisent
