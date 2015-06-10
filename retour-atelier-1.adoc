@@ -26,16 +26,7 @@
 
 => Batimsse
 
-* Slide #5 : Historique de Git, est-ce nécessaire ? peut être enlevé certaines choses pour se concentrer sur les TPs ? A discuter
-** simplifier/raccourcir intro
-* Slide #18 : Préciser author vs commiter (car question posée pendant la prez, donc surement pas très clair au premier abord) ?
-** à voir si juste oral ou si ajout ligne au slide
-* Slide #26 Ajouter une image pour présenter la notion de pointeur (HEAD, les branches, les tags, etc)
-** A minima HEAD, à voir comment le faire visuel
-* Est-ce qu'il ne faut pas mettre l'explication du FF sans parler de "rebase", car le mec de MakinaCorp a fait une remarque pertinente : on explique le fast forward avant d'expliquer le rebase
-** TODO => mettre les slides FF après merge & rebase (reprendre le bouzin)
 * A voir si on peut utiliser http://pcottle.github.io/learnGitBranching/ pour les explications (tester en offline si pas de soucis)
-** TODO : ajouter aux réfs en fin de prez
 ** voir comment le rendre dispo à la fois ang aide aux attendees ET à nous pour éventuellement expliquer en réponse à q°
 * Idée évoquée : explication sur "git reset mixed/soft/hard" et "git add -p" ?
 ** TODO : voir pour reprendre explication orale de Benjamin Marguin avec un diagramme vertical

@@ -4,6 +4,9 @@ echo "Prez generation"
 docker run --rm -e PREZ=prez.adoc -v `pwd`:/documents batmat/asciidoctor-prez 
 mv -f prez.html $DIST
 
+echo "Copying resources"
+time cp -R resources _dist
+
 echo "Labs generation"
 for lab in `ls labs/*.adoc`; do
 	echo "Generating html of $lab ..."
@@ -11,8 +14,5 @@ for lab in `ls labs/*.adoc`; do
 done
 mkdir -p $DIST/labs
 mv -f labs/*.html $DIST/labs
-
-echo "Copying resources"
-time cp -R resources _dist
 
 echo "Generation ended. Please watch `pwd`/$DIST or browsing locally file:///`pwd`/$DIST/"

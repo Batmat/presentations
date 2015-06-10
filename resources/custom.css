@@ -51,3 +51,7 @@
 dd {
   margin-left: 2em;
 }
+
+.halign-center {
+  text-align: center; /* workaround since it's not working at least with Deck.js backend */
+}

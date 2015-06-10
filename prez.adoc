@@ -24,12 +24,13 @@ image::resources/prez-logo.png[]
 
 // TODO !
 
+[cols="^,^"]
 |===
-a| image::resources/michael.png[] a| image::resources/baptiste.png[]
+a| image::resources/avatar-michael.png[] a| image::resources/avatar-baptiste.png[]
 | Michaël Pailloncy | Baptiste Mathus
+2+|Working Together @MiPih as ToolSmiths
 |===
 
-Working @MiPih as ToolSmiths
 
 [role="tags"]
 #jenkins #java #maven #nexus #sonarqube #build #docker #passion
@@ -78,15 +79,11 @@ For the first 10 years of kernel maintenance, we literally used tarballs and pat
 
 <<<
 
-* 2002 : Transition to BitKeeper
+* 2002 -> April 2005 : Using BitKeeper
 
-Closed-source DVCS, free licenses provided to OSS.
+Closed-source DVCS. Free licenses provided to the project.
 
-<<<
-
-* April 2005 : Announcement of the end of the free license
-
-Triggered by Andrew Tridgell's BitKeeper protocol reverse-engineering
+=> Revocation triggered by Andrew Tridgell's BitKeeper protocol reverse-engineering
 
 <<<
 
@@ -101,20 +98,22 @@ I'm an egotistical bastard, and I name all my projects after myself. First 'Linu
 * **De**centralized
 
 * Technically, no server required
-* _(Almost)_ everything happens locally
-* After a clone, the *whole* project history is present locally and no network access is required to manipulate it
+* *Whole* project history present locally
+** Only pushing & fetching new commits requires network
 
 == Fast, Git ?
 
 * Performances, the origins
 
+// Early design goal of Git: be quick
+
 [quote]
-[…] to make that process really efficient. If it takes half a minute to apply a patch and remember the changeset boundary […] then a series of 250 emails […] takes two hours. If one of the patches in the middle doesn't apply, things are bad bad bad.
+If it takes half a minute to apply a patch […] then a series of 250 emails […] takes two hours. 
 
 <<<
 
 * *Content* oriented
-* Storing *snapshots*, not diffs
+* Storing *snapshots*, not deltas
 
 image::resources/snapshots-vs-delta.png[]
 		
@@ -173,11 +172,11 @@ commit:: References the (root) tree + metadata, 0 to n parent commits, identifie
 image::resources/object-commit.png[]
 
 [options="step"]
-
-[options="step"]
 |====
-| Identified by a SHA-1 hash | Short version ≥ 4 characters if non ambiguous 
-a| `53b8` = ``53b8``9fc7bb117aee396285f9bc6ce913599a6574 a| []
+a| Identified by a SHA-1 hash : 
+     `53b8` = ``53b8``9fc7bb117aee396285f9bc6ce913599a6574 (short version ≥ 4 chars)
+// The author crafted the code, the committer commits it
+a| Possibly: Author ≠ Committer 
 a| DAG : _Directed Acyclic Graph_ a| image::resources/dag-illustration.png[]
 |====
 
@@ -245,18 +244,23 @@ So... What are branches again?
 ** _Dangling_ or _detached HEAD_
 ** Each time you rebase (without *fast-forward*)
 
-== Fast-Forward?
+<<<
 
-* Fast-forward: just bumping the branch pointer
+Branching Is Just Working As Expected.
 
-[options="step"]
-Indeed
+// Early design goal of Git: merging should /just/ work
 
-[options="step"]
-* When possible, Git will *NOT* create _merge-commits_ and just `fast-forward`
-* You can prevent it using the `git merge --no-ff` option
-** (Note: used by _git flow_ for example)
+[quote]
+If one of the patches in the middle doesn't apply, things are bad bad bad.
 
+== Pointers?
+
+* `HEAD`: shorthand to the latest commit of the current branch
+* `HEAD~N`: N commit before the last one 
+** (N=1 if omitted)
+* `master` (or any branch): automatically bumped when new commit is done on it
+
+image::resources/pointers-HEAD-and-co.png[]
 
 == Merge vs. Rebase
 
@@ -362,6 +366,36 @@ After (`merge commit` created):
 
 image::resources/merge.png[]
 
+== Fast-Forward -- Remember pointers?
+
+* When possible, Git will *NOT* create _merge-commits_ and just `fast-forward`: bumping the _branch pointer_
+* You can prevent it using the `git merge --no-ff` option
+
+// (Note: used by _git flow_ for example)
+
+<<<
+
+image::resources/ff.png[Fast-forward illustration]
+
+[cols="2"]
+|===
+| Using Merge | Using Rebase
+a|
+[source,role="console"]
+$ git checkout master
+$ git merge feature
+Updating 38d98a8..d92c9b5
+Fast-forward
+
+a|
+[source,role="console"]
+$ git checkout master
+$ git rebase feature
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to feature.
+
+|===
+
 == Let's play again
 
 link:labs/lab-rewriting.html[Lab!]
@@ -459,6 +493,7 @@ TODO : slide de conclusion
 
 * http://ndpsoftware.com/git-cheatsheet.html
 * https://training.github.com/
+* Great tool for learning & understanding Git: http://pcottle.github.io/learnGitBranching/
 * link:http://schacon.github.io/git/gitrepository-layout.html[Repository layout]
 * Special thanks to Scott Chacon for many illustrations reused here
 
