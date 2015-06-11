@@ -28,6 +28,7 @@
 
 * A voir si on peut utiliser http://pcottle.github.io/learnGitBranching/ pour les explications (tester en offline si pas de soucis)
 ** voir comment le rendre dispo à la fois ang aide aux attendees ET à nous pour éventuellement expliquer en réponse à q°
+*** A PAS L'AIR POSSIBLE...
 
 === Correction génération des slides 
 

@@ -2,11 +2,11 @@
 :source-language: console
 :toc: right
 
-NOTE: for this workshop, you need to use repository "git-next-level-workshop-rewriting.git" (workshop resources).
+CAUTION: for this workshop, you need to use repository "git-next-level-workshop-rewriting.git" (workshop resources).
 
 == Playing with rebase
 
-NOTE: most instructions below need the use of : 
+NOTE: Most instructions below need the use of : 
 [source]
 git rebase -i <COMMIT>
 
