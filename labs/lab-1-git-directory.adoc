@@ -22,8 +22,10 @@ NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documenta
    (hint: use `git help -a` if needed to find out, then `git help <COMMAND>`)
 
 * Have a look inside `.git/refs`
+
 [source]
 ls -l .git/refs/*/*
+
 ** What is used this directory for?
 
 == Playing with the data model
