@@ -1,21 +1,45 @@
 = 50 slides of IDE
-Baptiste Mathus
+Baptiste Mathus <batmat@batmat.net>
 :backend: deckjs
+:split:
 :deckjs_transition: fade
 :deckjs_theme: swiss
 :navigation:
-:deckjsdir: ../.deck.js
-:imagesdir: resources
-:split:
 :menu:
-:customcss: resources/bim.css
+:goto:
+:status:
+:deckjsdir: ../.deck.js
+:source-highlighter: highlightjs
+:source-language: console
+:imagesdir: resources
+:customcss: resources/custom.css
+:customjs: resources/custom.js
 
-== About me
+== Me
 
-Du texte
+// TODO !
+	
+[cols="^"]
+|===
+a| image::resources/avatar-baptiste.png[]
+| Baptiste Mathus
+| MojoHaus Committer (previously MOJO@Codehaus)
+| Jenkins Contributor & Plugins Maintainer
+| Working @MiPih as ToolSmith
+|===
 
-* et hop
-* et hop encore
+
+[role="tags"]
+#automation #tooling #java #passion #oss #jenkins #maven #nexus #sonarqube
+
+
+== Disclaimer: 
+
+You *are* going to know some of the tricks here. 
+
+Some may even appear obvious, for you. 
+
+Just wait for the next one then, it should not be long.
 
 == First one: make saving things easier (and quicker lol) than clicking in the typical place where you usually find it in applications.
 

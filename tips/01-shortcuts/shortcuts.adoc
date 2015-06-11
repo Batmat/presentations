@@ -3,6 +3,14 @@
 [role="shortcut tip"]
 Control-Shift-T
 
+== Browse current class methods
+
+Ctrl-O displays all the methods of the current class
+
+== Browse class methods + inherited
+
+Ctrl-O-O displays all the methods of the current class
+
 == Find resources
 
 [role="shortcut tip"]
@@ -18,12 +26,15 @@ Or more selectively
 
 image::camelcase-filtering-more-selective.png[]
 
-== Move / Copy lines up and down
+== Move lines up and down
 
 :selectedtextdown: the currently selected lines down
 
 * Alt-arrow-down to move {selectedtextdown}
-* Ctrl-Arrow-Down to copy {selectedtextdown}
+
+== Copy lines up and down
+
+* Ctrl-Alt-arrow-down to move {selectedtextdown}
 
 == Quick contextual execution menu
 
