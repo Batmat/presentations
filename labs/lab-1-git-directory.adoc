@@ -12,18 +12,16 @@ NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documenta
 
   git branch newbranch
 
-* Checkout that branch, then have a look inside `.git/logs`. 
-  What is used this directory for?
+* Checkout that branch, then have a look inside `.git/logs/` :
+** What is used this directory for?
+
 ** Which git command does actually use that directory? 
    (hint: use `git help -a` if needed to find out, then `git help <COMMAND>`)
-* Create a file and `git add` it. 
 
-  ls -l .git
-  touch somefile
-  git add somefile
-  ls -l .git
-
-* Which file did it just create in the `.git` directory?
+* Have a look inside `.git/refs`
+[source]
+ls -l .git/refs/*/*
+** What is used this directory for?
 
 === Playing with the data model
 
@@ -34,13 +32,14 @@ echo "Hi Eclipse Con France 2015" > pof
 git add pof
 git commit -m "commit done"
 
-
-Now execute:
+If your OS is Linux/Mac based, execute the folowing command :
 
 [source]
 echo -e "blob 27\0Hi Eclipse Con France 2015" | sha1sum
 
-And finally:
+NOTE: For Windows users (no `sha1sum` command available), this command shows that git generates a SHA1 of the committed files to store them in the repository. The result of this command should be "64e3fc24e6ed73f1af43ae4e0411d80c10c4d0f7"
+
+Then execute : 
 
 [source]
 git ls-tree HEAD

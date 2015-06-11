@@ -9,7 +9,7 @@
 * Start correction TP2 13h56
 * Fin TP2 14h02
 
-=> Michaël
+=> Michaël => je valide le progress, du bon boulot
 
 == TODO
 
@@ -37,15 +37,6 @@
 
 * Corriger link/js externes, car la prez s'affiche mal si pas le net 
 * Corriger génération des slides pour que ce qui est généré dans _dist soit autonome (pas de dépendance vers ../.deck.js) + vérifier que le rsync copie bien les répertoires/fichiers cachés durant la copie sur la clé
-
-=== Corrections TP1 Git repo :
-
-=> Michaël
-
-* Etape "echo -e "blob 27\0Hi Eclipse Con France 2015" | sha1sum" ne fonctionne pas sur Windows, pas de soucis sur Mac
-** TODO : mettre en optionnel et expliquer ce que ça fait pour la suite pr ceux qui peuvent pas l'exécuter.
-* Fournir les commandes basiques de création de repo pour gagner du temps (et en général, revoir les TP avec ça en objectif)
-** TODO : ajouter git init, git branch en prerequisites/rappel
 
 === Corrections TP2 Rewriting :
 
