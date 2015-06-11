@@ -6,16 +6,56 @@ CAUTION: for this workshop, you need to use repository "git-next-level-workshop-
 
 == Playing with rebase
 
-NOTE: Most instructions below need the use of : 
-[source]
-git rebase -i <COMMIT>
+=== Tips
+TIP: Most instructions below require the use of: 
 
-* Located on the git workshop repository, list all commits.
-* Commit dbb8f26 has a spelling error. Correct it.
-* Commit fe9ba27 is an inconsistent commit. Two different modifications have been made : the first adding a footer and the another correcting the header added in the precedent commit.
+[source]
+git rebase -i <COMMIT SHA>
+
+TIP: When doing an interactive rebase, read what's displayed inside your editor
+
+[source]
+----
+$ git rebase -i HEAD~
+pick 3262d5a ...
+
+# Rebase 0345973..76e0b82 onto 0345973
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented ou
+----
+
+=== Rolling back if required
+
+If you want to just rollback any modification you made: use `reflog`, find the previous correct `HEAD` SHA, then reset your working copy to it
+
+    $ git reset --hard <SHA>
+
+=== Let's start
+
+* Open your shell, `cd` to the git workshop repository, list all commits.
+
+CAUTION: Respect the steps order of the following. If you don't, you may change commit SHA-1 and not be able to find the SHA-1 given below.
+
+. The three last commits ("Add jumbotron (partXXX)") are not consistent separately, merge these commits to create only one.
+. Manipulate the two following commits in the same interactive rebase :
+.. Commit fe9ba27 is an inconsistent commit. Two different modifications have been made : the first adding a footer and the another correcting the header added in the precedent commit.
+.. Commit 05a2231 is a correction of commit fe9ba27 (this sha1 has been changed during precedent action). Merge these two commits to create only one.
 Split this commit to move header correction in the precedent commit and keep footer addition in two distinct and consistent commits.
-* Commit 05a2231 is a correction of commit fe9ba27 (this sha1 has been changed during precedent action). Merge these two commits to create only one.
-* The three last commits ("Add jumbotron (partXXX)") are not consistent separately, merge these commits to create only one.
+. Commit dbb8f26 has a spelling error. Fix it.
 
 == Playing with dangling commit
 
@@ -23,11 +63,10 @@ Execute this command :
 [source]
 git checkout fe9ba27
 
-This commit has been modified during precedent actions. 
+This commit has been modified during precedent actions. But you can still check it out.
 
-How Git keeps track on it ?
-Explain why.
-
+* How does Git keep track of it?
+* Explain why.
 
 == Playing with "cherry-pick"
 
