@@ -1,8 +1,10 @@
-== Rewriting
+= Rewriting
+:source-language: console
+:toc: right
 
 NOTE: for this workshop, you need to use repository "git-next-level-workshop-rewriting.git" (workshop resources).
 
-=== Playing with rebase
+== Playing with rebase
 
 NOTE: most instructions below need the use of : 
 [source]
@@ -15,7 +17,7 @@ Split this commit to move header correction in the precedent commit and keep foo
 * Commit 05a2231 is a correction of commit fe9ba27 (this sha1 has been changed during precedent action). Merge these two commits to create only one.
 * The three last commits ("Add jumbotron (partXXX)") are not consistent separately, merge these commits to create only one.
 
-=== Playing with dangling commit
+== Playing with dangling commit
 
 Execute this command : 
 [source]
@@ -27,7 +29,7 @@ How Git keeps track on it ?
 Explain why.
 
 
-=== Playing with "cherry-pick"
+== Playing with "cherry-pick"
 
 The current repository has a branch named "header-black-experiment".
 Execute : 

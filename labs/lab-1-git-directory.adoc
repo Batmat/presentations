@@ -1,7 +1,10 @@
-== Discovering the .git directory
+= Discovering the .git directory
 :source-language: console
+:toc: right
 
 NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documentation if needed]
+
+== ls .git!
 
 * Create a new Git repository
 
@@ -23,7 +26,7 @@ NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documenta
 ls -l .git/refs/*/*
 ** What is used this directory for?
 
-=== Playing with the data model
+== Playing with the data model
 
 In a Git repository, execute precisely the following commands to create a commit a new file:
 
@@ -66,7 +69,7 @@ NOTE: There's two categories of Git commands:
 
 TIP: To remember which is one: just remember, in toilets, are you more in contact with the porcelain or the plumbing?
 
-=== Garbage collect all the things
+== Garbage collect all the things
 
 NOTE: Having a GC is very hype those days. Git has one too! Git GC will actually execute automatically under some conditions (too many loose/dangling objects, too many branches/tags...). You generally won't run it manually like in the next part.
 
