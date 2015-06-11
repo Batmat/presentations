@@ -4,6 +4,7 @@ Eclipse Con France 2015
 
 == Prerequisites
 
+* A laptop (no computer will be provided)
 * Having already used Git
 * Have a computer and working Git installation. Ideally >= 1.8.x, better with 2.x
 * Be command-line savvy (shell, vi basics, and so on)

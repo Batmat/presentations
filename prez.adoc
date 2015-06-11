@@ -467,9 +467,7 @@ But there's 1000 commits between them?
 How to find out the offending one?
 
 [options="step"]
-* Git bisect: search bug by dichotomy!
-* link:labs/lab-bisect.html[Lab!]
-
+* Git bisect: search bug by dichotomy (_binary search_)!
 
 
 == Repository lifecycle & manipulations
@@ -517,7 +515,7 @@ git log --oneline --graph
 
 image::resources/lab.png[]
 
-link:labs/lab-filter-branch.html[Let's play with that!]
+link:labs/lab-3-bisect-and-filter-branch.html[Let's play with those!]
 
 ////
 == EGit & JGit

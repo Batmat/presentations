@@ -1,3 +1,6 @@
+= Hidden gems
+:toc: right
+
 == Finding a needle in a...
 
 image::../resources/needle-haystack.png[]
