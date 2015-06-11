@@ -52,9 +52,3 @@
 
 TODO global : plus guidé, et ptête supprimer des choses
 
-=== Corrections TP3 Bisect :
-
-=> Michaël
-
-* Mettre moins de test sur le git bisect => 4 voir 5 passages suffisent
-** TODO : enlever genre les 100 derniers commits
