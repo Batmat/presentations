@@ -46,7 +46,7 @@ _This *is* a workshop. So there will be manipulation along the way, don't worry 
 ** Merge vs. Rebase
 ** What's a Fast-Forward?
 ** The Working Copy, The Index And The Commit
-* Rewiewing (and rewriting) changes
+* Reviewing (and rewriting) changes
 
 <<<
 
