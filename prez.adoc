@@ -441,7 +441,7 @@ image::resources/rewriting.png[]
 
 == Tips & tricks
 
-Git reflog can save your a$$
+Git reflog can save your a$$: keeps track of everywhere you went by
 
 image::resources/help.png[]
 
@@ -449,22 +449,15 @@ Example:
 
 [source]
 $ git reflog
-c830885 HEAD@{0}: commit: Ajout reset
-36b4dce HEAD@{1}: commit: Passe sur les ajustements: ff, intro...
-5ef0aa8 HEAD@{2}: commit (amend): On sa mis dacor
-8e51635 HEAD@{3}: rebase -i (finish): returning to refs/heads/master
-8e51635 HEAD@{4}: rebase -i (fixup): On s'a mis dacor
-b6d8c99 HEAD@{5}: rebase -i (pick): On s'a mis dacor
-670edbc HEAD@{6}: rebase -i (pick): Renommage et fusion derniers TP
-414374c HEAD@{7}: rebase -i (start): checkout HEAD~5
-e6163f0 HEAD@{8}: commit: fixup retour atelier
-0fa2059 HEAD@{9}: commit: Renommage et fusion derniers TP
-f537705 HEAD@{10}: commit: On s'a mis dacor
-414374c HEAD@{11}: rebase finished: returning to refs/heads/master
+f7d3b1 HEAD@{0}: commit (amend): Added reset + compulsory lolcat
+440a3bf HEAD@{1}: commit (amend): Added reset + details
+c830885 HEAD@{2}: commit: Ajout reset
+36b4dce HEAD@{3}: commit: Passe sur les ajustements: ff, intro...
+5ef0aa8 HEAD@{4}: commit (amend): On sa mis dacor
+8e51635 HEAD@{5}: rebase -i (finish): returning to refs/heads/master
+8e51635 HEAD@{6}: rebase -i (fixup): On s'a mis dacor
+b6d8c99 HEAD@{7}: rebase -i (pick): On s'a mis dacor
 
-////
-TODO : créer un repo, changer de branche, etc. et afficher le reflog ensuite pr faire comprendre l'intérêt. 
-////
 <<<
 
 What if you know you introduced a bug between one commit and another?
