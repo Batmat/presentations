@@ -15,4 +15,11 @@ done
 mkdir -p $DIST/labs
 mv -f labs/*.html $DIST/labs
 
+echo "Manually change resources paths"
+cp -R .deck.js $DIST/resources/.deck.js
+sed -i 's/\.\.\/\.deck\.js/resources\/.deck.js/g' $DIST/prez.html
+sed -i 's/http:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/highlight\.js\/7\.3\/styles\/default\.min\.css/resources\/highlight.js.default.min.css/g' $DIST/prez.html
+sed -i 's/http:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/highlight\.js\/7\.3\/highlight\.min\.js/resources\/highlight.min.js/g' $DIST/prez.html
+
+
 echo "Generation ended. Please watch `pwd`/$DIST or browsing locally file:///`pwd`/$DIST/"

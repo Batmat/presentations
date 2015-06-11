@@ -33,8 +33,7 @@
 
 => Michaël
 
-* Corriger link/js externes, car la prez s'affiche mal si pas le net 
-* Corriger génération des slides pour que ce qui est généré dans _dist soit autonome (pas de dépendance vers ../.deck.js) + vérifier que le rsync copie bien les répertoires/fichiers cachés durant la copie sur la clé
+* vérifier que le rsync copie bien les répertoires/fichiers cachés durant la copie sur la clé
 
 === Corrections TP2 Rewriting :
 
