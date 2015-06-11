@@ -1,0 +1,24 @@
+== Progress workshop #1
+* Start à 12h10
+* Début du TP1 12h27
+** 12h38 - 10 minutes pour atteindre la 2e partie "... Data Model" (seulement 8 personnes)
+** 12h47 : certains ont attaqué le GC
+* Pas mal de questions, notamment sur réécriture sans trace :)
+* 13h20 : TP rewriting
+* 13h48 : on arrête le TP sur le rewriting, pas tout à fait fini mais plutôt ok (faut surtout qu'on revoit le support pour guider encore plus) 
+* 13h51 : début TP Bisect & filter-branch
+
+== Idées
+* Ajouter TP/Trucs sur add -p (via eGit ptête plus clair ?)
+* Réordonner TP avec partie "nominale", et partie "bonus" ? Comme ça, on dit : quand tout le monde a fait le "nominal", on passe à la suite. Comme ça, on peut mettre encore plus de trucs cools qu'on a déjà sans les supprimer tout court, mais en identifiant bien qu'ils seront faits si possible.
+* Timeboxer chaque partie : on regarde ce qu'il s'est passé, on réfléchit, et on se fait un doc qui indique combien de temps on passe sur l'intro, sur le TP1, la 2e partie de slides, etc.
+* (???) Fusionner encore TP ? rewriting avec .git directory raisonnable ?
+
+== Problèmes
+* Guider plus pour retrouver la commande associée à .git/logs ? L'indiquer en note de bas de page pour que cela ne se voit pas directement ?
+* sous mac c'est `shasum`, et encore, installé via brew donc ptête pas chez tout le monde
+* TP2 Rewriting, mauvais ordre ?
+** Partie split pas du tout assez détaillée/guidée
+** Expliquer ce qu'il faut saisir/pourquoi en paramètre de rebase -i (sha précédent celui visé, etc.)
+
+* Guider bcp plus pour les étapes de bisect, notamment pour démarrer
