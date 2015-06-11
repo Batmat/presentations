@@ -51,6 +51,7 @@ If you want to just rollback any modification you made: use `reflog`, find the p
 CAUTION: Respect the steps order of the following. If you don't, you may change commit SHA-1 and not be able to find the SHA-1 given below.
 
 . The three last commits ("Add jumbotron (partXXX)") are not consistent separately, merge these commits to create only one.
+.. (For reference: first commit SHA-1 short version	 = `fc3034f86`)
 . Manipulate the two following commits in the same interactive rebase :
 .. Commit fe9ba27 is an inconsistent commit. Two different modifications have been made : the first adding a footer and the another correcting the header added in the precedent commit.
 .. Commit 05a2231 is a correction of commit fe9ba27 (this sha1 has been changed during precedent action). Merge these two commits to create only one.

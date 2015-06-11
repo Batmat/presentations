@@ -6,7 +6,7 @@ NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documenta
 
 == ls .git!
 
-* Create a new Git repository
+* Create a new Git repository (wherever you want)
 
   git init repo && cd repo && git commit -m 'Initial' --allow-empty
 
@@ -16,7 +16,7 @@ NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documenta
   git branch newbranch
 
 * Checkout that branch, then have a look inside `.git/logs/` :
-** What is used this directory for?
+** What is this directory used for?
 
 ** Which git command does actually use that directory? 
    (hint: use `git help -a` if needed to find out, then `git help <COMMAND>`)
@@ -26,28 +26,28 @@ NOTE: Use the link:../resources/lab/gitrepository-layout.html[provided documenta
 [source]
 ls -l .git/refs/*/*
 
-** What is used this directory for?
+** What is this directory used for?
 
 == Playing with the data model
 
-In a Git repository, execute precisely the following commands to create a commit a new file:
+In a Git repository, execute precisely the following commands to create a commit with a new file:
 
 [source]
 echo "Hi Eclipse Con France 2015" > pof
 git add pof
 git commit -m "commit done"
 
-If your OS is Linux/Mac based, execute the folowing command :
+If your OS is Linux/Mac based, execute the following command :
 
 [source]
-echo -e "blob 27\0Hi Eclipse Con France 2015" | sha1sum
+echo -e "blob 27\0Hi Eclipse Con France 2015" | shasum
 
-NOTE: For Windows users (no `sha1sum` command available), this command shows that git generates a SHA1 of the committed files to store them in the repository. The result of this command should be "64e3fc24e6ed73f1af43ae4e0411d80c10c4d0f7"
+CAUTION: For Windows users (no `shasum` command available), this command shows that git generates a SHA1 of the committed files to store them in the repository. The result of this command should be `64e3fc24e6ed73f1af43ae4e0411d80c10c4d0f7`
 
 Then execute : 
 
 [source]
-git ls-tree HEAD
+git ls-tree master
 
 * What's the role of the ls-tree command?
 * Compare the ls-tree output and the echo command output above. Conclude about how Git stores blobs.
@@ -61,7 +61,7 @@ cp pof newdirectory
 git add newdirectory
 git commit -m "Added the new subdirectory"
 
-* Use `git ls-tree HEAD` again to understand how the storage works (cf. slides)
+* Use `git ls-tree master` again to understand how the storage works (cf. slides)
 * Use `git ls-tree` on the subdirectory to display its content (_hint:_ ls-tree takes a hash as parameter, not directory name). 
 ** What's the sha of the `pof` in that directory file?
 

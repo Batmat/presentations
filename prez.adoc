@@ -297,7 +297,7 @@ Example:
 [source]
 git reset --hard HEAD~2
 
-* HEAD=HEAD~
+* HEAD=HEAD~2
 * Index is empty
 * Working copy at the HEAD~2 state (any uncommitted change is lost)
 
