@@ -1,10 +1,12 @@
 = Take your Git practice to the next level - Lab
 Eclipse con France 2015
+:toc: right
 
 == Prerequisites
 
 IMPORTANT: See link:prerequisites.html[the prerequisites]
 
+:leveloffset: +1
 include::lab-1-git-directory.adoc[]
 
 include::lab-2-rewriting.adoc[]
