@@ -28,8 +28,6 @@
 
 * A voir si on peut utiliser http://pcottle.github.io/learnGitBranching/ pour les explications (tester en offline si pas de soucis)
 ** voir comment le rendre dispo à la fois ang aide aux attendees ET à nous pour éventuellement expliquer en réponse à q°
-* Idée évoquée : explication sur "git reset mixed/soft/hard" et "git add -p" ?
-** TODO : voir pour reprendre explication orale de Benjamin Marguin avec un diagramme vertical
 
 === Correction génération des slides 
 

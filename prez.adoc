@@ -1,6 +1,6 @@
 Take your Git practice to the next level
 ========================================
-Baptiste Mathus <batmat@batmat.net>, Michaël Pailloncy <todo@todo.com>
+Baptiste Mathus <batmat@batmat.net>, Michaël Pailloncy <michael.pailloncy@gmail.com>
 :backend: deckjs
 :split:
 :deckjs_transition: fade
@@ -148,6 +148,7 @@ a| []
 // Because git add adds the content when called, not only the
 // reference to the file like SVN does for example
 
+
 [canvas-image="resources/dig.jpg"]
 == Digging
 
@@ -194,7 +195,7 @@ image::resources/git-objects-types.png[]
 == Lab !
 
 [role="canvas-caption", position="left-up"]
-Enough talk, link:labs/lab-git-directory.html[let's practice a bit]
+Enough talk, link:labs/lab-1-git-directory.html[let's practice a bit]
 
 [role="canvas-caption", position="center-down"]
 Understanding the .git directory
@@ -261,6 +262,42 @@ If one of the patches in the middle doesn't apply, things are bad bad bad.
 * `master` (or any branch): automatically bumped when new commit is done on it
 
 image::resources/pointers-HEAD-and-co.png[]
+
+== Resetting
+
+`git reset [--soft|--mixed|--hard] <TARGET>`
+
+* Works on the current branch pointer.
+
+[cols="2"]
+|===
+a|soft:: keep all local changes
+mixed (default):: keep working but reset index
+hard:: discard all working copy changes
+a| image::resources/git-staging-area.png[The Index]
+|===
+
+<<<
+
+Example: 
+
+[source]
+git reset HEAD~
+
+* Latest commit becomes the previous one (kind of: HEAD=HEAD~).
+* Index is empty
+* Working copy is intact
+
+<<<
+
+Example:
+
+[source]
+git reset --hard HEAD~2
+
+* HEAD=HEAD~
+* Index is empty
+* Working copy at the HEAD~2 state (any uncommitted change is lost)
 
 == Merge vs. Rebase
 
@@ -398,13 +435,32 @@ Fast-forwarded master to feature.
 
 == Let's play again
 
-link:labs/lab-rewriting.html[Lab!]
+link:labs/lab-2-rewriting.html[Lab!]
 
 image::resources/rewriting.png[]
 
 == Tips & tricks
 
 Git reflog can save your a$$
+
+image::resources/help.png[]
+
+Example:
+
+[source]
+$ git reflog
+c830885 HEAD@{0}: commit: Ajout reset
+36b4dce HEAD@{1}: commit: Passe sur les ajustements: ff, intro...
+5ef0aa8 HEAD@{2}: commit (amend): On sa mis dacor
+8e51635 HEAD@{3}: rebase -i (finish): returning to refs/heads/master
+8e51635 HEAD@{4}: rebase -i (fixup): On s'a mis dacor
+b6d8c99 HEAD@{5}: rebase -i (pick): On s'a mis dacor
+670edbc HEAD@{6}: rebase -i (pick): Renommage et fusion derniers TP
+414374c HEAD@{7}: rebase -i (start): checkout HEAD~5
+e6163f0 HEAD@{8}: commit: fixup retour atelier
+0fa2059 HEAD@{9}: commit: Renommage et fusion derniers TP
+f537705 HEAD@{10}: commit: On s'a mis dacor
+414374c HEAD@{11}: rebase finished: returning to refs/heads/master
 
 ////
 TODO : créer un repo, changer de branche, etc. et afficher le reflog ensuite pr faire comprendre l'intérêt. 
