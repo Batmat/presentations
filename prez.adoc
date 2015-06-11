@@ -245,7 +245,8 @@ So... What are branches again?
 ** _Dangling_ or _detached HEAD_
 ** Each time you rebase (without *fast-forward*)
 
-<<<
+////
+<<< 
 
 Branching Is Just Working As Expected.
 
@@ -253,6 +254,7 @@ Branching Is Just Working As Expected.
 
 [quote]
 If one of the patches in the middle doesn't apply, things are bad bad bad.
+////
 
 == Pointers?
 
