@@ -13,6 +13,12 @@
 * Réordonner TP avec partie "nominale", et partie "bonus" ? Comme ça, on dit : quand tout le monde a fait le "nominal", on passe à la suite. Comme ça, on peut mettre encore plus de trucs cools qu'on a déjà sans les supprimer tout court, mais en identifiant bien qu'ils seront faits si possible.
 * Timeboxer chaque partie : on regarde ce qu'il s'est passé, on réfléchit, et on se fait un doc qui indique combien de temps on passe sur l'intro, sur le TP1, la 2e partie de slides, etc.
 * (???) Fusionner encore TP ? rewriting avec .git directory raisonnable ?
+* Ajouter lien correction/explications à la fin de chaque TP, ça nous évitera de le faire en live et de perdre du temps => du coup on y passe du temps uniquement en cas de questions (?)
+* TP Rewritting : Ajouter une note sur le fait qu'on peut réordonner et/ou supprimer tout simplement les commits 
+* Ajouter une page avec toutes les commandes de base + explication (voir https://www.siteground.com/tutorials/git/commands.htm ?)
+* Ajouter une pages/explications sur les "notes" à la suite des tags
+* Partie sur EGit/JGit à faire :-)
+* Carrément virer le 1er TP et mettre des slides d'explication à la place pour gagner du temps ?
 
 == Problèmes
 * Guider plus pour retrouver la commande associée à .git/logs ? L'indiquer en note de bas de page pour que cela ne se voit pas directement ?
