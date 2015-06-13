@@ -99,6 +99,8 @@ Not enabled by default. In Java/Editor/Typing.
 
 Use _Ctrl-Shift-3_ on a selected item, then start typing to filter the possible actions in the _Quick access_ menu.
 
+TODO : Slide #24 : meta shortcut avec extract constant n'a pas marché => trouver un exemple concret qui fonctionne
+
 [formatterOnOff]
 == Formatter: don't touch that part (using begin/end tags)
 
@@ -119,6 +121,7 @@ link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thx E
 Many quick fixes are actually available, but not always through cleanup
 
 TODO : part that went bad. Prepare a real demo use case.
+Suppression massive de variables non utilisées n'a pas fonctionné avec (String a ="" pas pris en compte)
 
 ////
 [quote]
@@ -198,6 +201,8 @@ see:  link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.u
 
 and link:http://www.javalobby.org/java/forums/t16736.html[here] at least.
 
+TODO Ajouter exemple concret pour Logical Structure
+
 == Abreviate package name
 
 Java/Appearance
@@ -211,6 +216,8 @@ String s = String.format("%05d", 7);
 s
 
 https://recoveringprogrammer.wordpress.com/2013/04/06/using-eclipse-scrapbook-to-quickly-test-your-code/
+
+TODO : Faire sécher tips avec jpage, trouver un exemple concret 
 
 == Add to snippets
 
