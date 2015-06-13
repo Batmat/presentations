@@ -17,16 +17,11 @@ echo "Note: $TIP_COUNT total tips found"
 cp prez.adoc $BUILD_OUTPUT_DIR
 rm -f $TIPS_OUTPUT
 
-for dir in $( ls $TIPS_DIR/ )
+for adocFile in $( ls $TIPS_DIR/*.adoc )
 do
-	currentDir=$TIPS_DIR/$dir
-	echo "Processing $currentDir"
-	for adocFile in $( ls $currentDir/*.adoc )
-	do
-	   cat $adocFile | sed "s/^==\(.*\)$/== \[tip-count\]#({counter:tip}\/$TIP_COUNT)#\1/g" >> $TIPS_OUTPUT
-	   echo >> $TIPS_OUTPUT
-	   echo >> $TIPS_OUTPUT
-	done
+   cat $adocFile | sed "s/^==\(.*\)$/== \[tip-count\]#({counter:tip}\/$TIP_COUNT)#\1/g" >> $TIPS_OUTPUT
+   echo >> $TIPS_OUTPUT
+   echo >> $TIPS_OUTPUT
 done
 
 echo "Copying all the images of $TIPS_DIR"

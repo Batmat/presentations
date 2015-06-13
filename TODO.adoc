@@ -1,0 +1,9 @@
+= TODO
+
+== A corriger
+
+* Slide #24 : meta shortcut avec extract constant n'a pas marché => trouver un exemple concret qui fonctionne
+* Suppression massive de variables non utilisées n'a pas fonctionné avec (String a ="" pas pris en compte)
+* Ajouter exemple concret pour Logical Structure
+* Perso, j'enleverai le tips sur l'auto-complétion des variables n'existant pas
+* Faire sécher tips avec jpage, trouver un exemple concret 

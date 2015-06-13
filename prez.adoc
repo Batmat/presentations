@@ -1,4 +1,4 @@
-= 50 slides of IDE
+= 50 slides of IDE - Beta :-)
 Baptiste Mathus <batmat@batmat.net>
 :backend: deckjs
 :split:
@@ -21,7 +21,7 @@ Baptiste Mathus <batmat@batmat.net>
 	
 [cols="^"]
 |===
-a| image::resources/avatar-baptiste.png[]
+a| image::avatar-baptiste.png[]
 | Baptiste Mathus
 | MojoHaus Committer (previously MOJO@Codehaus)
 | Jenkins Contributor & Plugins Maintainer

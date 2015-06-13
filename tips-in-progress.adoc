@@ -1,0 +1,43 @@
+////
+== Ignore unavoidable generic type problems
+
+== Referring tests
+
+You can find for any class the tests calling it
+
+== Perspectives / Views
+
+TODO : trouver trucs & astuces views/perspectives
+
+== Using p2 Director (inside Docker) to create a customized Eclipse
+
+== asciidoctor in Eclipse
+
+== Organize imports: how to ignore javadoc
+
+TODO : je ne retrouve pas l'option
+
+== Organize imports ordering
+== Formatter: don't touch my manually wrapped lines!
+
+TODO : pas évident
+
+== Step filtering
+ 
+Be able to filter out stack when debugging (?) (to be tested)
+
+[thanks]
+(thx Sebastien Bordes for the reminder)
+
+== EGit : staging line by line
+
+
+== M2E : handling dependencies!
+
+== Use ';' key to insert method invocation
+
+While using autocompletion dropdown.
+
+TODO : Remove  ?
+
+////
