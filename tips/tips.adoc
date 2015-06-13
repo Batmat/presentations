@@ -1,3 +1,11 @@
+== Abreviate package name
+
+In _Java/Appearance/abbreviate package names_ :
+
+Example:
+
+    net.batmat.econ2015={DEMO}
+
 == Find any class by name
 
 [role="shortcut tip"]
@@ -81,13 +89,11 @@ image::ternary-after.png[]
 
 == Invert if/else conditions
 
-Select the if/else to invert, and call the Quick Fix
+Select the if/else to invert, and call the <<QuickFix,Quick Fix>>
 
 == Generate for-loop on collection
 
-Just type the collection/array, and call the Quick Fix
-
-// TODO add link to quickFix
+Just type the collection/array, and call the <<QuickFix,Quick Fix>>
 
 == Typing: automatically place semicolons
 
@@ -99,9 +105,7 @@ Not enabled by default. In Java/Editor/Typing.
 
 Use _Ctrl-Shift-3_ on a selected item, then start typing to filter the possible actions in the _Quick access_ menu.
 
-TODO : Slide #24 : meta shortcut avec extract constant n'a pas marché => trouver un exemple concret qui fonctionne
-
-[formatterOnOff]
+[[formatterOnOff]]
 == Formatter: don't touch that part (using begin/end tags)
 
 [source,java]
@@ -113,26 +117,19 @@ TODO : Slide #24 : meta shortcut avec extract constant n'a pas marché => trouve
 // @formatter:on
 ----
 
-[thanks]
-link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thx Emmanuel Fontan]
+[role="thanks"]
+link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thanks Emmanuel Fontan]
 
 == How to quick fix many issues outside of the Clean up menu
 
 Many quick fixes are actually available, but not always through cleanup
 
-TODO : part that went bad. Prepare a real demo use case.
-Suppression massive de variables non utilisées n'a pas fonctionné avec (String a ="" pas pris en compte)
+* Go to the Problems view
+* Then call... the Quick Fix
+* Select the issue you want to fix
+* Click select all
 
-////
-[quote]
-In Luna (4.4), the multi-fix in the whole file works via Quick Fix hover or via Ctrl+1 popup and then using Ctrl+Enter. To apply the fix to a whole project, you can:
-- select the problem in the Problems view
-- select the whole project so that the Problems view shows problems from all selected resources
-- activate the Problems view again and use Ctrl+1 or context menu > Quick Fix
-- select the right fix, click Select All, and click Finish
-////
-
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956
+link:https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956[Possible since Luna SR2]
 
 == Junit: add -ea to VM arguments..
 
@@ -140,11 +137,13 @@ Good way to enable this option but not globally when you may be using libs that 
 
 == Favorites
 
-static imports for autocompletion
+Autocomplete static imports!
+
+In Java/Editor/Content Assist/Favorites
 
 == JSR305 annotations to help null analysis
 
-TODO : add dependency to project + prepare sentences to present it in a few seconds
+Lets you add more typesafe-ness in your codebase (at least way more than Javadoc does!).
 
 <<<
 
@@ -154,18 +153,29 @@ Annotate the package itself to define the default value for a whole package
 
 == JSR 305 externally defined annotations
 
+New in Eclipse Mars, released yesterday! (24/03/2015).
 link:https://www.eclipse.org/eclipse/news/4.5/M6/#JDT[JSR305 externally annotated classes (Eclipse Mars)]
 https://bugs.eclipse.org/bugs/show_bug.cgi?id=461300
 
-TODO !
+TODO TODO TODO !
 
 == Save actions: automatic formating
+
+Useful: be able to automatically format only the code just modified when saving the file.
+
+See in _Java/Editor/Save Actions/Format source code/Format edited lines_
 
 == Overwrite end of method name instead of adding
 
 Java/Editor/Content Assist : toggle "Completion overwrites" instead of "Completion Inserts"
 
-== Automatic contextualization inside an instanceof block (auto-add cast)
+And can be toggled live using _Ctrl_ key.
+
+== Instanceof Automatic Contextualization
+
+Inside an instanceof block, analyzes the type of the given instanceof and autocompletes with its methods:
+
+image::autocast-instanceof.png[]
 
 == Type filters
 
@@ -181,7 +191,7 @@ filter out method coming from Object! (who wants to call notify...)
 
 Categorize Filtering/choosing which methods to display in the _Outline_ using javadoc's _@category_ tags 
 
-[thanks]
+[role="thanks"]
 (thanks link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/Wdf3VMMDM0YJ[Jordi Barrère]).
 
 == _Exception variable name in catch blocks_
@@ -190,22 +200,15 @@ Categorize Filtering/choosing which methods to display in the _Outline_ using ja
 
 Alt-Shift-A or the icon, as if Sublime Text invented it all ;-)
 
-[thanks]
-(link:https://groups.google.com/d/msg/toulouse-jug/SpOWtYPxJa0/tGkr5LAbwU8J[thx Olivier Jaquemet])
+[role="thanks"]
+(link:https://groups.google.com/d/msg/toulouse-jug/SpOWtYPxJa0/tGkr5LAbwU8J[Thanks Olivier Jaquemet])
 
 == Logical structure
 
-Present complex/weird data structure in a more logical that physical way
+Present complex/weird physical data structure in a logical way in the debugger
 
-see:  link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-logical_structures.htm[here] 
-
-and link:http://www.javalobby.org/java/forums/t16736.html[here] at least.
-
-TODO Ajouter exemple concret pour Logical Structure
-
-== Abreviate package name
-
-Java/Appearance
+For reference see the link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-logical_structures.htm[official documentation]
+or that link:http://www.javalobby.org/java/forums/t16736.html[forum discussion].
 
 == Working Sets
 
@@ -235,6 +238,8 @@ TODO : vérifier fonctionnement et besoin rezo ?
 * exception
 * class load!
 
+TODO : affiner lui et la suite.
+
 == Conditional breakpoints
 
 Many conditions, not always well-known
@@ -255,11 +260,5 @@ return false;
 
 Cf. Java/Editor/Templates
 
-== Package name abbreviations
 
-Package names in Java views can be abbreviated with custom rules. For example, the following rules produce the rendering shown below:
-
-	org.eclipse.ui={UI}
-	org.eclipse.ui.texteditor={T}
-	org.eclipse.ui.internal.texteditor=[iT]
 

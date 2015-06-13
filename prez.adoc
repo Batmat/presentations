@@ -23,7 +23,7 @@ Baptiste Mathus <batmat@batmat.net>
 |===
 a| image::avatar-baptiste.png[]
 | Baptiste Mathus
-| MojoHaus Committer (previously MOJO@Codehaus)
+| link:http://www.mojohaus.org/[MojoHaus] Committer (previously MOJO@Codehaus)
 | Jenkins Contributor & Plugins Maintainer
 | Working @MiPih as ToolSmith
 |===
@@ -33,13 +33,14 @@ a| image::avatar-baptiste.png[]
 #automation #tooling #java #passion #oss #jenkins #maven #nexus #sonarqube
 
 
-== Disclaimer: 
+== Disclaimer
 
-You *are* going to know some of the tricks here. 
-
-Some may even appear obvious, for you. 
-
-Just wait for the next one then, it should not be long.
+TODO
+[options="step"]
+* You *are* going to know some of the tricks here. 
+* Some may even appear obvious ; for you.
+* Just wait for the next one then, it should not be long.
+** *42* (!) seconds on average actually (50 tips => 35'). 
 
 == First one: make saving things easier (and quicker lol) than clicking in the typical place where you usually find it in applications.
 
