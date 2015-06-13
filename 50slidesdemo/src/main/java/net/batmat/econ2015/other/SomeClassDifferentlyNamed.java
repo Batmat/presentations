@@ -1,38 +1,41 @@
 package net.batmat.econ2015.other;
 
-import static java.util.Calendar.DATE;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class SomeClassDifferentlyNamed {
-	public static String[] hop = new String[] { "a", "b", "c" };
+    public static String[] hop = new String[] { "a", "b", "c" };
 
-	private String someAttribute;
+    private String someAttribute;
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
+
+	int i = 1;
+	String s = (hop != null) ? s = hop[0] : "somevalue";
+
+	String a = "boom";
+    }
+
+    private void anotherGreatMethodCastingObject() {
+	Object o = new Object();
+
+	if (o instanceof String) {
 
 	}
+	// here is some new code
 
-	private void anotherGreatMethodCastingObject() {
-		Object o = new Object();
-	}
+    }
 
-	/**
-	 * @category gettersetter
-	 * @return
-	 */
-	public String getSomeAttribute() {
-		return someAttribute;
-	}
+    /**
+     * @category gettersetter
+     * @return
+     */
+    public String getSomeAttribute() {
+	return someAttribute;
+    }
 
-	/**
-	 * @category gettersetter
-	 */
-	public void setSomeAttribute(String someAttribute) {
-		this.someAttribute = someAttribute;
-	}
-
+    /**
+     * @category gettersetter
+     */
+    public void setSomeAttribute(String someAttribute) {
+	this.someAttribute = someAttribute;
+    }
 }
