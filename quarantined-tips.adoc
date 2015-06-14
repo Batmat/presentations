@@ -31,12 +31,6 @@ TODO : je ne retrouve pas l'option
 
 TODO : pas évident
 
-== Step filtering
- 
-Be able to filter out stack when debugging (?) (to be tested)
-
-[thanks]
-(thx Sebastien Bordes for the reminder)
 
 == EGit : staging line by line
 

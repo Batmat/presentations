@@ -6,6 +6,13 @@ Example:
 
     net.batmat.econ2015={DEMO}
 
+[cols="^,^"]
+|====
+| Before | After
+a| image::pkg-abbreviation-before.png[]
+a| image::pkg-abbreviation-after.png[]
+|====
+
 == Find any class by name
 
 [role="shortcut tip"]
@@ -62,22 +69,30 @@ Run/Debug/Launching/Launch Operation/Always launch the previously launched appli
 [[QuickFix]]
 == Quick fix
 
-Type _Ctrl-Shift-1_ to see what the possible actions are on the current focus
+Type _Ctrl-Shift-1_ (or click on the lightbulb on the left of the line) to see what the possible actions are on the current focus
 
+image::quickfix.png[Quick Fix Example]
+
+[[ExtractMethod]]
 == Extract Method
 
 Select text, right click and extract the whole code block into a new method easily.
 
+Inverse: see <<InlineMethod>>
+
+[[InlineMethod]]
 == Inline Method
 
-Contrary to the previous one, easily inline the code of a method.
+Easily inline the code of a method.
 
 * Select method to inline/Right click/Refactor/Inline Method.
 * Shortcut: Alt-Shift-I
 
-== Refactoring: Replacing ternary with if/else
+Inverse: see <<ExtractMethod>>
 
-Sometimes (well, more often than not, I'd argue), you should replace your ternary expression with an if[/else]
+== Refactoring: Replacing ternary with if-else
+
+Replace your ternary expression with an if-else (more often than not!)
 
 Before :
 
@@ -94,6 +109,12 @@ Select the if/else to invert, and call the <<QuickFix,Quick Fix>>
 == Generate for-loop on collection
 
 Just type the collection/array, and call the <<QuickFix,Quick Fix>>
+
+TODO : check that OK/find right way to use it.
+
+== Convert to lambda expression
+
+Accessible through Clean Up & <<QuickFix,Quick Fix>>
 
 == Typing: automatically place semicolons
 
@@ -120,21 +141,6 @@ Use _Ctrl-Shift-3_ on a selected item, then start typing to filter the possible 
 [role="thanks"]
 link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thanks Emmanuel Fontan]
 
-== How to quick fix many issues outside of the Clean up menu
-
-Many quick fixes are actually available, but not always through cleanup
-
-* Go to the Problems view
-* Then call... the Quick Fix
-* Select the issue you want to fix
-* Click select all
-
-link:https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956[Possible since Luna SR2]
-
-== Junit: add -ea to VM arguments..
-
-Good way to enable this option but not globally when you may be using libs that added a bunch of incorrect assertions
-
 == Favorites
 
 Autocomplete static imports!
@@ -145,11 +151,21 @@ In Java/Editor/Content Assist/Favorites
 
 Lets you add more typesafe-ness in your codebase (at least way more than Javadoc does!).
 
+Beware: it's not enforcing anything at all at runtime. This is only hints for the developer.
+
 <<<
 
-Annotate the package itself to define the default value for a whole package
+Advice: annotate the package itself to define the default value for a whole package
 
 => `package-info.java`
+
+NOTE: Because studies shows developers actually expect parameters to be passed non null as a default, you will generally annotate the package with "Nonnull by default" and then only annotate methods where you actually expect or produce Nullable things.
+
+<<<
+
+To go even further:
+
+* link:http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html[The Checker Framework]
 
 == JSR 305 externally defined annotations
 
@@ -169,7 +185,7 @@ See in _Java/Editor/Save Actions/Format source code/Format edited lines_
 
 Java/Editor/Content Assist : toggle "Completion overwrites" instead of "Completion Inserts"
 
-And can be toggled live using _Ctrl_ key.
+Can be live toggled using _Ctrl_ key.
 
 == Instanceof Automatic Contextualization
 
@@ -185,7 +201,7 @@ To filter out java.awt.* for example...
 
 <<<
 
-filter out method coming from Object! (who wants to call notify...)
+Filter out method coming from Object! (who wants to call notify...)
 
 == Filtering methods by categorizing them
 
@@ -194,7 +210,17 @@ Categorize Filtering/choosing which methods to display in the _Outline_ using ja
 [role="thanks"]
 (thanks link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/Wdf3VMMDM0YJ[Jordi Barrère]).
 
-== _Exception variable name in catch blocks_
+== Step filtering
+ 
+Be able to filter out stack when debugging:
+
+* By class
+* Constructors
+* Getters/setters
+* ...
+
+[thanks]
+(thx Sebastien Bordes for the reminder)
 
 == Multi-line Edit
 
@@ -212,6 +238,8 @@ or that link:http://www.javalobby.org/java/forums/t16736.html[forum discussion].
 
 == Working Sets
 
+Useful to categorize projects, or packages.
+
 == Scrapbooking, REPL
 
 [source,java]
@@ -225,6 +253,10 @@ TODO : Faire sécher tips avec jpage, trouver un exemple concret
 == Add to snippets
 
 TODO : réviser comment ça marche !
+
+== Code templates
+
+Cf. Java/Editor/Templates
 
 == Extensions: SnipMatch
 
@@ -240,7 +272,7 @@ TODO : vérifier fonctionnement et besoin rezo ?
 
 TODO : affiner lui et la suite.
 
-== Conditional breakpoints
+== Conditional breakpoint
 
 Many conditions, not always well-known
 
@@ -252,13 +284,15 @@ Use it to debug :
 System.out.println("HERE WE ARE: "+theVariable);
 return false;
 
-== Clean Up in general
+== Clean Up
 
-== Clean Up: Convert to lambda expression
+== How to quick fix many issues outside of the Clean up menu
 
-== Code templates
+Many quick fixes are actually available, but not always through cleanup
 
-Cf. Java/Editor/Templates
+* Go to the Problems view
+* Then call... the Quick Fix
+* Select the issue you want to fix
+* Click select all
 
-
-
+link:https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956[Possible since Luna SR2]
