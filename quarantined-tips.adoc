@@ -1,4 +1,13 @@
-////
+= Quarantined Tips
+:sectnums:
+
+== _Exception variable name in catch blocks_
+
+
+== Junit: add -ea to VM arguments..
+
+Good way to enable this option but not globally when you may be using libs that added a bunch of incorrect assertions
+
 == Ignore unavoidable generic type problems
 
 == Referring tests
@@ -40,4 +49,3 @@ While using autocompletion dropdown.
 
 TODO : Remove  ?
 
-////
