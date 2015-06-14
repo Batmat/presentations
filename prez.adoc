@@ -15,7 +15,7 @@ Baptiste Mathus <batmat@batmat.net>
 :customcss: resources/custom.css
 :customjs: resources/custom.js
 
-== Me
+== About Me
 
 // TODO !
 	
@@ -33,14 +33,12 @@ a| image::avatar-baptiste.png[]
 #automation #tooling #java #passion #oss #jenkins #maven #nexus #sonarqube
 
 
-== Disclaimer
+== Preamble
 
-TODO
-[options="step"]
-* You *are* going to know some of the tricks here. 
+* You *will* already know some of the tricks here. 
 * Some may even appear obvious ; for you.
 * Just wait for the next one then, it should not be long.
-** *42* (!) seconds on average actually (50 tips => 35'). 
+** 50 tips => 35 minutes => *42* (!) seconds per tip!
 
 == First one: make saving things easier (and quicker lol) than clicking in the typical place where you usually find it in applications.
 
