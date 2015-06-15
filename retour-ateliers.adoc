@@ -1,18 +1,36 @@
-== Progress workshop #1
-* Start à 12h10
-* Début du TP1 12h27
-** 12h38 - 10 minutes pour atteindre la 2e partie "... Data Model" (seulement 8 personnes)
-** 12h47 : certains ont attaqué le GC
-* Pas mal de questions, notamment sur réécriture sans trace :)
-* 13h20 : TP rewriting
-* 13h48 : on arrête le TP sur le rewriting, pas tout à fait fini mais plutôt ok (faut surtout qu'on revoit le support pour guider encore plus) 
-* 13h51 : début TP Bisect & filter-branch
+= Retours ateliers
+:toc: right
 
-== Idées
+== TODO
+
+=== A faire pour EclipseCon
+
+* Ajouter partie eGIT / JGIT, au moins petite !
+
+=== Idées à discuter ensemble 
+
+* Rajouter approfondissements/TP sur .gitattributes (?)
+** a voir si temps ok => PAS TODO pour demain jeudi 11
+
+=== Corrections TP2 Rewriting :
+
+=> Batimsse
+
+* Split d'abord footer puis header, sinon le squash va avoir un commit encore sur 2 fichiers
+* Attention à tout rebase -i en une fois, sinon tous les sha1 deviennent inutilisables (ou trouver autre chose)
+* Pour rebaser un sha x il faut indiquer à -i le parent (au moins)
+
+* Idée évoquée pendant le TP : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
+** => OK
+*** + TP rewriting
+
+TODO global : plus guidé, et ptête supprimer des choses
+
+
+== Idées (issues répét #2)
 * Ajouter TP/Trucs sur add -p (via eGit ptête plus clair ?)
 * Réordonner TP avec partie "nominale", et partie "bonus" ? Comme ça, on dit : quand tout le monde a fait le "nominal", on passe à la suite. Comme ça, on peut mettre encore plus de trucs cools qu'on a déjà sans les supprimer tout court, mais en identifiant bien qu'ils seront faits si possible.
 * Timeboxer chaque partie : on regarde ce qu'il s'est passé, on réfléchit, et on se fait un doc qui indique combien de temps on passe sur l'intro, sur le TP1, la 2e partie de slides, etc.
-* (???) Fusionner encore TP ? rewriting avec .git directory raisonnable ?
 * Ajouter lien correction/explications à la fin de chaque TP, ça nous évitera de le faire en live et de perdre du temps => du coup on y passe du temps uniquement en cas de questions (?)
 * TP Rewritting : Ajouter une note sur le fait qu'on peut réordonner et/ou supprimer tout simplement les commits 
 * Ajouter une page avec toutes les commandes de base + explication (voir https://www.siteground.com/tutorials/git/commands.htm ?)
@@ -28,3 +46,31 @@
 ** Expliquer ce qu'il faut saisir/pourquoi en paramètre de rebase -i (sha précédent celui visé, etc.)
 
 * Guider bcp plus pour les étapes de bisect, notamment pour démarrer
+
+== Historiques déroulement
+
+=== Progress workshop #3
+
+TODO mercredi 17
+
+=== Progress workshop #2
+* Start à 12h10
+* Début du TP1 12h27
+** 12h38 - 10 minutes pour atteindre la 2e partie "... Data Model" (seulement 8 personnes)
+** 12h47 : certains ont attaqué le GC
+* Pas mal de questions, notamment sur réécriture sans trace :)
+* 13h20 : TP rewriting
+* 13h48 : on arrête le TP sur le rewriting, pas tout à fait fini mais plutôt ok (faut surtout qu'on revoit le support pour guider encore plus) 
+* 13h51 : début TP Bisect & filter-branch
+
+=== Progress workshop #1
+* Start à 12h20
+* Début du TP1 à 12h38
+* Début correction TP1 à 13h01
+* FIN correction TP1 à 13h16
+* Reprise des slides à partir du #23 à 13h16
+* Slide #43 à 13h28
+* Start TP2 13h30
+* Start correction TP2 13h56
+* Fin TP2 14h02
+
