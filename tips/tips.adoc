@@ -201,7 +201,9 @@ To filter out java.awt.* for example...
 
 <<<
 
-Filter out method coming from Object! (who wants to call notify...)
+Filter out method coming from Object! (who wants to call `notify()`...)
+
+image::type-filters.png[]
 
 == Filtering methods by categorizing them
 
