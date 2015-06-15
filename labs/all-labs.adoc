@@ -1,4 +1,4 @@
-= Take your Git practice to the next level - Lab
+= Take your Git practice to the next level - Labs
 Eclipse con France 2015
 :toc: right
 
@@ -7,9 +7,7 @@ Eclipse con France 2015
 IMPORTANT: See link:prerequisites.html[the prerequisites]
 
 :leveloffset: +1
-include::lab-1-git-directory.adoc[]
+include::lab-1-git-directory-and-rewriting.adoc[]
 
-include::lab-2-rewriting.adoc[]
-
-include::lab-3-bisect-and-filter-branch.adoc[]
+include::lab-2-bisect-and-filter-branch.adoc[]
 

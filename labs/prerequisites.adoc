@@ -15,13 +15,5 @@ git version 2.1.4
 
 
 * Better to have, but should be provided:
-** have Eclipse with EGit installed (one bundle should be provided, though)
+** Eclipse with EGit installed
 
-** Clone the following repositories
-*** [red]+TODO+ : the following presentation (useful to go back to some slide, and so on)
-*** [red]+TODO+: The git bisect one
-
-
-== Setting up your environment
-
-[red]+TODO+ : make clone a dedicated repo ? Initialize things?
