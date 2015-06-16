@@ -5,47 +5,42 @@
 
 === A faire pour EclipseCon
 
-* Ajouter partie eGIT / JGIT, au moins petite !
+* Suite à 3ème repet', ajout de planing timeboxe pour chaque partie sur un adoc à part pour nous servir pendant la prez
 
-=== Idées à discuter ensemble 
+=== Ajouter partie eGIT
+* Ajouter slide  présentation eGIT/JGit 
+* Ajouter démo eGIT / JGIT, au moins petite !
+* Ajouter dans le TP rewriting un petit exo pour équivalent "add -p" dans les bonus
 
-* Rajouter approfondissements/TP sur .gitattributes (?)
-** a voir si temps ok => PAS TODO pour demain jeudi 11
+=== Corrections 
 
-=== Corrections TP2 Rewriting :
+* Rajouter approfondissements/TP sur .gitattributes (?) dans bonus TP1 (.git) => Batimsse
+* Ajouter partie bonus sur submodule/subtree => Batimsse
 
-=> Batimsse
+* Pour chaque TP, ajouter une correction en prefixant les lignes par un "(CORRECTION):" (ou que cela contienne) => Michaël
+** chercher une solution existante pour afficher dynamiquement la correction
+** une seul fichier adoc de "dev" avec correction inline
+** sur le build, séparation en deux fichiers différents pour TP
+** vérifier rendering
+
+* Ajouter une page avec toutes les commandes de base + explication (voir https://www.siteground.com/tutorials/git/commands.htm ?) => Michaël
+
+* Vérifier si on rajoute slide sur les "notes" ou pas ? (est-ce que c'est important )  => Batimsse
+
+
+=== Corrections TP1 Rewriting : => Batimsse
 
 * Split d'abord footer puis header, sinon le squash va avoir un commit encore sur 2 fichiers
 * Attention à tout rebase -i en une fois, sinon tous les sha1 deviennent inutilisables (ou trouver autre chose)
 * Pour rebaser un sha x il faut indiquer à -i le parent (au moins)
+* Ajouter un conflit sur le cherry-pick du rewriting : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
 
-* Idée évoquée pendant le TP : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
-** => OK
-*** + TP rewriting
-
-TODO global : plus guidé, et ptête supprimer des choses
+=== Correction TP Bisect/Filter branch => Michaël
+ 
+* Guider bcp plus pour les étapes de bisect + filter-branch, notamment pour démarrer 
 
 
-== Idées (issues répét #2)
-* Ajouter TP/Trucs sur add -p (via eGit ptête plus clair ?)
-* Réordonner TP avec partie "nominale", et partie "bonus" ? Comme ça, on dit : quand tout le monde a fait le "nominal", on passe à la suite. Comme ça, on peut mettre encore plus de trucs cools qu'on a déjà sans les supprimer tout court, mais en identifiant bien qu'ils seront faits si possible.
-* Timeboxer chaque partie : on regarde ce qu'il s'est passé, on réfléchit, et on se fait un doc qui indique combien de temps on passe sur l'intro, sur le TP1, la 2e partie de slides, etc.
-* Ajouter lien correction/explications à la fin de chaque TP, ça nous évitera de le faire en live et de perdre du temps => du coup on y passe du temps uniquement en cas de questions (?)
-* TP Rewritting : Ajouter une note sur le fait qu'on peut réordonner et/ou supprimer tout simplement les commits 
-* Ajouter une page avec toutes les commandes de base + explication (voir https://www.siteground.com/tutorials/git/commands.htm ?)
-* Ajouter une pages/explications sur les "notes" à la suite des tags
-* Partie sur EGit/JGit à faire :-)
-* Carrément virer le 1er TP et mettre des slides d'explication à la place pour gagner du temps ?
 
-== Problèmes
-* Guider plus pour retrouver la commande associée à .git/logs ? L'indiquer en note de bas de page pour que cela ne se voit pas directement ?
-* sous mac c'est `shasum`, et encore, installé via brew donc ptête pas chez tout le monde
-* TP2 Rewriting, mauvais ordre ?
-** Partie split pas du tout assez détaillée/guidée
-** Expliquer ce qu'il faut saisir/pourquoi en paramètre de rebase -i (sha précédent celui visé, etc.)
-
-* Guider bcp plus pour les étapes de bisect, notamment pour démarrer
 
 == Historiques déroulement
 
