@@ -37,7 +37,7 @@ a| image::resources/avatar-michael.png[] a| image::resources/avatar-baptiste.png
 
 == Agenda
 
-_This *is* a workshop. So there will be manipulation along the way, don't worry !_
+_This *is* a workshop. So there will be manipulation, don't worry !_
 
 * Some History
 * The Git Data Model
@@ -153,7 +153,7 @@ a| []
 == Digging
 
 [role="canvas-caption", position="center-up"]
-Let's get a bit deeper now
+Let's dig a bit deeper now
 
 == Git Data Model: The 4 Object Types
 
@@ -190,15 +190,6 @@ image::resources/object-tag.png[]
 		
 image::resources/git-objects-types.png[]
 
-
-[canvas-image="resources/lab.png"]
-== Lab !
-
-[role="canvas-caption", position="left-up"]
-Enough talk, link:labs/lab-1-git-directory.html[let's practice a bit]
-
-[role="canvas-caption", position="center-down"]
-Understanding the .git directory
 
 [canvas-image="resources/back-to-basics.png"]
 == Back to basics
@@ -435,12 +426,6 @@ Fast-forwarded master to feature.
 
 |===
 
-== Let's play again
-
-link:labs/lab-2-rewriting.html[Lab!]
-
-image::resources/rewriting.png[]
-
 == Tips & tricks
 
 Git reflog can save your a$$: keeps track of everywhere you went by
@@ -526,6 +511,11 @@ link:labs/lab-3-bisect-and-filter-branch.html[Let's play with those!]
 Probablement à supprimer en tant que tel, ou en tout cas à injecter au fur et à mesure.
 Mettre un bout de code JGit en exemple ?
 
+[canvas-image="resources/lab.png"]
+== Labs !
+
+[role="canvas-caption", position="left-up"]
+Enough talk, link:labs/all-labs.html[let's practice!]
 
 == Git _workflows_ discussion
 
