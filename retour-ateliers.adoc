@@ -23,8 +23,6 @@
 ** sur le build, séparation en deux fichiers différents pour TP
 ** vérifier rendering
 
-* Ajouter une page avec toutes les commandes de base + explication (voir https://www.siteground.com/tutorials/git/commands.htm ?) => Michaël
-
 * Vérifier si on rajoute slide sur les "notes" ou pas ? (est-ce que c'est important )  => Batimsse
 
 
