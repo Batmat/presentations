@@ -500,22 +500,56 @@ git log --oneline --graph
 
 *filter-branch* is your friend.
 
-image::resources/lab.png[]
-
-link:labs/lab-3-bisect-and-filter-branch.html[Let's play with those!]
-
-////
 == EGit & JGit
 
-[role="todo"]
-Probablement à supprimer en tant que tel, ou en tout cas à injecter au fur et à mesure.
-Mettre un bout de code JGit en exemple ?
+* **E**Git is the Git Plugin for Eclipse
+* **J**Git is the library in pure Java implementing the Git Version Control System
+
+<<<
+
+EGit has been pretty buggy in the past, but now has become definitely usable.
+
+<<<
+
+Even supports some of the features where GUI actually makes a lot of sense: staging interactively the lines you want.
+
+image::resources/egit-add-p.png[]
+
+<<< 
+
+JGit provides (among others) a fluent API to interact with Git repositories:
+
+<<<
+
+[source,java]
+.git clone example
+----
+Git.cloneRepository()
+   .setDirectory("/path/to/git/repository")
+   .setURI("git://gitserver/somerepo.git")
+   .setBare(false)
+   .call();
+----
+
+<<<
+
+[source,java]
+.git fetch example
+----
+Git.open("/some/repository")
+   .fetch()
+   .setRemoveDeletedRefs(true)
+   .setTagOpt(TagOpt.FETCH_TAGS)
+   .call();
+----
 
 [canvas-image="resources/lab.png"]
 == Labs !
 
 [role="canvas-caption", position="left-up"]
 Enough talk, link:labs/all-labs.html[let's practice!]
+
+////
 
 == Git _workflows_ discussion
 
@@ -535,5 +569,7 @@ TODO : slide de conclusion
 * Great tool for learning & understanding Git: http://pcottle.github.io/learnGitBranching/
 * link:http://schacon.github.io/git/gitrepository-layout.html[Repository layout]
 * Special thanks to Scott Chacon for many illustrations reused here
+* link:http://alblue.bandlem.com/2013/11/embedding-jgit.html[Comprehensive article 
+   from Alex Blewitt about the different ways to embed JGit]
 
 image::resources/evaluate_slide.png[]
