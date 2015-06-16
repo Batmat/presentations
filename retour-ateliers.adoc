@@ -35,7 +35,7 @@
 
 === Correction TP Bisect/Filter branch => Michaël
  
-* Guider bcp plus pour les étapes de bisect + filter-branch, notamment pour démarrer 
+* Guider bcp plus pour les étapes de filter-branch, notamment pour démarrer 
 
 
 
