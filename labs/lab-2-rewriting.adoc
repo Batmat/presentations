@@ -1,0 +1,49 @@
+= Twiddling with the history
+:source-language: console
+:toc: right
+:sectnums:
+
+image::../resources/rewriting.png[]
+
+== Rewriting
+
+CAUTION: For this workshop, you need to use repository `git-next-level-workshop-rewriting.git` (workshop resources).
+
+=== Playing with rebase
+==== Basics
+See <<rebaseInteractiveBasics>> first and along the lab if needed.
+
+==== Let's start
+
+* Open your shell, `cd` to the git workshop repository, list all commits.
+
+CAUTION: Respect the steps order of the following. If you don't, you may change commit SHA-1 and not be able to find the SHA-1 given below.
+
+. The three last commits ("Add jumbotron (partXXX)") are not consistent separately, merge these commits to create only one (and remove the useless _(partXXX)_ part of the commit log).
+.. (For reference: first commit SHA-1 shortened version	 = `fc3034f86`)
+. Manipulate the two following commits in the same interactive rebase :
+.. Commit fe9ba27 is an inconsistent commit. Two different modifications have been made : the first adding a footer and the another correcting the header added in the precedent commit.
+.. Commit 05a2231 is a correction of commit fe9ba27 (this sha1 has been changed during precedent action). Merge these two commits to create only one.
+Split this commit to move header correction in the precedent commit and keep footer addition in two distinct and consistent commits.
+. Commit dbb8f26 has a spelling error. Fix it.
+
+=== Playing with dangling commit
+
+Execute this command : 
+[source]
+git checkout fe9ba27
+
+This commit has been modified during precedent actions. But you can still check it out.
+
+* How does Git keep track of it?
+* Explain why.
+
+=== Playing with "cherry-pick"
+
+The current repository has a branch named "header-black-experiment".
+Execute : 
+[source]
+git checkout header-black-experiment
+
+* List all commits.
+* Using cherry-pick command, try to retrieve commit edcdd0a on the master branch

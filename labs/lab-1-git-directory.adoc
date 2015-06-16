@@ -1,0 +1,79 @@
+= The .git directory
+:source-language: console
+:toc: right
+:sectnums:
+
+== The .git directory
+
+TIP: Use the link:../resources/lab/gitrepository-layout.html[provided documentation if needed]
+
+=== ls .git!
+
+* Create a new Git repository (wherever you want)
+
+  git init repo && cd repo && git commit -m 'Initial' --allow-empty
+
+* List the .git directory content and have a look.
+* Create a branch _newbranch_, what (and where) did it create inside the .git directory?
+
+  git branch newbranch
+
+* Checkout that branch, then have a look inside `.git/logs/` :
+** What is this directory used for?
+
+** Which git command does actually use that directory? 
+   (hint: use `git help -a` if needed to find out, then `git help <COMMAND>`)
+
+* Have a look inside `.git/refs`
+
+[source]
+ls -l .git/refs/*/*
+
+** What is this directory used for?
+
+=== Playing with the data model
+
+In a Git repository, execute precisely the following commands to create a commit with a new file:
+
+[source]
+echo "Hi Eclipse Con France 2015" > pof
+git add pof
+git commit -m "commit done"
+
+If your OS is Linux/Mac based, execute the following command :
+
+[source]
+echo -e "blob 27\0Hi Eclipse Con France 2015" | shasum
+
+CAUTION: For Windows and some Mac users, this command may not be available. No worries: for the record, it shows that git generates a SHA1 of the committed files to store them in the repository. This command should display `64e3fc24e6ed73f1af43ae4e0411d80c10c4d0f7`.
+*If you do not have the `shasum` command, don't run the command above and just go ahead with the following*.
+
+Then execute : 
+
+[source]
+git ls-tree master
+
+* What's the role of the ls-tree command?
+* Compare the ls-tree output and the echo command output above. Conclude about how Git stores blobs.
+
+
+* Create a new directory, copy the `pof` file inside it, `git add` the whole directory and commit it. 
+
+[source]
+mkdir newdirectory
+cp pof newdirectory
+git add newdirectory
+git commit -m "Added the new subdirectory"
+
+* Use `git ls-tree master` again to understand how the storage works (cf. slides)
+* Use `git ls-tree` on the subdirectory to display its content (_hint:_ ls-tree takes a hash as parameter, not directory name). 
+** What's the sha of the `pof` in that directory file?
+
+NOTE: There's two categories of Git commands: 
+      `porcelain` (example: git `checkout`) and
+      `plumbing` (example: git `ls-tree`). These categories actually respectively relate to high-level (user-oriented) and low-level commands. 
+
+TIP: To remember which is one: just remember, in toilets, are you more in contact with the porcelain or the plumbing?
+
+
+

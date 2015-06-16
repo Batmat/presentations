@@ -2,12 +2,28 @@
 Eclipse con France 2015
 :toc: right
 
+
 == Prerequisites
 
 IMPORTANT: See link:prerequisites.html[the prerequisites]
 
 :leveloffset: +1
-include::lab-1-git-directory-and-rewriting.adoc[]
 
-include::lab-2-bisect-and-filter-branch.adoc[]
+:sectnums:
+
+include::lab-1-git-directory.adoc[]
+
+include::lab-2-rewriting.adoc[]
+
+include::lab-3-bisect.adoc[]
+
+include::lab-4-filter-branch.adoc[]
+
+include::lab-5-bonus.adoc[]
+
+''''
+
+:!sectnums:
+
+include::lab-6-appendix.adoc[]
 
