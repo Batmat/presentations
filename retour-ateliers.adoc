@@ -33,13 +33,29 @@
 * Guider bcp plus pour les étapes de filter-branch, notamment pour démarrer 
 
 
+== Retour workshop #3
+* Ajouter des slides de conclusion (avantage de Git, savoir ou on est positionné dans le Graph pour bien comprendre ce qu'on le fait, quelques tips/remarques)
+* Rendre plus explicite le changement de repo entre chaque TP, apparament c'est pas clair
+* Correction TP1 :
+** git ls-tree master ne fonctionne pas après avoir créer la branche (remplacer par git ls-tree newbranch ?)
+* TP2 Rewriting
+** branche de cherry-pick absente ! Oubli de push ?
+** Dans la correction "Reset it "softly" one commit behind" pas clair car il y en avait qui utilisait --soft 
+* Sur les Mac, les fichiers du TP Rewriting sont en 755 (WTF ?)
+* Virer les remotes des TPs au moment de les mettre à dispo 
 
 
 == Historiques déroulement
 
 === Progress workshop #3
 
-TODO mercredi 17
+* 12h10 début ~
+* 12h34 : slide merge vs. rebase
+* 12h40 : tips & tricks
+* 12h50 : début TPs
+* 13h40 : seul Thibault a fini le rewriting...
+* 13h47 : arrêt du TP et correction car tout le monde est à la bourre
+* 14h02 : début explication bisect run
 
 === Progress workshop #2
 * Start à 12h10
