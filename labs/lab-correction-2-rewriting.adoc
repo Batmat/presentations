@@ -23,6 +23,15 @@ CAUTION: Respect the steps order of the following. If you don't, you may change 
 * The three last commits ("Add jumbotron (partXXX)") are not consistent separately, merge these commits to create only one (and remove the useless _(partXXX)_ part of the commit log).
 ** (For reference: first commit SHA-1 shortened version	 = `fc3034f86`)
 
+.CORRECTION
+****
+* `git rebase -i HEAD~3`
+* `r` on the first
+* `f` on the second and third
+* Git opens the editor: amend the log and quit (without the parenthesis part)
+* Watch Git squash automatically next commits
+* Done
+****
 
 
 ==== A bit harder
