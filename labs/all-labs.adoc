@@ -25,5 +25,5 @@ include::lab-5-bonus.adoc[]
 
 :!sectnums:
 
-include::lab-6-appendix.adoc[]
+include::appendix.adoc[]
 
