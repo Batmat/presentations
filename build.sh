@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DIST=_dist
 rm -rf $DIST && mkdir -p $DIST
 echo "Prez generation"
@@ -5,10 +7,10 @@ docker run --rm -e PREZ=prez.adoc -v `pwd`:/documents batmat/asciidoctor-prez
 mv -f prez.html $DIST
 
 echo "Copying resources"
-time cp -R resources _dist
+cp -R resources _dist
 
 echo "Generating labs with correction"
-for file in labs/lab-correction*.adoc; do
+for file in "labs/lab-correction*.adoc"; do
 	labWithoutCorrection=${file/lab-correction/lab} 
 	cp $file $labWithoutCorrection
 	sed -r -i '/[\*]{4}/,/[\*]{4}/d' $labWithoutCorrection
