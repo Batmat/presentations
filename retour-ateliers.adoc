@@ -7,11 +7,6 @@
 
 * Suite à 3ème repet', ajout de planing timeboxe pour chaque partie sur un adoc à part pour nous servir pendant la prez
 
-=== Ajouter partie eGIT
-* Ajouter slide  présentation eGIT/JGit 
-* Ajouter démo eGIT / JGIT, au moins petite !
-* Ajouter dans le TP rewriting un petit exo pour équivalent "add -p" dans les bonus
-
 === Corrections 
 
 * Rajouter approfondissements/TP sur .gitattributes (?) dans bonus TP1 (.git) => Batimsse
