@@ -14,7 +14,7 @@ TIP: Use the link:../resources/lab/gitrepository-layout.html[provided documentat
   git init repo && cd repo && git commit -m 'Initial' --allow-empty
 
 * List the .git directory content and have a look.
-* Create a branch _newbranch_, what (and where) did it create inside the .git directory?
+* Create a branch _newbranch_
 
   git branch newbranch
 
@@ -30,6 +30,28 @@ TIP: Use the link:../resources/lab/gitrepository-layout.html[provided documentat
 ls -l .git/refs/*/*
 
 ** What is this directory used for?
+
+
+.Correction
+****
+
+All actions performed by Git or loggued into the `.git/logs/` sub-directory. 
+The `git reflog` command permit to display all performed actions in the git repository (create a branch, commit, etc).
+
+The `.git/refs` directory store all references of all remote and local branches, tags, etc.
+In the case of the lab, you should have something like this : 
+
+[source]
+$> ls .git/refs/*/*
+	-rw-r--r--. 1 git git 41 Jun 5 08:04 .git/refs/heads/master
+	-rw-r--r--. 1 git git 41 Jun 5 08:04 .git/refs/heads/newbranch
+ 
+
+
+Each file contains a SHA1 representing the commit it points to.
+
+**** 
+
 
 === Playing with the data model
 
@@ -68,6 +90,17 @@ git commit -m "Added the new subdirectory"
 * Use `git ls-tree master` again to understand how the storage works (cf. slides)
 * Use `git ls-tree` on the subdirectory to display its content (_hint:_ ls-tree takes a hash as parameter, not directory name). 
 ** What's the sha of the `pof` in that directory file?
+
+.Correction
+****
+
+Git stores each files in blobs, identifying them with the sha1 corresponding.
+
+The `ls-tree` command displays all files (blobs) and trees SHA1 identifier calculated by Git.
+
+When Git stores a same file located in two differents directories, it stores only a single blob for that file in the repository since it's the same file with the same calculated SHA1,
+
+**** 
 
 NOTE: There's two categories of Git commands: 
       `porcelain` (example: git `checkout`) and
