@@ -19,7 +19,7 @@ for file in labs/lab-correction*.adoc; do
 	sed -r -i '/[\*]{4}/,/[\*]{4}/d' $labWithoutCorrection
 	sed -i 's/\.Correction$//g' $labWithoutCorrection
 done
-for lab in `ls labs/lab*.adoc`; do
+for lab in `ls labs/*.adoc`; do
 	echo "Generating html of $lab ..."
 	docker run --rm -e PREZ=$lab -v `pwd`:/documents batmat/asciidoctor-prez 
 done
