@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -eu
+set -o pipefail
+
 DIST=_dist
 rm -rf $DIST && mkdir -p $DIST
 echo "Prez generation"
@@ -10,7 +13,7 @@ echo "Copying resources"
 cp -R resources _dist
 
 echo "Generating labs with correction"
-for file in "labs/lab-correction*.adoc"; do
+for file in labs/lab-correction*.adoc; do
 	labWithoutCorrection=${file/lab-correction/lab} 
 	cp $file $labWithoutCorrection
 	sed -r -i '/[\*]{4}/,/[\*]{4}/d' $labWithoutCorrection
