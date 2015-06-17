@@ -41,6 +41,9 @@ pick 3262d5a ...
 ----
 
 Read what's above. You *can* reorder commits by just *moving lines up or down*, or removing commits by just *removing a whole line*.
+
+In general, read what Git displays. For example, when you edit a commit, Git tells you what/how to 
+do most of the things (`git rebase --continue`, etc.)
 ===
 
 CAUTION: `git rebase -i` will display commits in chronological order, contrary to `git log`
