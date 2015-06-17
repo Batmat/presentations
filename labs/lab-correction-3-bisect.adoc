@@ -40,4 +40,11 @@ Git automatically moves the repository state to another commit so that you can t
 
 Continue previous operations until that you find the bug which has introduced the regression.
 
+.Correction
+****
+
+The bad commit should be "awesome commit #277" with SHA 264ccee
+
+****
+
 TIP: If retrieving the bug is "scriptable", you can find the bug `auto-magically` using `git bisect run <cmd>`. See `git help bisect` for details.
