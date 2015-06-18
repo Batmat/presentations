@@ -31,8 +31,11 @@ cp -R resources $BUILD_OUTPUT_DIR
 
 find $TIPS_DIR -name "*.jpg" -or -name "*.png" -exec cp "{}" $BUILD_OUTPUT_DIR/resources \;
 
+rsync -a .deck.js/ $BUILD_OUTPUT_DIR/.deck.js
+
 cd $BUILD_OUTPUT_DIR
 echo "Prez generation"
 docker run --rm -e PREZ=prez.adoc -v `pwd`:/documents batmat/asciidoctor-prez 
+
 
 echo "Generation ended. Please watch `pwd`/prez.html or browse locally file:///`pwd`/prez.html"

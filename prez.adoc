@@ -8,7 +8,7 @@ Baptiste Mathus <batmat@batmat.net>
 :menu:
 :goto:
 :status:
-:deckjsdir: ../.deck.js
+:deckjsdir: .deck.js
 :source-highlighter: highlightjs
 :source-language: console
 :imagesdir: resources
@@ -45,7 +45,7 @@ a| image::avatar-baptiste.png[]
 CTRL-S (Yay!)
 
 This one is very useful. And alternatively you can also click (with the mouse) on the small icon that you will generally find on the left (because this is actually customisable, I've been told). 
-I like like it because it prevents you from going into the File/Save Menu. It took me years to find this one. I hope you will enjoy it too!
+I like it because it prevents you from going into the File/Save Menu. It took me years to find this one. I hope you will enjoy it too!
 
 I hope you will like it as much as I did. I hope.
 
