@@ -221,7 +221,7 @@ Be able to filter out stack when debugging:
 * Getters/setters
 * ...
 
-[thanks]
+[role="thanks"]
 (thx Sebastien Bordes for the reminder)
 
 == Multi-line Edit
