@@ -1,41 +1,47 @@
 package net.batmat.econ2015.other;
 
+import java.util.Arrays;
+import java.util.List;
 
 public class SomeClassDifferentlyNamed {
-    public static String[] hop = new String[] { "a", "b", "c" };
+	public static List<String> hop = Arrays.asList("a", "b", "c");
 
-    private String someAttribute;
+	private String someAttribute;
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-	int i = 1;
-	String s = (hop != null) ? s = hop[0] : "somevalue";
+		hop.forEach(string -> {
+			System.out.println(string);
+		});
 
-	String a = "boom";
-    }
+		int i = 1;
+		String s = (hop != null) ? s = hop.get(0) : "somevalue";
 
-    private void anotherGreatMethodCastingObject() {
-	Object o = new Object();
+		String a = "boom";
+	}
 
-	if (o instanceof String) {
+	private void anotherGreatMethodCastingObject() {
+		Object o = new Object();
+
+		if (o instanceof String) {
+
+		}
+		// here is some new code
 
 	}
-	// here is some new code
 
-    }
+	/**
+	 * @category gettersetter
+	 * @return
+	 */
+	public String getSomeAttribute() {
+		return someAttribute;
+	}
 
-    /**
-     * @category gettersetter
-     * @return
-     */
-    public String getSomeAttribute() {
-	return someAttribute;
-    }
-
-    /**
-     * @category gettersetter
-     */
-    public void setSomeAttribute(String someAttribute) {
-	this.someAttribute = someAttribute;
-    }
+	/**
+	 * @category gettersetter
+	 */
+	public void setSomeAttribute(String someAttribute) {
+		this.someAttribute = someAttribute;
+	}
 }

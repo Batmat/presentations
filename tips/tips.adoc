@@ -153,12 +153,6 @@ Lets you add more typesafe-ness in your codebase (at least way more than Javadoc
 
 Beware: it's not enforcing anything at all at runtime. This is only hints for the developer.
 
-<<<
-
-Advice: annotate the package itself to define the default value for a whole package
-
-=> `package-info.java`
-
 NOTE: Because studies shows developers actually expect parameters to be passed non null as a default, you will generally annotate the package with "Nonnull by default" and then only annotate methods where you actually expect or produce Nullable things.
 
 <<<
@@ -166,6 +160,7 @@ NOTE: Because studies shows developers actually expect parameters to be passed n
 To go even further:
 
 * link:http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html[The Checker Framework]
+
 
 == JSR 305 externally defined annotations
 
@@ -180,6 +175,12 @@ TODO TODO TODO !
 Useful: be able to automatically format only the code just modified when saving the file.
 
 See in _Java/Editor/Save Actions/Format source code/Format edited lines_
+
+=== Annotating the package itself
+
+Advice: annotate the package itself to define the default value for a whole package
+
+=> `package-info.java`
 
 == Overwrite end of method name instead of adding
 
