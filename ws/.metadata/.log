@@ -1,0 +1,108 @@
+!SESSION 2015-06-22 11:58:34.236 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.7.0_79
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -data /home/tiste/Dropbox/_econ-2015/50slides/ws -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY com.zeroturnaround.eclipse.optimizer.plugin 1 0 2015-06-22 11:59:10.686
+!MESSAGE location of launcher INI: /home/tiste/.tools/eclipse/eclipse.ini
+
+!ENTRY com.zeroturnaround.eclipse.optimizer.plugin 4 0 2015-06-22 11:59:21.246
+!MESSAGE Unable to load version information
+!STACK 0
+org.apache.http.conn.ConnectTimeoutException: Connect to update.zeroturnaround.com:80 [update.zeroturnaround.com/50.19.88.219, update.zeroturnaround.com/50.17.201.131] failed: connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:143)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.ZtHttpClientImpl.performRequest(ZtHttpClientImpl.java:149)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.ZtHttpClientImpl.performRequest(ZtHttpClientImpl.java:69)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.VersionsChecker.loadVersions(VersionsChecker.java:89)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.VersionsChecker.reloadVersions(VersionsChecker.java:79)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.VersionsChecker.loadVersions(VersionsChecker.java:70)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.VersionsChecker.getVersions(VersionsChecker.java:63)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.VersionsChecker.getJavaVersion(VersionsChecker.java:41)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.JavaVersionUtil.getLatestOracleJavaVersion(JavaVersionUtil.java:27)
+	at com.zeroturnaround.eclipse.optimizer.plugin.PluginWindowModel.<init>(PluginWindowModel.java:65)
+	at com.zeroturnaround.eclipse.optimizer.plugin.PluginWindowModel.<clinit>(PluginWindowModel.java:31)
+	at com.zeroturnaround.eclipse.optimizer.plugin.Startup$1.run(Startup.java:60)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
+	... 20 more
+
+!ENTRY com.zeroturnaround.eclipse.optimizer.plugin 4 0 2015-06-22 11:59:26.290
+!MESSAGE error while loading java version from Oracle
+!STACK 0
+org.apache.http.conn.HttpHostConnectException: Connect to java.com:80 [java.com/23.3.230.134, java.com/2a02:26f0:b8:180:0:0:0:2b5a, java.com/2a02:26f0:b8:185:0:0:0:2b5a] failed: Le réseau n'est pas accessible
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.ZtHttpClientImpl.performRequest(ZtHttpClientImpl.java:149)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.ZtHttpClientImpl.performRequest(ZtHttpClientImpl.java:69)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.JavaVersionUtil.getLatestOracleJavaVersionFromOracle(JavaVersionUtil.java:44)
+	at com.zeroturnaround.eclipse.optimizer.plugin.util.JavaVersionUtil.getLatestOracleJavaVersion(JavaVersionUtil.java:29)
+	at com.zeroturnaround.eclipse.optimizer.plugin.PluginWindowModel.<init>(PluginWindowModel.java:65)
+	at com.zeroturnaround.eclipse.optimizer.plugin.PluginWindowModel.<clinit>(PluginWindowModel.java:31)
+	at com.zeroturnaround.eclipse.optimizer.plugin.Startup$1.run(Startup.java:60)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.ConnectException: Le réseau n'est pas accessible
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
+	... 16 more
+
+!ENTRY org.tigris.subversion.clientadapter.javahl 1 0 2015-06-22 12:01:23.718
+!MESSAGE Failed to load JavaHL Library.
+These are the errors that were encountered:
+no libsvnjavahl-1 in java.library.path
+no svnjavahl-1 in java.library.path
+no svnjavahl in java.library.path
+java.library.path = /usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2015-06-22 12:01:26.652
+!MESSAGE Could not auto-share project 50slides
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: Provided SVN information does not match that on disk for project '50slides'.
+	at org.tigris.subversion.subclipse.core.resources.SVNWorkspaceRoot.setSharing(SVNWorkspaceRoot.java:206)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.autoconnectSVNProject(SVNTeamProviderType.java:140)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.run(SVNTeamProviderType.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.tigris.subversion.subclipse.core 4 4 2015-06-22 12:01:26.652
+!MESSAGE Provided SVN information does not match that on disk for project '50slides'.
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2015-06-22 12:01:48.911
+!MESSAGE Could not auto-share project 50slides
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: Provided SVN information does not match that on disk for project '50slides'.
+	at org.tigris.subversion.subclipse.core.resources.SVNWorkspaceRoot.setSharing(SVNWorkspaceRoot.java:206)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.autoconnectSVNProject(SVNTeamProviderType.java:140)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType$AutoShareJob.run(SVNTeamProviderType.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.tigris.subversion.subclipse.core 4 4 2015-06-22 12:01:48.911
+!MESSAGE Provided SVN information does not match that on disk for project '50slides'.

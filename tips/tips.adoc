@@ -110,8 +110,6 @@ Select the if/else to invert, and call the <<QuickFix,Quick Fix>>
 
 Just type the collection/array, and call the <<QuickFix,Quick Fix>>
 
-TODO : check that OK/find right way to use it.
-
 == Convert to lambda expression
 
 Accessible through Clean Up & <<QuickFix,Quick Fix>>
@@ -276,11 +274,8 @@ s
 
 https://recoveringprogrammer.wordpress.com/2013/04/06/using-eclipse-scrapbook-to-quickly-test-your-code/
 
-TODO : Faire sécher tips avec jpage, trouver un exemple concret 
-
 == Add to snippets
 
-TODO : réviser comment ça marche !
 
 == Code templates
 
@@ -290,8 +285,6 @@ Cf. Java/Editor/Templates
 
 Example: formatter on/off (cf. <<formatterOnOff>>)
 
-TODO : vérifier fonctionnement et besoin rezo ?
-
 == Breakpointing
 
 * Conditionally
@@ -300,8 +293,6 @@ TODO : vérifier fonctionnement et besoin rezo ?
 * By Class Loading
 
 image::breakpointing.jpg[]
-
-TODO : affiner lui et la suite.
 
 == Conditional breakpoint
 
@@ -314,6 +305,9 @@ Use it to debug :
 [source,java]
 System.out.println("HERE WE ARE: "+theVariable);
 return false;
+
+Gotcha: in external jars (like rt.jar) without local variable table. 
+Use for example the `arg0` placeholder for parameters, instead of the original parameter names.
 
 == Clean Up
 
