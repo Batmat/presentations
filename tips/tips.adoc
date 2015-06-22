@@ -246,7 +246,7 @@ Be able to filter out stack when debugging:
 * ...
 
 [role="thanks"]
-(thx Sebastien Bordes for the reminder)
+Thanks Sebastien Bordes for the reminder
 
 == Multi-line Edit
 
@@ -267,6 +267,14 @@ or that link:http://www.javalobby.org/java/forums/t16736.html[forum discussion].
 * Ctrl-F6 : Alt-tab for Eclipse
 
 * Ctrl-Page Up/Down : easily switch between tabs
+
+== Full screen the current view
+
+Ctrl-M
+
+== Remove the lines with the cursor/selection
+
+Ctrl-D
 
 == Working Sets
 
