@@ -126,6 +126,12 @@ Not enabled by default. In Java/Editor/Typing.
 
 Use _Ctrl-Shift-3_ on a selected item, then start typing to filter the possible actions in the _Quick access_ menu.
 
+== Save actions: automatic formating
+
+Useful: be able to automatically format only the code just modified when saving the file.
+
+See in _Java/Editor/Save Actions/Format source code/Format edited lines_
+
 [[formatterOnOff]]
 == Formatter: don't touch that part (using begin/end tags)
 
@@ -141,6 +147,14 @@ Use _Ctrl-Shift-3_ on a selected item, then start typing to filter the possible 
 [role="thanks"]
 link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thanks Emmanuel Fontan]
 
+== Tweak autocompletion (aka content assist)
+
+Typing Ctrl-Space many times shows different proposals.
+
+Those are actually configurable.
+
+image::contentassist-tuning.jpg[]
+
 == Favorites
 
 Autocomplete static imports!
@@ -153,13 +167,27 @@ Lets you add more typesafe-ness in your codebase (at least way more than Javadoc
 
 Beware: it's not enforcing anything at all at runtime. This is only hints for the developer.
 
-NOTE: Because studies shows developers actually expect parameters to be passed non null as a default, you will generally annotate the package with "Nonnull by default" and then only annotate methods where you actually expect or produce Nullable things.
-
 <<<
 
 To go even further:
 
 * link:http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html[The Checker Framework]
+
+
+
+== Null analysis: one step further with Type Annotations (JSR 308)
+
+[source]
+----
+@Nonnull List<@Nonnull String> list = new ArrayList<>();
+
+for(String string : list) {
+  if(string != null )	{ // Useless if hinted by Eclipse
+    throw new IllegalArgumentException("WTF?");
+  }
+  ...
+}
+----
 
 
 == JSR 305 externally defined annotations
@@ -170,17 +198,14 @@ https://bugs.eclipse.org/bugs/show_bug.cgi?id=461300
 
 TODO TODO TODO !
 
-== Save actions: automatic formating
 
-Useful: be able to automatically format only the code just modified when saving the file.
-
-See in _Java/Editor/Save Actions/Format source code/Format edited lines_
-
-=== Annotating the package itself
+== Annotating the package itself
 
 Advice: annotate the package itself to define the default value for a whole package
 
 => `package-info.java`
+
+NOTE: With regards to _Null Analysis_ : because studies show developers actually expect parameters to be passed non null as a default, you will generally annotate the package with "Nonnull by default" and then only annotate methods where you actually expect or produce Nullable things.
 
 == Overwrite end of method name instead of adding
 
@@ -269,9 +294,12 @@ TODO : vérifier fonctionnement et besoin rezo ?
 
 == Breakpointing
 
-* conditional
-* exception
-* class load!
+* Conditionally
+* by Hit Count
+* By Exception Type
+* By Class Loading
+
+image::breakpointing.jpg[]
 
 TODO : affiner lui et la suite.
 
