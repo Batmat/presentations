@@ -106,7 +106,7 @@ image::ternary-after.png[]
 
 Select the if/else to invert, and call the <<QuickFix,Quick Fix>>
 
-== Generate for-loop on collection
+== Generate for-loop on collection or array
 
 Just type the collection/array, and call the <<QuickFix,Quick Fix>>
 
@@ -262,6 +262,12 @@ Present complex/weird physical data structure in a logical way in the debugger
 For reference see the link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-logical_structures.htm[official documentation]
 or that link:http://www.javalobby.org/java/forums/t16736.html[forum discussion].
 
+== Switch between tabs
+* Ctrl-E : displays a full list
+* Ctrl-F6 : Alt-tab for Eclipse
+
+* Ctrl-Page Up/Down : easily switch between tabs
+
 == Working Sets
 
 Useful to categorize projects, or packages.
@@ -276,10 +282,23 @@ https://recoveringprogrammer.wordpress.com/2013/04/06/using-eclipse-scrapbook-to
 
 == Add to snippets
 
+You can easily add any code block for future reuse.
 
 == Code templates
 
+Difference with snippets: can be variabilized.
+
 Cf. Java/Editor/Templates
+
+[source,template]
+.Example: JDK8 foreach
+----
+${iterable}.forEach(${iterable_element} -> {
+	${cursor}
+});
+----
+
+link:https://gist.github.com/vferries/23f86bdc68e1b74b5e0d[Thanks Vincent!]
 
 == Extensions: SnipMatch
 
@@ -306,8 +325,7 @@ Use it to debug :
 System.out.println("HERE WE ARE: "+theVariable);
 return false;
 
-Gotcha: in external jars (like rt.jar) without local variable table. 
-Use for example the `arg0` placeholder for parameters, instead of the original parameter names.
+Gotcha: in external jars (like rt.jar) without local variable table, use the `arg0`, `arg1`... placeholders for parameters, instead of the original parameter names.
 
 == Clean Up
 

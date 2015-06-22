@@ -9,7 +9,7 @@ public class QuickFixes {
 	private String someAttribute;
 
 	public static void ternaryAndInvert(String[] args) {
-		String s = (hop != null) ? s = hop.get(0) : "somevalue";
+		String s = (hop != null) ? hop.get(0) : "somevalue";
 
 	}
 

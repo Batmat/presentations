@@ -1,4 +1,4 @@
-package net.batmat.econ2015.slides;
+package net.batmat.econ2015.inheritance;
 
 public class SomeDayForward
 {
