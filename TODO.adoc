@@ -1,0 +1,4 @@
+= TODOs
+
+* Problème réseau ? Erreur tout le temps... 
+** tester sans réseau
