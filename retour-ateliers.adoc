@@ -32,9 +32,7 @@
 Micannelle =>
 
 * Rendre plus explicite le changement de repo entre chaque TP, apparament c'est pas clair
-* Virer les remotes des TPs au moment de les mettre à dispo 
-* TP1 :
-** git ls-tree master ne fonctionne pas après avoir créer la branche (remplacer par git ls-tree newbranch ?)
+
 * TP2 Rewriting
 ** branche de cherry-pick absente ! Oubli de push ?
 *** Ajouter un conflit sur le cherry-pick du rewriting : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.

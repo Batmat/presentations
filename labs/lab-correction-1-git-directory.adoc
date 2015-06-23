@@ -73,23 +73,23 @@ CAUTION: For Windows and some Mac users, this command may not be available. No w
 Then execute : 
 
 [source]
-git ls-tree master
+git ls-tree newbranch
 
 * What's the role of the ls-tree command?
 * Compare the ls-tree output and the echo command output above. Conclude about how Git stores blobs.
 
 
-* Create a new directory, copy the `pof` file inside it, `git add` the whole directory and commit it. 
+* Create a new directory, copy the `pof` file inside it with `pif` name, `git add` the whole directory and commit it. 
 
 [source]
 mkdir newdirectory
-cp pof newdirectory
+cp pof newdirectory/pif
 git add newdirectory
 git commit -m "Added the new subdirectory"
 
-* Use `git ls-tree master` again to understand how the storage works (cf. slides)
+* Use `git ls-tree newbranch` again to understand how the storage works (cf. slides)
 * Use `git ls-tree` on the subdirectory to display its content (_hint:_ ls-tree takes a hash as parameter, not directory name). 
-** What's the sha of the `pof` in that directory file?
+** What's the sha of the `pif` file in that directory ?
 
 .Correction
 ****
