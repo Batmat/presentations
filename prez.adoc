@@ -60,7 +60,7 @@ filter-branch
 ** granularity 
 ** aggregate 
 ** split 
-* [not-ready]*EGit & JGit*
+* EGit & JGit
 * Git _workflows_ discussion
 ** Git flow
 ** Gerrit
