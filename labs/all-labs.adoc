@@ -17,9 +17,7 @@ include::lab-2-rewriting.adoc[]
 
 include::lab-3-bisect.adoc[]
 
-include::lab-4-filter-branch.adoc[]
-
-include::lab-5-bonus.adoc[]
+include::lab-4-bonus.adoc[]
 
 ''''
 

@@ -31,14 +31,7 @@
 
 Micannelle =>
 
-* Rendre plus explicite le changement de repo entre chaque TP, apparament c'est pas clair
-
-* TP2 Rewriting
-** branche de cherry-pick absente ! Oubli de push ?
-*** Ajouter un conflit sur le cherry-pick du rewriting : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
-** Dans la correction "Reset it "softly" one commit behind" pas clair car il y en avait qui utilisait --soft 
 * Sur les Mac, les fichiers du TP Rewriting sont en 755 (WTF ?)
-* checker/déplacer filter-branch dans les bonus
 
 === Si possible
 

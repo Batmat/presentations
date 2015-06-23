@@ -40,6 +40,7 @@ cloneLab() {
 	local branch=
 	
 	git clone git@bitbucket.org:mpailloncy/$labName.git $DIST/$labName
+	#git clone https://mpailloncy@bitbucket.org/mpailloncy/$labName.git $DIST/$labName
 	
 	cd $DIST/$labName
 	if [[ "${#}" == "2" ]]; then
@@ -47,7 +48,7 @@ cloneLab() {
 		git pull
 		git branch --track $branch origin/$branch
 	fi
-	
+
 	git remote remove origin
 	cd -
 }
