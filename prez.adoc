@@ -573,9 +573,18 @@ Enough talk, link:labs/all-labs.html[let's practice!]
 
 ////
 
-////
-TODO : slide de conclusion
-////
+== Conclusion &amp; Recommentations
+
+* Git can be simple when used like Subversion
+* But can become complex to master when using it thoroughly
+
+[options="step"]
+* In case of errors or just logs, really read the output!
+* With Git, always know where you're in the graph and what you want to do
+
+[options="step"]
+[quote,Benjamin Franklin]
+Tell me and I forget, teach me and I may remember, involve me and I learn.
 
 == References & useful links
 

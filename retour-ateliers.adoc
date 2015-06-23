@@ -25,8 +25,6 @@
 
 === A faire pour EclipseCon
 
-* Ajouter des slides de conclusion (avantage de Git, savoir ou on est positionné dans le Graph pour bien comprendre ce qu'on le fait, quelques tips/remarques)
-
 ==== Corrections TP
 
 Micannelle =>
