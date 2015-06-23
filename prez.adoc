@@ -14,6 +14,7 @@ Baptiste Mathus <batmat@batmat.net>, Michaël Pailloncy <michael.pailloncy@gmail
 :source-language: console
 :customcss: resources/custom.css
 :customjs: resources/custom.js
+:deviconimgsize: 54
 
 :nous: image::resources/lol.gif[]
 
@@ -26,8 +27,22 @@ image::resources/prez-logo.png[]
 
 [cols="^,^"]
 |===
-a| image::resources/avatar-michael.png[] a| image::resources/avatar-baptiste.png[]
-| Michaël Pailloncy | Baptiste Mathus
+a| image::resources/avatar-michael.png[] 
+Michaël Pailloncy 
+
+image:resources/github.png[GitHub,width={deviconimgsize},link="https://github.com/mpapo/",title="GitHub"] 
+link:https://github.com/mpapo[mpapo] +
+image:resources/twitter.png[Twitter,width={deviconimgsize},link="http://twitter.com/mpailloncy",title="Twitter"] 
+link:http://twitter.com/mpailloncy"[mpailloncy]
+
+a| image::resources/avatar-baptiste.png[]
+Baptiste Mathus
+
+image:resources/github.png[GitHub,width={deviconimgsize},link="https://github.com/batmat/",title="GitHub"] 
+link:https://github.com/batmat[batmat] +
+image:resources/twitter.png[Twitter,width={deviconimgsize},link="http://twitter.com/bmathus",title="Twitter"] 
+link:http://twitter.com/bmathus"[bmathus]
+
 2+|Working Together @MiPih as ToolSmiths
 |===
 
