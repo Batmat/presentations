@@ -1,49 +1,52 @@
 = Retours ateliers
 :toc: right
 
+== Timing
+
+* 11h15 : DEBUT
+* 11h15 -> 11h35 : Slides
+* 11h35 -> 11h37 : TP1 -- Présentation
+* 11h37 -> 11h50 : TP1
+* 11h50 -> 11h53 : TP2 -- Présentation
+* 11h53 -> 12h20 : TP2
+* 12h20 -> 12h30 : TP2 -- Correction rebase -i du milieu (édition/split de commit Eclipse pour add -p)
+* 12h30 -> 12h45 : TP3 Bisect
+* 12h45 -> 12h50 : TP3 -- Correction
+* 12h50 -> 13h00 : Conclusion
+* 13h00 : FIN
+
+== Découpaze
+
+* Batimsse : intro + data model
+* Micannelle : back to basics -> tips & tricks
+* Batimsse : tips & tricks -> fin (prez labs) : 
+
 == TODO
 
 === A faire pour EclipseCon
 
-* Suite à 3ème repet', ajout de planing timeboxe pour chaque partie sur un adoc à part pour nous servir pendant la prez
-
-=== Corrections 
-
-* Rajouter approfondissements/TP sur .gitattributes (?) dans bonus TP1 (.git) => Batimsse
-* Ajouter partie bonus sur submodule/subtree => Batimsse
-
-* Pour chaque TP, ajouter une correction en prefixant les lignes par un "(CORRECTION):" (ou que cela contienne) => Michaël
-** chercher une solution existante pour afficher dynamiquement la correction
-** une seul fichier adoc de "dev" avec correction inline
-** sur le build, séparation en deux fichiers différents pour TP
-** vérifier rendering
-
-* Vérifier si on rajoute slide sur les "notes" ou pas ? (est-ce que c'est important )  => Batimsse
-
-
-=== Corrections TP1 Rewriting : => Batimsse
-
-* Split d'abord footer puis header, sinon le squash va avoir un commit encore sur 2 fichiers
-* Attention à tout rebase -i en une fois, sinon tous les sha1 deviennent inutilisables (ou trouver autre chose)
-* Pour rebaser un sha x il faut indiquer à -i le parent (au moins)
-* Ajouter un conflit sur le cherry-pick du rewriting : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
-
-=== Correction TP Bisect/Filter branch => Michaël
- 
-* Guider bcp plus pour les étapes de filter-branch, notamment pour démarrer 
-
-
-== Retour workshop #3
 * Ajouter des slides de conclusion (avantage de Git, savoir ou on est positionné dans le Graph pour bien comprendre ce qu'on le fait, quelques tips/remarques)
+
+==== Corrections TP
+
+Micannelle =>
+
 * Rendre plus explicite le changement de repo entre chaque TP, apparament c'est pas clair
-* Correction TP1 :
+* Virer les remotes des TPs au moment de les mettre à dispo 
+* TP1 :
 ** git ls-tree master ne fonctionne pas après avoir créer la branche (remplacer par git ls-tree newbranch ?)
 * TP2 Rewriting
 ** branche de cherry-pick absente ! Oubli de push ?
+*** Ajouter un conflit sur le cherry-pick du rewriting : faire une gestion de conflit entre 2 fichiers au début (genre merge entre 2 branches ?), est-ce utile à discuter.
 ** Dans la correction "Reset it "softly" one commit behind" pas clair car il y en avait qui utilisait --soft 
 * Sur les Mac, les fichiers du TP Rewriting sont en 755 (WTF ?)
-* Virer les remotes des TPs au moment de les mettre à dispo 
+* checker/déplacer filter-branch dans les bonus
 
+=== Si possible
+
+* Ajouter partie bonus sur submodule/subtree => Batimsse
+* Pour chaque TP, plutôt avoir les corrections inline dépliables ?
+* Guider bcp plus pour les étapes de filter-branch, notamment pour démarrer 
 
 == Historiques déroulement
 
