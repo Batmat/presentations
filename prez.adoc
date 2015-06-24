@@ -14,6 +14,7 @@ Baptiste Mathus <batmat@batmat.net>
 :imagesdir: resources
 :customcss: resources/custom.css
 :customjs: resources/custom.js
+:imgwidth: 40
 
 == About Me
 
@@ -25,10 +26,9 @@ a| image::avatar-baptiste.png[]
 | Baptiste Mathus
 | link:http://www.mojohaus.org/[MojoHaus] Committer (previously MOJO@Codehaus)
 | Jenkins Contributor & Plugins Maintainer
-| Working @MiPih as ToolSmith
-a| image:github.png[GitHub,width=24,link="https://github.com/batmat/",title="GitHub"] 
-link:https://github.com/batmat[batmat] +
-image:twitter.png[Twitter,width=24,link="http://twitter.com/bmathus",title="Twitter"] 
+a| image:github.png[GitHub,width={imgwidth},link="https://github.com/batmat/",title="GitHub"] 
+link:https://github.com/batmat[batmat] 
+image:twitter.png[Twitter,width={imgwidth},link="http://twitter.com/bmathus",title="Twitter"] 
 link:http://twitter.com/bmathus"[bmathus] 
 |===
 

@@ -110,6 +110,12 @@ Select the if/else to invert, and call the <<QuickFix,Quick Fix>>
 
 Just type the collection/array, and call the <<QuickFix,Quick Fix>>
 
+== Finding matching curly braces
+
+If putting your cursor next to the curly brace isn't enough to find the associated closing/opening one:
+
+Use Ctrl-Shift-P
+
 == Convert to lambda expression
 
 Accessible through Clean Up & <<QuickFix,Quick Fix>>
@@ -145,6 +151,10 @@ See in _Java/Editor/Save Actions/Format source code/Format edited lines_
 [role="thanks"]
 link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thanks Emmanuel Fontan]
 
+== Formatter: format selectively
+
+Select the text you want to format, and hit ctrl-shift-f as usual.
+
 == Tweak autocompletion (aka content assist)
 
 Typing Ctrl-Space many times shows different proposals.
@@ -159,6 +169,7 @@ Autocomplete static imports!
 
 In Java/Editor/Content Assist/Favorites
 
+[[NullAnalysis]]
 == JSR305 annotations to help null analysis
 
 Lets you add more typesafe-ness in your codebase (at least way more than Javadoc does!).
@@ -170,8 +181,6 @@ Beware: it's not enforcing anything at all at runtime. This is only hints for th
 To go even further:
 
 * link:http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html[The Checker Framework]
-
-
 
 == Null analysis: one step further with Type Annotations (JSR 308)
 
@@ -186,15 +195,6 @@ for(String string : list) {
   ...
 }
 ----
-
-
-== JSR 305 externally defined annotations
-
-New in Eclipse Mars, released yesterday! (24/03/2015).
-link:https://www.eclipse.org/eclipse/news/4.5/M6/#JDT[JSR305 externally annotated classes (Eclipse Mars)]
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=461300
-
-TODO TODO TODO !
 
 
 == Annotating the package itself
@@ -335,6 +335,20 @@ return false;
 
 Gotcha: in external jars (like rt.jar) without local variable table, use the `arg0`, `arg1`... placeholders for parameters, instead of the original parameter names.
 
+== Debugging: Run to line
+
+When debugging, you don't have to put a breakpoint on some line to take the debugger up to it.
+
+Just put the cursor on the line you want, then Ctrl-R (or right click/Run to line)
+
+[role="thanks"]
+Thanks link:http://www.opcoach.com/[Olivier] :-)
+
+== Debugging: Drop To Frame
+
+http://eclipsesource.com/blogs/2013/01/08/effective-java-debugging-with-eclipse/
+
+
 == Clean Up
 
 == How to quick fix many issues outside of the Clean up menu
@@ -347,3 +361,41 @@ Many quick fixes are actually available, but not always through cleanup
 * Click select all
 
 link:https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956[Possible since Luna SR2]
+
+== JSR 305 externally defined annotations
+
+Complementary to <<NullAnalysis>>
+
+New in Eclipse Mars, released yesterday! (24/03/2015).
+
+See link:https://www.eclipse.org/eclipse/news/4.5/M6/#annotate-command#JDT[JSR305 externally annotated classes (Eclipse Mars)]
+
+== Workspace name
+
+Useful if you often switch between workspaces.
+
+Under General/Workspace, you can set the _workspace name_ field.
+
+== Using Docker to build a clean Eclipse with wanted features
+
+[source]
+.Dockerfile
+----
+FROM ndeloof/java
+
+MAINTAINER Baptiste Mathus <batmat@batmat.net>
+
+RUN curl http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk-x86_64.tar.gz | tar -xvz
+
+WORKDIR /eclipse
+
+RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/releases/mars \
+              -installIUs org.eclipse.egit.feature.group,org.eclipse.jgit.feature.group
+
+RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/releases/mars \
+              -installIUs org.eclipse.m2e.feature.feature.group
+
+CMD ["cp","-R","/eclipse","/eclipse-provisioned"]
+----
