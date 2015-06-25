@@ -1,3 +1,11 @@
+.inlineimage * {
+  display: inline;
+}
+
+h1 {
+  font-size: 3.5em !important;
+}
+
 .tip-count {
   font-size: 50%;
   position: relative;
@@ -39,6 +47,7 @@
   position: fixed;
   bottom: 0;
   left: 1em;
+  width: 400px;
   font-family: monospace;
 }
 

@@ -1,4 +1,4 @@
-= 50 slides of IDE - Beta :-)
+= 50 slides of IDE -- Eclipse Con France 2015
 Baptiste Mathus <batmat@batmat.net>
 :backend: deckjs
 :split:
@@ -26,8 +26,11 @@ a| image::avatar-baptiste.png[]
 | Baptiste Mathus
 | link:http://www.mojohaus.org/[MojoHaus] Committer (previously MOJO@Codehaus)
 | Jenkins Contributor & Plugins Maintainer
-a| image:github.png[GitHub,width={imgwidth},link="https://github.com/batmat/",title="GitHub"] 
+a| 
+[role="inlineimage"]
+image:github.png[GitHub,width={imgwidth},link="https://github.com/batmat/",title="GitHub"] 
 link:https://github.com/batmat[batmat] 
+[role="inlineimage"]
 image:twitter.png[Twitter,width={imgwidth},link="http://twitter.com/bmathus",title="Twitter"] 
 link:http://twitter.com/bmathus"[bmathus] 
 |===
@@ -43,6 +46,8 @@ link:http://twitter.com/bmathus"[bmathus]
 * Some may even appear obvious ; for you.
 * Just wait for the next one then, it should not be long.
 ** 50 tips => 35 minutes => *42* (!) seconds per tip!
+
+Don't worry: slides with each tip will be provided
 
 == First one: make saving things easier (and quicker lol) than clicking in the typical place where you usually find it in applications.
 
