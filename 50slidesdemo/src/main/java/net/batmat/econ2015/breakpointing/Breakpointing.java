@@ -1,4 +1,4 @@
-package net.batmat.econ2015.logicalstructureandbreakpointing;
+package net.batmat.econ2015.breakpointing;
 
 
 public class Breakpointing {

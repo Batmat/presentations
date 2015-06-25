@@ -1,8 +1,8 @@
-package net.batmat.econ2015.logicalstructureandbreakpointing;
+package net.batmat.econ2015.logicalstructure;
 
 import java.util.Base64;
 
-public class Demo {
+public class LogicalStructure {
 	public static class MyGreatPhysicalStructure {
 		public String encodedContent;
 
@@ -19,21 +19,10 @@ public class Demo {
 
 	public static void main(String[] args) {
 
-		conditionalBreakpointHack();
-
-		// demoLogicalStructure();
-
-	}
-
-	private static void demoLogicalStructure() {
 		MyGreatPhysicalStructure myGreatPhysicalStructure = new MyGreatPhysicalStructure(
 				"here we are");
-
+		
 		System.out.println(myGreatPhysicalStructure.toString());
-	}
-
-	private static void conditionalBreakpointHack() {
-		System.out.println("Some String".substring(0, 5));
 
 	}
 }
