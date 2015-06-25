@@ -1,0 +1,401 @@
+== Abreviate package name
+
+In _Java/Appearance/abbreviate package names_ :
+
+Example:
+
+    net.batmat.econ2015={DEMO}
+
+[cols="^,^"]
+|====
+| Before | After
+a| image::pkg-abbreviation-before.png[]
+a| image::pkg-abbreviation-after.png[]
+|====
+
+== Find any class by name
+
+[role="shortcut tip"]
+Control-Shift-T
+
+== Browse current class methods
+
+Ctrl-O displays all the methods of the current class
+
+<<< 
+
+Or Inherited
+
+Ctrl-O-O methods of the current class + *parent*
+
+== Find resources
+
+[role="shortcut tip"]
+Control-Shift-R
+
+== Use CamelCase
+
+image::camelcase-filtering.png[]
+
+<<<
+
+Or more selectively
+
+image::camelcase-filtering-more-selective.png[]
+
+Use space or < to stop matching
+
+== Move/Copy lines up and down
+
+:selectedtextdown: the currently selected lines down
+
+* Alt-arrow-down to move {selectedtextdown}
+* Ctrl-Alt-arrow-down to copy {selectedtextdown}
+
+== Quick contextual execution menu
+
+_Alt-Shift-x_ will display a contextual menu.
+
+Example: you're in a JUnit class, just type Alt-Shift-X then T to run the tests.
+
+image::alt-shift-x-menu.png[]
+
+== Execute previous run instead of current open file
+
+Be explicit. Changing the code it's natural to just run Ctrl-F11 or F11 to re-execute the previously ran test
+
+Run/Debug/Launching/Launch Operation/Always launch the previously launched application
+
+[[QuickFix]]
+== Quick fix
+
+Type _Ctrl-Shift-1_ (or click on the lightbulb on the left of the line) to see what the possible actions are on the current focus
+
+image::quickfix.png[Quick Fix Example]
+
+[[ExtractMethod]]
+== Extract Method
+
+Select text, right click and extract the whole code block into a new method easily.
+
+Inverse: see <<InlineMethod>>
+
+[[InlineMethod]]
+== Inline Method
+
+Easily inline the code of a method.
+
+* Select method to inline/Right click/Refactor/Inline Method.
+* Shortcut: Alt-Shift-I
+
+Inverse: see <<ExtractMethod>>
+
+== Refactoring: Replacing ternary with if-else
+
+Replace your ternary expression with an if-else (more often than not!)
+
+Before :
+
+image::ternary-before.png[]
+
+After :
+
+image::ternary-after.png[]
+
+== Invert if/else conditions
+
+Select the if/else to invert, and call the <<QuickFix,Quick Fix>>
+
+== Generate for-loop on collection or array
+
+Just type the collection/array, and call the <<QuickFix,Quick Fix>>
+
+== Finding matching curly braces
+
+If putting your cursor next to the curly brace isn't enough to find the associated closing/opening one:
+
+Use Ctrl-Shift-P
+
+== Convert to lambda expression
+
+Accessible through Clean Up & <<QuickFix,Quick Fix>>
+
+== Typing: automatically place semicolons
+
+== Typing: escape text when pasting into a string literal
+
+Not enabled by default. In Java/Editor/Typing.
+
+== Meta-Shortcut
+
+Use _Ctrl-Shift-3_ on a selected item, then start typing to filter the possible actions in the _Quick access_ menu.
+
+== Save actions: automatic formating
+
+Useful: be able to automatically format only the code just modified when saving the file.
+
+See in _Java/Editor/Save Actions/Format source code/Format edited lines_
+
+[[formatterOnOff]]
+== Formatter: don't touch that part (using begin/end tags)
+
+[source,java]
+----
+// @formatter:off
+     // Some weirdly formatted source
+     String s2 = 
+				            "hello";
+// @formatter:on
+----
+
+[role="thanks"]
+link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ[Thanks Emmanuel Fontan]
+
+== Formatter: format selectively
+
+Select the text you want to format, and hit ctrl-shift-f as usual.
+
+== Tweak autocompletion (aka content assist)
+
+Typing Ctrl-Space many times shows different proposals.
+
+Those are actually configurable.
+
+image::contentassist-tuning.jpg[]
+
+== Favorites
+
+Autocomplete static imports!
+
+In Java/Editor/Content Assist/Favorites
+
+[[NullAnalysis]]
+== JSR305 annotations to help null analysis
+
+Lets you add more typesafe-ness in your codebase (at least way more than Javadoc does!).
+
+Beware: it's not enforcing anything at all at runtime. This is only hints for the developer.
+
+<<<
+
+To go even further:
+
+* link:http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html[The Checker Framework]
+
+== Null analysis: one step further with Type Annotations (JSR 308)
+
+[source]
+----
+@Nonnull List<@Nonnull String> list = new ArrayList<>();
+
+for(String string : list) {
+  if(string != null )	{ // Useless if hinted by Eclipse
+    throw new IllegalArgumentException("WTF?");
+  }
+  ...
+}
+----
+
+
+== Annotating the package itself
+
+Advice: annotate the package itself to define the default value for a whole package
+
+=> `package-info.java`
+
+NOTE: With regards to _Null Analysis_ : because studies show developers actually expect parameters to be passed non null as a default, you will generally annotate the package with "Nonnull by default" and then only annotate methods where you actually expect or produce Nullable things.
+
+== Overwrite end of method name instead of adding
+
+Java/Editor/Content Assist : toggle "Completion overwrites" instead of "Completion Inserts"
+
+Can be live toggled using _Ctrl_ key.
+
+== Instanceof Automatic Contextualization
+
+Inside an instanceof block, analyzes the type of the given instanceof and autocompletes with its methods:
+
+image::autocast-instanceof.png[]
+
+== Type filters
+
+In Java/Appearance/Type Filters
+
+To filter out java.awt.* for example...
+
+<<<
+
+Filter out method coming from Object! (who wants to call `notify()`...)
+
+image::type-filters.png[]
+
+== Filtering methods by categorizing them
+
+Categorize Filtering/choosing which methods to display in the _Outline_ using javadoc's _@category_ tags 
+
+[role="thanks"]
+(thanks link:https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/Wdf3VMMDM0YJ[Jordi Barrère]).
+
+== Step filtering
+ 
+Be able to filter out stack when debugging:
+
+* By class
+* Constructors
+* Getters/setters
+* ...
+
+[role="thanks"]
+Thanks Sebastien Bordes for the reminder
+
+== Multi-line Edit
+
+Alt-Shift-A or the icon, as if Sublime Text invented it all ;-)
+
+[role="thanks"]
+(link:https://groups.google.com/d/msg/toulouse-jug/SpOWtYPxJa0/tGkr5LAbwU8J[Thanks Olivier Jaquemet])
+
+== Logical structure
+
+Present complex/weird physical data structure in a logical way in the debugger
+
+For reference see the link:http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-logical_structures.htm[official documentation]
+or that link:http://www.javalobby.org/java/forums/t16736.html[forum discussion].
+
+== Switch between tabs
+* Ctrl-E : displays a full list
+* Ctrl-F6 : Alt-tab for Eclipse
+
+* Ctrl-Page Up/Down : easily switch between tabs
+
+== Full screen the current view
+
+Ctrl-M
+
+== Remove the lines with the cursor/selection
+
+Ctrl-D
+
+== Working Sets
+
+Useful to categorize projects, or packages.
+
+== Scrapbooking, REPL
+
+[source,java]
+String s = String.format("%05d", 7);
+s
+
+https://recoveringprogrammer.wordpress.com/2013/04/06/using-eclipse-scrapbook-to-quickly-test-your-code/
+
+== Add to snippets
+
+You can easily add any code block for future reuse.
+
+== Code templates
+
+Difference with snippets: can be variabilized.
+
+Cf. Java/Editor/Templates
+
+[source,template]
+.Example: JDK8 foreach
+----
+${iterable}.forEach(${iterable_element} -> {
+	${cursor}
+});
+----
+
+link:https://gist.github.com/vferries/23f86bdc68e1b74b5e0d[Thanks Vincent!]
+
+== Extensions: SnipMatch
+
+Example: formatter on/off (cf. <<formatterOnOff>>)
+
+== Breakpointing
+
+* Conditionally
+* by Hit Count
+* By Exception Type
+* By Class Loading
+
+image::breakpointing.jpg[]
+
+== Conditional breakpoint
+
+Many conditions, not always well-known
+
+<<<
+
+Use it to debug : 
+
+[source,java]
+System.out.println("HERE WE ARE: "+theVariable);
+return false;
+
+Gotcha: in external jars (like rt.jar) without local variable table, use the `arg0`, `arg1`... placeholders for parameters, instead of the original parameter names.
+
+== Debugging: Run to line
+
+When debugging, you don't have to put a breakpoint on some line to take the debugger up to it.
+
+Just put the cursor on the line you want, then Ctrl-R (or right click/Run to line)
+
+[role="thanks"]
+Thanks link:http://www.opcoach.com/[Olivier] :-)
+
+== Debugging: Drop To Frame
+
+http://eclipsesource.com/blogs/2013/01/08/effective-java-debugging-with-eclipse/
+
+
+== Clean Up
+
+== How to quick fix many issues outside of the Clean up menu
+
+Many quick fixes are actually available, but not always through cleanup
+
+* Go to the Problems view
+* Then call... the Quick Fix
+* Select the issue you want to fix
+* Click select all
+
+link:https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956[Possible since Luna SR2]
+
+== JSR 305 externally defined annotations
+
+Complementary to <<NullAnalysis>>
+
+New in Eclipse Mars, released yesterday! (24/03/2015).
+
+See link:https://www.eclipse.org/eclipse/news/4.5/M6/#annotate-command#JDT[JSR305 externally annotated classes (Eclipse Mars)]
+
+== Workspace name
+
+Useful if you often switch between workspaces.
+
+Under General/Workspace, you can set the _workspace name_ field.
+
+== Using Docker to build a clean Eclipse with wanted features
+
+[source]
+.Dockerfile
+----
+FROM ndeloof/java
+
+MAINTAINER Baptiste Mathus <batmat@batmat.net>
+
+RUN curl http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk-x86_64.tar.gz | tar -xvz
+
+WORKDIR /eclipse
+
+RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/releases/mars \
+              -installIUs org.eclipse.egit.feature.group,org.eclipse.jgit.feature.group
+
+RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/releases/mars \
+              -installIUs org.eclipse.m2e.feature.feature.group
+
+CMD ["cp","-R","/eclipse","/eclipse-provisioned"]
+----

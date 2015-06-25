@@ -1,0 +1,7 @@
+== 50 slides of IDE
+
+In this session, I'll demonstrate 50 tips you can use in the Eclipse Java IDE.
+
+From automatically placing semicolons to save actions, filtering useless classes and many more, we'll have a little ballad trying to uncover all those little productivity diamonds, sometimes inexplicably not well known, waiting to be enabled to ease your coding day.
+
+In case you wonder, we will mostly spend our time together in the IDE :-).

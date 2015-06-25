@@ -1,0 +1,3 @@
+String s = String.format("%05d", 7);
+s
+
