@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Asciidoctor 1.5.2" name="generator">
+<meta content="Baptiste Mathus" name="author">
+<title>50 slides of IDE&#8201;&#8212;&#8201;Eclipse Con France 2015</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<link href=".deck.js/core/deck.core.css" rel="stylesheet">
+<link href=".deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet">
+<link href=".deck.js/extensions/goto/deck.goto.css" media="screen" rel="stylesheet">
+<link href=".deck.js/extensions/menu/deck.menu.css" media="screen" rel="stylesheet">
+<link href=".deck.js/extensions/navigation/deck.navigation.css" media="screen" rel="stylesheet">
+<link href=".deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet">
+<link href=".deck.js/themes/style/swiss.css" media="screen" rel="stylesheet">
+<link href=".deck.js/themes/transition/fade.css" media="screen" rel="stylesheet">
+<link href="resources/custom.css" rel="stylesheet">
+<link href=".deck.js/core/print.css" media="print" rel="stylesheet">
+<script src=".deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>50 slides of IDE&#8201;&#8212;&#8201;Eclipse Con France 2015</h1>
+<span id="author">Baptiste Mathus</span>
+<br>
+<span id="email"><a href="mailto:batmat@batmat.net">batmat@batmat.net</a></span>
+<br>
+</section>
+<section class="slide" id="_about_me">
+<h2>About Me</h2>
+<table class="tableblock frame-all grid-all" style="width:100%">
+<colgroup>
+<col style="width:100%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="avatar baptiste" src="resources/avatar-baptiste.png">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Baptiste Mathus</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="http://www.mojohaus.org/">MojoHaus</a> Committer (previously MOJO@Codehaus)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Jenkins Contributor &amp; Plugins Maintainer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="paragraph inlineimage"><p><span class="image"><a class="image" href="https://github.com/batmat/">
+<img alt="GitHub" src="resources/github.png" title="GitHub" width="40">
+</a></span> 
+<a href="https://github.com/batmat">batmat</a></p></div>
+<div class="paragraph inlineimage"><p><span class="image"><a class="image" href="http://twitter.com/bmathus">
+<img alt="Twitter" src="resources/twitter.png" title="Twitter" width="40">
+</a></span>
+<a href="http://twitter.com/bmathus"">bmathus</a></p></div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph tags"><p>#automation #tooling #java #passion #oss #jenkins #maven #nexus #sonarqube</p></div>
+</section>
+<section class="slide" id="_preamble">
+<h2>Preamble</h2>
+<div class="ulist">
+<ul>
+<li>You <strong>will</strong> already know some of the tricks here.</li>
+<li>Some may even appear obvious ; for you.</li>
+<li><p>
+Just wait for the next one then, it should not be long.<div class="ulist">
+<ul>
+<li>50 tips &#8658; 35 minutes &#8658; <strong>42</strong> (!) seconds per tip!</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+<div class="paragraph"><p>Don&#8217;t worry: slides with each tip will be provided</p></div>
+</section>
+<section class="slide" id="_first_one_make_saving_things_easier_and_quicker_lol_than_clicking_in_the_typical_place_where_you_usually_find_it_in_applications">
+<h2>First one: make saving things easier (and quicker lol) than clicking in the typical place where you usually find it in applications.</h2>
+<div class="paragraph"><p>CTRL-S (Yay!)</p></div>
+<div class="paragraph"><p>This one is very useful. And alternatively you can also click (with the mouse) on the small icon that you will generally find on the left (because this is actually customisable, I&#8217;ve been told).
+I like it because it prevents you from going into the File/Save Menu. It took me years to find this one. I hope you will enjoy it too!</p></div>
+<div class="paragraph"><p>I hope you will like it as much as I did. I hope.</p></div>
+</section>
+<section class="slide canvas-image" id="_lol" style="background-image: url(resources/lol.gif)">
+<div class="paragraph"><p>Lol&#8230;&#8203;</p></div>
+</section>
+<section class="slide" id="_let_s_go">
+<h2>Let&#8217;s go</h2>
+<div class="paragraph"><p>Let&#8217;s now get a bit more serious, only 34 minutes left&#8230;&#8203;</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_1_51_span_abreviate_package_name">
+<h2><span class="tip-count">(1/51)</span> Abreviate package name</h2>
+<div class="paragraph"><p>In <em>Java/Appearance/abbreviate package names</em> :</p></div>
+<div class="paragraph"><p>Example:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre>net.batmat.econ2015={DEMO}</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all" style="width:100%">
+<colgroup>
+<col style="width:50%">
+<col style="width:50%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Before</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">After</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="pkg abbreviation before" src="resources/pkg-abbreviation-before.png">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="pkg abbreviation after" src="resources/pkg-abbreviation-after.png">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide" id="__span_class_tip_count_2_51_span_find_any_class_by_name">
+<h2><span class="tip-count">(2/51)</span> Find any class by name</h2>
+<div class="paragraph shortcut tip"><p>Control-Shift-T</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_3_51_span_browse_current_class_methods">
+<h2><span class="tip-count">(3/51)</span> Browse current class methods</h2>
+<div class="paragraph"><p>Ctrl-O displays all the methods of the current class</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Or Inherited</p></div>
+<div class="paragraph"><p>Ctrl-O-O methods of the current class + <strong>parent</strong></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_4_51_span_find_resources">
+<h2><span class="tip-count">(4/51)</span> Find resources</h2>
+<div class="paragraph shortcut tip"><p>Control-Shift-R</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_5_51_span_use_camelcase">
+<h2><span class="tip-count">(5/51)</span> Use CamelCase</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="camelcase filtering" src="resources/camelcase-filtering.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Or more selectively</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="camelcase filtering more selective" src="resources/camelcase-filtering-more-selective.png">
+</div>
+</div>
+<div class="paragraph"><p>Use space or &lt; to stop matching</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_6_51_span_move_copy_lines_up_and_down">
+<h2><span class="tip-count">(6/51)</span> Move/Copy lines up and down</h2>
+<div class="ulist">
+<ul>
+<li>Alt-arrow-down to move the currently selected lines down</li>
+<li>Ctrl-Alt-arrow-down to copy the currently selected lines down</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_7_51_span_quick_contextual_execution_menu">
+<h2><span class="tip-count">(7/51)</span> Quick contextual execution menu</h2>
+<div class="paragraph"><p><em>Alt-Shift-x</em> will display a contextual menu.</p></div>
+<div class="paragraph"><p>Example: you&#8217;re in a JUnit class, just type Alt-Shift-X then T to run the tests.</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="alt shift x menu" src="resources/alt-shift-x-menu.png">
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_8_51_span_execute_previous_run_instead_of_current_open_file">
+<h2><span class="tip-count">(8/51)</span> Execute previous run instead of current open file</h2>
+<div class="paragraph"><p>Be explicit. Changing the code it&#8217;s natural to just run Ctrl-F11 or F11 to re-execute the previously ran test</p></div>
+<div class="paragraph"><p>Run/Debug/Launching/Launch Operation/Always launch the previously launched application</p></div>
+</section>
+<section class="slide" id="QuickFix">
+<h2><span class="tip-count">(9/51)</span> Quick fix</h2>
+<div class="paragraph"><p>Type <em>Ctrl-Shift-1</em> (or click on the lightbulb on the left of the line) to see what the possible actions are on the current focus</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="Quick Fix Example" src="resources/quickfix.png">
+</div>
+</div>
+</section>
+<section class="slide" id="ExtractMethod">
+<h2><span class="tip-count">(10/51)</span> Extract Method</h2>
+<div class="paragraph"><p>Select text, right click and extract the whole code block into a new method easily.</p></div>
+<div class="paragraph"><p>Inverse: see <a href="#InlineMethod"><span class="tip-count">(11/51)</span> Inline Method</a></p></div>
+</section>
+<section class="slide" id="InlineMethod">
+<h2><span class="tip-count">(11/51)</span> Inline Method</h2>
+<div class="paragraph"><p>Easily inline the code of a method.</p></div>
+<div class="ulist">
+<ul>
+<li>Select method to inline/Right click/Refactor/Inline Method.</li>
+<li>Shortcut: Alt-Shift-I</li>
+</ul>
+</div>
+<div class="paragraph"><p>Inverse: see <a href="#ExtractMethod"><span class="tip-count">(10/51)</span> Extract Method</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_12_51_span_refactoring_replacing_ternary_with_if_else">
+<h2><span class="tip-count">(12/51)</span> Refactoring: Replacing ternary with if-else</h2>
+<div class="paragraph"><p>Replace your ternary expression with an if-else (more often than not!)</p></div>
+<div class="paragraph"><p>Before :</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="ternary before" src="resources/ternary-before.png">
+</div>
+</div>
+<div class="paragraph"><p>After :</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="ternary after" src="resources/ternary-after.png">
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_13_51_span_invert_if_else_conditions">
+<h2><span class="tip-count">(13/51)</span> Invert if/else conditions</h2>
+<div class="paragraph"><p>Select the if/else to invert, and call the <a href="#QuickFix">Quick Fix</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_14_51_span_generate_for_loop_on_collection_or_array">
+<h2><span class="tip-count">(14/51)</span> Generate for-loop on collection or array</h2>
+<div class="paragraph"><p>Just type the collection/array, and call the <a href="#QuickFix">Quick Fix</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_15_51_span_finding_matching_curly_braces">
+<h2><span class="tip-count">(15/51)</span> Finding matching curly braces</h2>
+<div class="paragraph"><p>If putting your cursor next to the curly brace isn&#8217;t enough to find the associated closing/opening one:</p></div>
+<div class="paragraph"><p>Use Ctrl-Shift-P</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_16_51_span_convert_to_lambda_expression">
+<h2><span class="tip-count">(16/51)</span> Convert to lambda expression</h2>
+<div class="paragraph"><p>Accessible through Clean Up &amp; <a href="#QuickFix">Quick Fix</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_17_51_span_typing_automatically_place_semicolons">
+<h2><span class="tip-count">(17/51)</span> Typing: automatically place semicolons</h2>
+
+</section>
+<section class="slide" id="__span_class_tip_count_18_51_span_typing_escape_text_when_pasting_into_a_string_literal">
+<h2><span class="tip-count">(18/51)</span> Typing: escape text when pasting into a string literal</h2>
+<div class="paragraph"><p>Not enabled by default. In Java/Editor/Typing.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_19_51_span_meta_shortcut">
+<h2><span class="tip-count">(19/51)</span> Meta-Shortcut</h2>
+<div class="paragraph"><p>Use <em>Ctrl-Shift-3</em> on a selected item, then start typing to filter the possible actions in the <em>Quick access</em> menu.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_20_51_span_save_actions_automatic_formating">
+<h2><span class="tip-count">(20/51)</span> Save actions: automatic formating</h2>
+<div class="paragraph"><p>Useful: be able to automatically format only the code just modified when saving the file.</p></div>
+<div class="paragraph"><p>See in <em>Java/Editor/Save Actions/Format source code/Format edited lines</em></p></div>
+</section>
+<section class="slide" id="formatterOnOff">
+<h2><span class="tip-count">(21/51)</span> Formatter: don&#8217;t touch that part (using begin/end tags)</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="java language-java">// @formatter:off
+     // Some weirdly formatted source
+     String s2 =
+				            "hello";
+// @formatter:on</code></pre>
+</div>
+</div>
+<div class="paragraph thanks"><p><a href="https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/-OoFV7dopNQJ">Thanks Emmanuel Fontan</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_22_51_span_formatter_format_selectively">
+<h2><span class="tip-count">(22/51)</span> Formatter: format selectively</h2>
+<div class="paragraph"><p>Select the text you want to format, and hit ctrl-shift-f as usual.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_23_51_span_tweak_autocompletion_aka_content_assist">
+<h2><span class="tip-count">(23/51)</span> Tweak autocompletion (aka content assist)</h2>
+<div class="paragraph"><p>Typing Ctrl-Space many times shows different proposals.</p></div>
+<div class="paragraph"><p>Those are actually configurable.</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="contentassist tuning" src="resources/contentassist-tuning.jpg">
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_24_51_span_favorites">
+<h2><span class="tip-count">(24/51)</span> Favorites</h2>
+<div class="paragraph"><p>Autocomplete static imports!</p></div>
+<div class="paragraph"><p>In Java/Editor/Content Assist/Favorites</p></div>
+</section>
+<section class="slide" id="NullAnalysis">
+<h2><span class="tip-count">(25/51)</span> JSR305 annotations to help null analysis</h2>
+<div class="paragraph"><p>Lets you add more typesafe-ness in your codebase (at least way more than Javadoc does!).</p></div>
+<div class="paragraph"><p>Beware: it&#8217;s not enforcing anything at all at runtime. This is only hints for the developer.</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>To go even further:</p></div>
+<div class="ulist">
+<ul>
+<li><a href="http://types.cs.washington.edu/checker-framework/current/checker-framework-manual.html">The Checker Framework</a></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_26_51_span_null_analysis_one_step_further_with_type_annotations_jsr_308">
+<h2><span class="tip-count">(26/51)</span> Null analysis: one step further with Type Annotations (JSR 308)</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">@Nonnull List&lt;@Nonnull String&gt; list = new ArrayList&lt;&gt;();
+
+for(String string : list) {
+  if(string != null )	{ // Useless if hinted by Eclipse
+    throw new IllegalArgumentException("WTF?");
+  }
+  ...
+}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_27_51_span_annotating_the_package_itself">
+<h2><span class="tip-count">(27/51)</span> Annotating the package itself</h2>
+<div class="paragraph"><p>Advice: annotate the package itself to define the default value for a whole package</p></div>
+<div class="paragraph"><p>&#8658; <code>package-info.java</code></p></div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+With regards to <em>Null Analysis</em> : because studies show developers actually expect parameters to be passed non null as a default, you will generally annotate the package with "Nonnull by default" and then only annotate methods where you actually expect or produce Nullable things.
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_28_51_span_overwrite_end_of_method_name_instead_of_adding">
+<h2><span class="tip-count">(28/51)</span> Overwrite end of method name instead of adding</h2>
+<div class="paragraph"><p>Java/Editor/Content Assist : toggle "Completion overwrites" instead of "Completion Inserts"</p></div>
+<div class="paragraph"><p>Can be live toggled using <em>Ctrl</em> key.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_29_51_span_instanceof_automatic_contextualization">
+<h2><span class="tip-count">(29/51)</span> Instanceof Automatic Contextualization</h2>
+<div class="paragraph"><p>Inside an instanceof block, analyzes the type of the given instanceof and autocompletes with its methods:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="autocast instanceof" src="resources/autocast-instanceof.png">
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_30_51_span_type_filters">
+<h2><span class="tip-count">(30/51)</span> Type filters</h2>
+<div class="paragraph"><p>In Java/Appearance/Type Filters</p></div>
+<div class="paragraph"><p>To filter out java.awt.* for example&#8230;&#8203;</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Filter out method coming from Object! (who wants to call <code>notify()</code>&#8230;&#8203;)</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="type filters" src="resources/type-filters.png">
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_31_51_span_filtering_methods_by_categorizing_them">
+<h2><span class="tip-count">(31/51)</span> Filtering methods by categorizing them</h2>
+<div class="paragraph"><p>Categorize Filtering/choosing which methods to display in the <em>Outline</em> using javadoc&#8217;s <em>@category</em> tags</p></div>
+<div class="paragraph thanks"><p>(thanks <a href="https://groups.google.com/d/msg/toulouse-jug/EFHt84uEkLk/Wdf3VMMDM0YJ">Jordi Barrère</a>).</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_32_51_span_step_filtering">
+<h2><span class="tip-count">(32/51)</span> Step filtering</h2>
+<div class="paragraph"><p>Be able to filter out stack when debugging:</p></div>
+<div class="ulist">
+<ul>
+<li>By class</li>
+<li>Constructors</li>
+<li>Getters/setters</li>
+<li>&#8230;&#8203;</li>
+</ul>
+</div>
+<div class="paragraph thanks"><p>Thanks Sebastien Bordes for the reminder</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_33_51_span_multi_line_edit">
+<h2><span class="tip-count">(33/51)</span> Multi-line Edit</h2>
+<div class="paragraph"><p>Alt-Shift-A or the icon, as if Sublime Text invented it all ;-)</p></div>
+<div class="paragraph thanks"><p>(<a href="https://groups.google.com/d/msg/toulouse-jug/SpOWtYPxJa0/tGkr5LAbwU8J">Thanks Olivier Jaquemet</a>)</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_34_51_span_logical_structure">
+<h2><span class="tip-count">(34/51)</span> Logical structure</h2>
+<div class="paragraph"><p>Present complex/weird physical data structure in a logical way in the debugger</p></div>
+<div class="paragraph"><p>For reference see the <a href="http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fpreferences%2Fjava%2Fdebug%2Fref-logical_structures.htm">official documentation</a>
+or that <a href="http://www.javalobby.org/java/forums/t16736.html">forum discussion</a>.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_35_51_span_switch_between_tabs">
+<h2><span class="tip-count">(35/51)</span> Switch between tabs</h2>
+<div class="ulist">
+<ul>
+<li>Ctrl-E : displays a full list</li>
+<li>Ctrl-F6 : Alt-tab for Eclipse</li>
+<li>Ctrl-Page Up/Down : easily switch between tabs</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_36_51_span_full_screen_the_current_view">
+<h2><span class="tip-count">(36/51)</span> Full screen the current view</h2>
+<div class="paragraph"><p>Ctrl-M</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_37_51_span_remove_the_lines_with_the_cursor_selection">
+<h2><span class="tip-count">(37/51)</span> Remove the lines with the cursor/selection</h2>
+<div class="paragraph"><p>Ctrl-D</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_38_51_span_working_sets">
+<h2><span class="tip-count">(38/51)</span> Working Sets</h2>
+<div class="paragraph"><p>Useful to categorize projects, or packages.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_39_51_span_scrapbooking_repl">
+<h2><span class="tip-count">(39/51)</span> Scrapbooking, REPL</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="java language-java">String s = String.format("%05d", 7);
+s</code></pre>
+</div>
+</div>
+<div class="paragraph"><p><a class="bare" href="https://recoveringprogrammer.wordpress.com/2013/04/06/using-eclipse-scrapbook-to-quickly-test-your-code/">https://recoveringprogrammer.wordpress.com/2013/04/06/using-eclipse-scrapbook-to-quickly-test-your-code/</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_40_51_span_add_to_snippets">
+<h2><span class="tip-count">(40/51)</span> Add to snippets</h2>
+<div class="paragraph"><p>You can easily add any code block for future reuse.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_41_51_span_code_templates">
+<h2><span class="tip-count">(41/51)</span> Code templates</h2>
+<div class="paragraph"><p>Difference with snippets: can be variabilized.</p></div>
+<div class="paragraph"><p>Cf. Java/Editor/Templates</p></div>
+<div class="listingblock">
+<div class="title">Example: JDK8 foreach</div>
+<div class="content">
+<pre class="highlight"><code class="template language-template">${iterable}.forEach(${iterable_element} -&gt; {
+	${cursor}
+});</code></pre>
+</div>
+</div>
+<div class="paragraph"><p><a href="https://gist.github.com/vferries/23f86bdc68e1b74b5e0d">Thanks Vincent!</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_42_51_span_extensions_snipmatch">
+<h2><span class="tip-count">(42/51)</span> Extensions: SnipMatch</h2>
+<div class="paragraph"><p>Example: formatter on/off (cf. <a href="#formatterOnOff"><span class="tip-count">(21/51)</span> Formatter: don&#8217;t touch that part (using begin/end tags)</a>)</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_43_51_span_breakpointing">
+<h2><span class="tip-count">(43/51)</span> Breakpointing</h2>
+<div class="ulist">
+<ul>
+<li>Conditionally</li>
+<li>by Hit Count</li>
+<li>By Exception Type</li>
+<li>By Class Loading</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="breakpointing" src="resources/breakpointing.jpg">
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_tip_count_44_51_span_conditional_breakpoint">
+<h2><span class="tip-count">(44/51)</span> Conditional breakpoint</h2>
+<div class="paragraph"><p>Many conditions, not always well-known</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Use it to debug :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="java language-java">System.out.println("HERE WE ARE: "+theVariable);
+return false;</code></pre>
+</div>
+</div>
+<div class="paragraph"><p>Gotcha: in external jars (like rt.jar) without local variable table, use the <code>arg0</code>, <code>arg1</code>&#8230;&#8203; placeholders for parameters, instead of the original parameter names.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_45_51_span_debugging_run_to_line">
+<h2><span class="tip-count">(45/51)</span> Debugging: Run to line</h2>
+<div class="paragraph"><p>When debugging, you don&#8217;t have to put a breakpoint on some line to take the debugger up to it.</p></div>
+<div class="paragraph"><p>Just put the cursor on the line you want, then Ctrl-R (or right click/Run to line)</p></div>
+<div class="paragraph thanks"><p>Thanks <a href="http://www.opcoach.com/">Olivier</a> :-)</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_46_51_span_debugging_drop_to_frame">
+<h2><span class="tip-count">(46/51)</span> Debugging: Drop To Frame</h2>
+<div class="paragraph"><p><a class="bare" href="http://eclipsesource.com/blogs/2013/01/08/effective-java-debugging-with-eclipse/">http://eclipsesource.com/blogs/2013/01/08/effective-java-debugging-with-eclipse/</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_47_51_span_clean_up">
+<h2><span class="tip-count">(47/51)</span> Clean Up</h2>
+
+</section>
+<section class="slide" id="__span_class_tip_count_48_51_span_how_to_quick_fix_many_issues_outside_of_the_clean_up_menu">
+<h2><span class="tip-count">(48/51)</span> How to quick fix many issues outside of the Clean up menu</h2>
+<div class="paragraph"><p>Many quick fixes are actually available, but not always through cleanup</p></div>
+<div class="ulist">
+<ul>
+<li>Go to the Problems view</li>
+<li>Then call&#8230;&#8203; the Quick Fix</li>
+<li>Select the issue you want to fix</li>
+<li>Click select all</li>
+</ul>
+</div>
+<div class="paragraph"><p><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=351956">Possible since Luna SR2</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_49_51_span_jsr_305_externally_defined_annotations">
+<h2><span class="tip-count">(49/51)</span> JSR 305 externally defined annotations</h2>
+<div class="paragraph"><p>Complementary to <a href="#NullAnalysis"><span class="tip-count">(25/51)</span> JSR305 annotations to help null analysis</a></p></div>
+<div class="paragraph"><p>New in Eclipse Mars, released yesterday! (24/03/2015).</p></div>
+<div class="paragraph"><p>See <a href="https://www.eclipse.org/eclipse/news/4.5/M6/#annotate-command#JDT">JSR305 externally annotated classes (Eclipse Mars)</a></p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_50_51_span_workspace_name">
+<h2><span class="tip-count">(50/51)</span> Workspace name</h2>
+<div class="paragraph"><p>Useful if you often switch between workspaces.</p></div>
+<div class="paragraph"><p>Under General/Workspace, you can set the <em>workspace name</em> field.</p></div>
+</section>
+<section class="slide" id="__span_class_tip_count_51_51_span_using_docker_to_build_a_clean_eclipse_with_wanted_features">
+<h2><span class="tip-count">(51/51)</span> Using Docker to build a clean Eclipse with wanted features</h2>
+<div class="listingblock">
+<div class="title">Dockerfile</div>
+<div class="content">
+<pre class="highlight"><code class="console language-console">FROM ndeloof/java
+
+MAINTAINER Baptiste Mathus &lt;batmat@batmat.net&gt;
+
+RUN curl http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk-x86_64.tar.gz | tar -xvz
+
+WORKDIR /eclipse
+
+RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/releases/mars \
+              -installIUs org.eclipse.egit.feature.group,org.eclipse.jgit.feature.group
+
+RUN ./eclipse -nosplash -application org.eclipse.equinox.p2.director \
+              -repository http://download.eclipse.org/releases/mars \
+              -installIUs org.eclipse.m2e.feature.feature.group
+
+CMD ["cp","-R","/eclipse","/eclipse-provisioned"]</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_acknowlegments">
+<h2>Acknowlegments</h2>
+<div class="ulist">
+<ul>
+<li>Thanks to the <a href="http://toulousejug.org">ToulouseJug</a> community for providing some of the tips here</li>
+</ul>
+</div>
+</section>
+<section class="slide canvas-image" id="_thank_you" style="background-image: url(resources/thanks.gif)">
+<div class="paragraph canvas-caption"><p class="left-up">Questions?</p></div>
+</section>
+<section class="slide" id="_don_t_forget_to_evaluate_the_session">
+<h2>Don&#8217;t forget to evaluate the session</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="evaluate slide 4 3" src="resources/resources/resources/evaluate_slide_4_3.png">
+</div>
+</div>
+</section>
+<div aria-role="navigation">
+<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+</div>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+<form action="." class="goto-form" method="get">
+<label for="goto-slide">Go to Slide:</label>
+<input id="goto-slide" list="goto-datalist" name="slidenum" type="text">
+<datalist id="goto-data-list"></datalist>
+<input type="submit" value="Go">
+</form>
+</div>
+<script src=".deck.js/jquery.min.js"></script>
+<script src=".deck.js/core/deck.core.js"></script>
+<script src=".deck.js/extensions/scale/deck.scale.js"></script>
+<script src=".deck.js/extensions/goto/deck.goto.js"></script>
+<script src=".deck.js/extensions/menu/deck.menu.js"></script>
+<script src=".deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src=".deck.js/extensions/split/deck.split.js"></script>
+<script src=".deck.js/extensions/status/deck.status.js"></script>
+<script src="resources/custom.js"></script>
+<script>
+  (function($, deck, undefined) {
+    $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+    $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+  
+    $.extend(true, $[deck].defaults, {
+        countNested: false
+    });
+  
+    $.deck('.slide');
+  })(jQuery, 'deck');
+</script>
+<style>
+  .slide.canvas-image {
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-box;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -moz-box-align: start;
+  -webkit-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -ms-box-pack: start;
+  box-pack: start;}
+  
+  .bottom-left {
+    left: 1%;
+    bottom: 20%; }
+  
+  .top-left {
+    left: 1%;
+    top: 20%; }
+  
+  .bottom-right {
+    right: 1%;
+    bottom: 20%; }
+  
+  .top-right {
+    right: 1%;
+    top: 20%; }
+  
+  .center-up {
+    right: 50%;
+    top: 1%;
+  }
+  
+  .center-down {
+    right: 50%;
+    bottom: 1%;
+  }
+  .canvas-image .canvas-caption p {
+    text-align: center;
+    padding-top: 0;
+    padding: 0;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    display: inline;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 58px;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    -moz-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+    padding: 1rem;
+    color: white; }
+  kbd.keyseq { color: #555555; }
+  kbd:not(.keyseq) {
+    display: inline-block;
+    color: #222222;
+    font-size: 0.7em;
+    line-height: 1.4;
+    background-color: #F7F7F7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    margin: -0.15em 0.15em 0 0.15em;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  kbd kbd:first-child { margin-left: 0; }
+  kbd kbd:last-child { margin-right: 0; }
+</style>
+</body>
+</html>
