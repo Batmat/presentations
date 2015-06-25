@@ -1,0 +1,4 @@
+[submodule "_site-publish"]
+	path = _site-publish
+	url = git@github.com:Batmat/presentations.git
+	branch = gh-pages
