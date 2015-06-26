@@ -1,0 +1,27 @@
+= Take your Git practice to the next level - Labs
+Eclipse con France 2015
+:toc: right
+
+
+== Prerequisites
+
+IMPORTANT: See link:prerequisites.html[the prerequisites] and link:git-help.html[major git commands help]
+
+:leveloffset: +1
+
+:sectnums:
+
+include::lab-1-git-directory.adoc[]
+
+include::lab-2-rewriting.adoc[]
+
+include::lab-3-bisect.adoc[]
+
+include::lab-4-bonus.adoc[]
+
+''''
+
+:!sectnums:
+
+include::appendix.adoc[]
+

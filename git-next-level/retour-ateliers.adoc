@@ -1,0 +1,72 @@
+= Retours ateliers
+:toc: right
+
+== Timing
+
+* 11h15 : DEBUT
+* 11h15 -> 11h35 : Slides
+* 11h35 -> 11h37 : TP1 -- Présentation
+* 11h37 -> 11h50 : TP1
+* 11h50 -> 11h53 : TP2 -- Présentation
+* 11h53 -> 12h20 : TP2
+* 12h20 -> 12h30 : TP2 -- Correction rebase -i du milieu (édition/split de commit Eclipse pour add -p)
+* 12h30 -> 12h45 : TP3 Bisect
+* 12h45 -> 12h50 : TP3 -- Correction
+* 12h50 -> 13h00 : Conclusion
+* 13h00 : FIN
+
+== Découpaze
+
+* Batimsse : intro + data model
+* Micannelle : back to basics -> tips & tricks
+* Batimsse : tips & tricks -> fin (prez labs) : 
+
+== TODO
+
+=== A faire pour EclipseCon
+
+==== Corrections TP
+
+Micannelle =>
+
+* Sur les Mac, les fichiers du TP Rewriting sont en 755 (WTF ?)
+
+=== Si possible
+
+* Ajouter partie bonus sur submodule/subtree => Batimsse
+* Pour chaque TP, plutôt avoir les corrections inline dépliables ?
+* Guider bcp plus pour les étapes de filter-branch, notamment pour démarrer 
+
+== Historiques déroulement
+
+=== Progress workshop #3
+
+* 12h10 début ~
+* 12h34 : slide merge vs. rebase
+* 12h40 : tips & tricks
+* 12h50 : début TPs
+* 13h40 : seul Thibault a fini le rewriting...
+* 13h47 : arrêt du TP et correction car tout le monde est à la bourre
+* 14h02 : début explication bisect run
+
+=== Progress workshop #2
+* Start à 12h10
+* Début du TP1 12h27
+** 12h38 - 10 minutes pour atteindre la 2e partie "... Data Model" (seulement 8 personnes)
+** 12h47 : certains ont attaqué le GC
+* Pas mal de questions, notamment sur réécriture sans trace :)
+* 13h20 : TP rewriting
+* 13h48 : on arrête le TP sur le rewriting, pas tout à fait fini mais plutôt ok (faut surtout qu'on revoit le support pour guider encore plus) 
+* 13h51 : début TP Bisect & filter-branch
+
+=== Progress workshop #1
+* Start à 12h20
+* Début du TP1 à 12h38
+* Début correction TP1 à 13h01
+* FIN correction TP1 à 13h16
+* Reprise des slides à partir du #23 à 13h16
+* Slide #43 à 13h28
+* Start TP2 13h30
+* Start correction TP2 13h56
+* Fin TP2 14h02
+

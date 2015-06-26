@@ -1,0 +1,50 @@
+= Finding a needle in a...
+:toc: right
+
+image::../resources/needle-haystack.png[]
+
+NOTE: for this workshop, you need to use repository "git-next-level-workshop-bisect.git" (workshop resources).
+
+== Find the bug !
+
+Open index.html of your repository and click to the button. A bug has been discovered !
+
+=== Starting bisect
+
+Begin the bisect action with : 
+
+[source]
+git bisect start
+
+So that Git can begin, you must declare a good and a bad commit to start the bisection : 
+
+[source]
+git bisect bad HEAD
+git bisect good <COMMIT_THAT_DOES_NOT_HAVE_THE_BUG>
+
+After executing these two commands, Git is in `detached` mode. Your are now positioned on a commit calculated by dichotomy of the two commits specified on previous commands.
+
+=== Declaring bad and good commits
+
+Re-open the index.html and see if the bug is still present.
+
+If this is the case, declare it as a bad commit : 
+[source]
+git bisect bad
+
+If not, declare it as a good commit : 
+[source]
+git bisect good
+
+Git automatically moves the repository state to another commit so that you can try to reproduce the bug, declare it as a bad or a good commit, and so on.
+
+Continue previous operations until that you find the bug which has introduced the regression.
+
+.Correction
+****
+
+The bad commit should be "awesome commit #277" with SHA 264ccee
+
+****
+
+TIP: If retrieving the bug is "scriptable", you can find the bug `auto-magically` using `git bisect run <cmd>`. See `git help bisect` for details.

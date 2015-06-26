@@ -1,0 +1,101 @@
+= Bonus
+:toc: right
+
+image::../resources/bonus.png[]
+
+== Bonus Track
+
+IMPORTANT: Do that part only if you finished everything above.
+
+=== Filter-branch
+
+image:../resources/shaking.png[]
+
+NOTE: for this workshop, you need to use repository "git-next-level-workshop-filter-branch.git" (workshop resources).
+
+IMPORTANT: filter-branch rewrites all commits of your repository. Be sure to be aware of impacts.
+
+==== Remove file from history
+
+A password.txt file has been commited from the beginning of the history, using filter-branch, try to completely remove this file from this history.
+
+NOTE: you can use either `--tree-filter` or `--index-filter` options of filter-branch but the last one is recommended
+
+
+==== Changing author email of each commit
+
+Your repository is ready to be share with the open-source community, yeah ! 
+
+But you have completely forgotten to set your personal email before committing your files...
+
+Using filter-branch, try to change all commit to set your personal email.
+
+NOTE: you can use either `--commit-filter` or `--env-filter` options of filter-branch.
+
+NOTE: Git keeps track on all commit ! If you have trouble with filter-branch, you can restore the last state of your repository using `git reset --hard refs/original/refs/heads/master`
+
+
+=== Garbage collect all the things
+
+NOTE: Having a GC is very hype those days. Git has one too! Git GC will actually execute automatically under some conditions (too many loose/dangling objects, too many branches/tags...). You generally won't run it manually like in the next part.
+
+* Execute `ls .git && ls -l .git/refs/heads` at your test repository root
+* Execute `git gc --aggressive --prune=now`
+* See what it changed. Explain the goal of the created file.
+
+=== Interactive staging
+
+[[addpatch]]
+==== Through command line and `git add -p`
+
+* Create a repository with an initial empty root commit
+
+Execute the following:
+
+[source]
+git init interactivestaging && cd interactivestaging && git commit --allow-empty -m "Initial commit"
+echo -e "Some line\nfollowed by that one, more long\n\nanother one\n\nand another, biting the dust, for one.\n" > thefiletostage
+git add thefiletostage && git commit -m "File init"
+echo -e "sometext before\n\n$( cat thefiletostage )and some after\n and again" > thefiletostage
+
+Then `git diff` should show the following:
+
+[source]
+----
+diff --git a/thefiletostage b/thefiletostage
+index 8362737..b4fcccb 100644
+--- a/thefiletostage
++++ b/thefiletostage
+@@ -1,7 +1,9 @@
++sometext before
++
+ Some line
+ followed by that one, more long
+ 
+ another one
+ 
+-and another, biting the dust, for one.
+-
++and another, biting the dust, for one.and some after
++ and again
+----
+
+* use `git add -p` to do *two* commits:
+** one for the modification at the beginning of the file
+** one for the modification at the end of the file
+
+==== Use Eclipse EGit
+
+Goal: Redo the <<addpatch>> exercise, but this time staging interactively using EGit.
+
+Create a new repo and execute the following commmands:
+
+[source]
+git init interactivestaginggui && cd interactivestaginggui && git commit --allow-empty -m "Initial commit"
+echo -e "Some line\nfollowed by that one, more long\n\nanother one\n\nand another, biting the dust, for one.\n" > thefiletostage
+git add thefiletostage && git commit -m "File init"
+echo -e "sometext before\n\n$( cat thefiletostage )and some after\n and again" > thefiletostage
+
+* Import that directory as an Eclipse project
+* Create a file .gitignore to ignore the .project and .classpath
+** With modern build tool like Maven or Gradle, and associated Eclipse tooling like M2E, you should generally not commit those files into your repository

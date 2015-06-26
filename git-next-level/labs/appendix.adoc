@@ -1,0 +1,59 @@
+[[appendix]]
+= Appendix
+
+[[rebaseInteractiveBasics]]
+== rebase -i basics
+TIP: Most instructions below require the use of: 
+
+[source]
+git rebase -i <COMMIT SHA>
+
+[TIP]
+===
+When doing an interactive rebase
+footnote:[The SHA you have to use is the *excluded* point from where the history twiddling will start. 
+That is: if the first commit you want to modify is `12eaf` then use for example simply `12eaf~` to easily refer to the previous one. 
+If you just want to potentially rewrite about the 5 last commits, then you'll generally use `git rebase -i HEAD~5`.],
+read what's displayed inside your editor
+
+[source]
+----
+$ git rebase -i HEAD~
+pick 3262d5a ...
+
+# Rebase 0345973..76e0b82 onto 0345973
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented ou
+----
+
+Read what's above. You *can* reorder commits by just *moving lines up or down*, or removing commits by just *removing a whole line*.
+
+In general, read what Git displays. For example, when you edit a commit, Git tells you what/how to 
+do most of the things (`git rebase --continue`, etc.)
+===
+
+CAUTION: `git rebase -i` will display commits in chronological order, contrary to `git log`
+
+== Rolling back if required
+
+If you want to just rollback any modification you made: use `reflog`, find the previous correct `HEAD` SHA, then reset your working copy to it
+
+    $ git reset --hard <SHA>
+
+For example, if you want to rollback everything to the initial state, just run 
+
+    $ git reset --hard fc30
