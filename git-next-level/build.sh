@@ -34,26 +34,7 @@ sed -i 's/\.\.\/\.deck\.js/resources\/.deck.js/g' $DIST/prez.html
 sed -i 's/http:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/highlight\.js\/7\.3\/styles\/default\.min\.css/resources\/highlight.js.default.min.css/g' $DIST/prez.html
 sed -i 's/http:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/highlight\.js\/7\.3\/highlight\.min\.js/resources\/highlight.min.js/g' $DIST/prez.html
 
-echo "Cloning labs sources ..."
-cloneLab() {
-	local labName=$1
-	local branch=
-	
-	git clone git@bitbucket.org:mpailloncy/$labName.git $DIST/$labName
-	#git clone https://mpailloncy@bitbucket.org/mpailloncy/$labName.git $DIST/$labName
-	
-	cd $DIST/$labName
-	if [[ "${#}" == "2" ]]; then
-		branch=$2
-		git pull
-		git branch --track $branch origin/$branch
-	fi
-
-	git remote remove origin
-	cd -
-}
-cloneLab git-next-level-workshop-rewriting header-black-experiment
-cloneLab git-next-level-workshop-bisect
-cloneLab git-next-level-workshop-filter-branch
+echo "Copying Lab Git Repositories"
+cp labs/labs-git-repositories.zip $DIST
 
 echo "Generation ended. Please watch `pwd`/$DIST or browsing locally file:///`pwd`/$DIST/"
