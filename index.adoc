@@ -1,5 +1,7 @@
 = Mes présentations
 Baptiste Mathus <batmat@batmat.net>
+:toc: right
+:sectanchors:
 
 == A propos de ces présentations
 
