@@ -22,6 +22,8 @@ Support utilisé lors de la présentation associée au @ToulouseJug.
 
 Associated support to the link:https://www.eclipsecon.org/france2015/session/50-slides-ide[presentation given for the Eclipse Con 2015].
 
+link:https://youtu.be/4LzafNP5HNk?t=23184[Click here if you want to watch the recorded session on Youtube].
+
 == Take Your Git Practice To The Next Level
 
 Workshop prepared with link:https://github.com/mpapo[Michaël Pailloncy] for the Eclipse Con France 2015.
