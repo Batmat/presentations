@@ -15,3 +15,8 @@ Pour l'instant, disponible uniquement en link:gerrit/prez-gerrit.odp[format OOo 
 == link:gtd/reveal.js/prez-gtd.html[GTD]
 
 Support utilisé lors de la présentation associée au @ToulouseJug.
+
+== link:50-slides-of-ide/prez.html[50 Slides Of IDE]
+
+Associated support to the link:https://www.eclipsecon.org/france2015/session/50-slides-ide[presentation given for the Eclipse Con 2015].
+
