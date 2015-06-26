@@ -28,6 +28,4 @@ This link:http://eclipsecon.org/france2015/session/take-your-git-practice-next-l
 but are still not very comfortable with it, and want to discover the real power of Git.
 
 * link:git-next-level/prez.html[Presentation]
-* link:git-next-level/labs/all-labs.html[All labs]
-* link:git-next-level/labs/labs-git-repositories.zip[Git Repositories for labs 2, 3 & 4] : unzip that somewhere to work on it
-
+* link:git-next-level/labs/index.html[Labs Index]

@@ -10,3 +10,11 @@ Please link:prerequisites.html[check the prerequisites] before starting the lab.
 
 * link:all-labs.html[Unleash Hell!] : all labs
 * link:labs-git-repositories.zip[Git repositories (zip archive) for labs 2, 3 & 4]
+
+=== Separated Labs With Correction
+
+* link:lab-correction-1-git-directory.html[Lab 1]
+* link:lab-correction-2-rewriting.html[Lab 2]
+* link:lab-correction-3-bisect.html[Lab 3]
+* link:lab-correction-4-bonus.html[Lab 4]
+
