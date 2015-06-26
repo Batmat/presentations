@@ -159,9 +159,11 @@ Select the text you want to format, and hit ctrl-shift-f as usual.
 
 Typing Ctrl-Space many times shows different proposals.
 
-Those are actually configurable.
+image::contentassist-tuning.png[]
 
-image::contentassist-tuning.jpg[]
+Those are actually configurable (list and order of proposals).
+
+See _Java/Editor/Content Assist/Advanced_.
 
 == Favorites
 
