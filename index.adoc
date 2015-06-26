@@ -20,3 +20,14 @@ Support utilisé lors de la présentation associée au @ToulouseJug.
 
 Associated support to the link:https://www.eclipsecon.org/france2015/session/50-slides-ide[presentation given for the Eclipse Con 2015].
 
+== Take Your Git Practice To The Next Level
+
+Workshop prepared with link:https://github.com/mpapo[Michaël Pailloncy] for the Eclipse Con France 2015.
+
+This link:http://eclipsecon.org/france2015/session/take-your-git-practice-next-level[workshop has originally been designed] for intermediate users. People who may have started using Git
+but are still not very comfortable with it, and want to discover the real power of Git.
+
+* link:git-next-level/prez.html[Presentation]
+* link:git-next-level/labs/all-labs.html[All labs]
+* link:git-next-level/labs/labs-git-repositories.zip[Git Repositories for labs 2, 3 & 4] : unzip that somewhere to work on it
+
