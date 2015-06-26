@@ -1,5 +1,5 @@
 = Take your Git practice to the next level - Labs
-Eclipse con France 2015
+Michaël Pailloncy; Baptiste Mathus
 :toc: right
 
 
