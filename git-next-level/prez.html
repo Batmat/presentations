@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Asciidoctor 1.5.2" name="generator">
+<meta content="Baptiste Mathus &lt;batmat@batmat.net&gt;, Michaël Pailloncy &lt;michael.pailloncy@gmail.com&gt;" name="author">
+<title>Take your Git practice to the next level</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<link href="resources/.deck.js/core/deck.core.css" rel="stylesheet">
+<link href="resources/.deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/goto/deck.goto.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/menu/deck.menu.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/navigation/deck.navigation.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/themes/style/swiss.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/themes/transition/fade.css" media="screen" rel="stylesheet">
+<link href="resources/custom.css" rel="stylesheet">
+<link href="resources/.deck.js/core/print.css" media="print" rel="stylesheet">
+<script src="resources/.deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>Take your Git practice to the next level</h1>
+<span id="author">Baptiste Mathus &lt;batmat@batmat.net&gt;, Michaël Pailloncy &lt;michael.pailloncy@gmail.com&gt;</span>
+<br>
+</section>
+<div id="preamble">
+<div class="sectionbody">
+<div class="imageblock logo">
+<div class="content">
+<img alt="prez logo" src="resources/prez-logo.png">
+</div>
+</div>
+</div>
+</div>
+<section class="slide" id="_about_us">
+<h2>About us</h2>
+<table class="tableblock frame-all grid-all" style="width:100%">
+<colgroup>
+<col style="width:50%">
+<col style="width:50%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="avatar michael" src="resources/avatar-michael.png">
+</div>
+</div>
+<div class="paragraph"><p>Michaël Pailloncy</p></div>
+<div class="paragraph"><p><span class="image"><a class="image" href="https://github.com/mpapo/">
+<img alt="GitHub" src="resources/github.png" title="GitHub" width="54">
+</a></span> 
+<a href="https://github.com/mpapo">mpapo</a><br>
+<span class="image"><a class="image" href="http://twitter.com/mpailloncy">
+<img alt="Twitter" src="resources/twitter.png" title="Twitter" width="54">
+</a></span>
+<a href="http://twitter.com/mpailloncy"">mpailloncy</a></p></div></div></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="avatar baptiste" src="resources/avatar-baptiste.png">
+</div>
+</div>
+<div class="paragraph"><p>Baptiste Mathus</p></div>
+<div class="paragraph"><p><span class="image"><a class="image" href="https://github.com/batmat/">
+<img alt="GitHub" src="resources/github.png" title="GitHub" width="54">
+</a></span> 
+<a href="https://github.com/batmat">batmat</a><br>
+<span class="image"><a class="image" href="http://twitter.com/bmathus">
+<img alt="Twitter" src="resources/twitter.png" title="Twitter" width="54">
+</a></span>
+<a href="http://twitter.com/bmathus"">bmathus</a></p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">Working Together @MiPih as ToolSmiths</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph tags"><p>#jenkins #java #maven #nexus #sonarqube #build #docker #passion</p></div>
+</section>
+<section class="slide" id="_agenda">
+<h2>Agenda</h2>
+<div class="paragraph"><p><em>This <strong>is</strong> a workshop. So there will be manipulation, don&#8217;t worry !</em></p></div>
+<div class="ulist">
+<ul>
+<li>Some History</li>
+<li>The Git Data Model</li>
+<li>Understanding the .git directory</li>
+<li><p>
+Basic concepts &amp; commands reminder<div class="ulist">
+<ul>
+<li>Merge vs. Rebase</li>
+<li>What&#8217;s a Fast-Forward?</li>
+<li>The Working Copy, The Index And The Commit</li>
+</ul>
+</div></p></li>
+<li>Reviewing (and rewriting) changes</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li>Tips &amp; tricks</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li><p>
+Repository lifecycle<div class="ulist">
+<ul>
+<li>granularity</li>
+<li>aggregate</li>
+<li>split</li>
+</ul>
+</div></p></li>
+<li>EGit &amp; JGit</li>
+<li><p>
+Git <em>workflows</em> discussion<div class="ulist">
+<ul>
+<li>Git flow</li>
+<li>Gerrit</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_some_history">
+<h2>Some History</h2>
+<div class="ulist">
+<ul>
+<li>1991 &#8594; 2002 : Linux development uses tarball</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+For the first 10 years of kernel maintenance, we literally used tarballs and patches, which is a much superior source control management system than CVS is – Linus Torvalds
+<div class="attribution">
+<cite>Linus Torvalds</cite>
+</div>
+</blockquote>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li>2002 &#8594; April 2005 : Using BitKeeper</li>
+</ul>
+</div>
+<div class="paragraph"><p>Closed-source DVCS. Free licenses provided to the project.</p></div>
+<div class="paragraph"><p>&#8658; Revocation triggered by Andrew Tridgell&#8217;s BitKeeper protocol reverse-engineering</p></div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li>7, April 2005 : First version of Git</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+I&#8217;m an egotistical bastard, and I name all my projects after myself. First <em>Linux</em>, now <em>git</em>.
+<div class="attribution">
+<cite>Linus Torvalds</cite>
+</div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_basics">
+<h2>Basics</h2>
+<div class="ulist">
+<ul>
+<li><strong>D</strong>VCS</li>
+<li><strong>De</strong>centralized</li>
+<li>Technically, no server required</li>
+<li><p>
+<strong>Whole</strong> project history present locally<div class="ulist">
+<ul>
+<li>Only pushing &amp; fetching new commits requires network</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_fast_git">
+<h2>Fast, Git ?</h2>
+<div class="ulist">
+<ul>
+<li>Performances, the origins</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+If it takes half a minute to apply a patch […] then a series of 250 emails […] takes two hours.
+</blockquote>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li><strong>Content</strong> oriented</li>
+<li>Storing <strong>snapshots</strong>, not deltas</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="snapshots vs delta" src="resources/snapshots-vs-delta.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_the_index">
+<h2>The Index</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="The Index" src="resources/git-staging-area.png">
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">add</dt>
+<dd>
+<p>adds to the index (-p lets you choose the parts of your file you actually want to add)</p>
+</dd>
+<dt class="hdlist1">index</dt>
+<dd>
+<p>staging area (a sweet place to lovingly craft your commits)</p>
+</dd>
+<dt class="hdlist1">commit</dt>
+<dd>
+<p>Captures the state of the index.</p>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="_quiz_git_add">
+<h2>Quiz: git add</h2>
+<div class="listingblock">
+<div class="title">What content has been committed for the <em>theFile</em> file? (1) or (2)?</div>
+<div class="content">
+<pre class="highlight"><code class="console language-console">echo "dingdingdingbabababaaaaa" &gt;&gt; theFile # (1)
+git add theFile
+echo "blah" &gt; theFile # (2)
+git commit -m "done"</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all slide" style="width:100%">
+<colgroup>
+<col style="width:50%">
+<col style="width:50%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Right answer: (1)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="The Index" src="resources/git-staging-area.png">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(note: difference with svn &#8658; (2))</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide canvas-image" id="_digging" style="background-image: url(resources/dig.jpg)">
+<div class="paragraph canvas-caption"><p class="center-up">Let&#8217;s dig a bit deeper now</p></div>
+</section>
+<section class="slide" id="_git_data_model_the_4_object_types">
+<h2>Git Data Model: The 4 Object Types</h2>
+<div style="page-break-after: always"></div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">blob</dt>
+<dd>
+<p>File content, identified by a hash</p>
+<div class="imageblock">
+<div class="content">
+<img alt="object blob" src="resources/object-blob.png">
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div style="page-break-after: always"></div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">tree</dt>
+<dd>
+<p>List of pointers to <em>blob</em>, or <em>tree</em>, identified by a hash</p>
+<div class="imageblock">
+<div class="content">
+<img alt="object tree" src="resources/object-tree.png">
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div style="page-break-after: always"></div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">commit</dt>
+<dd>
+<p>References the (root) tree + metadata, 0 to n parent commits, identified by a hash</p>
+<div class="imageblock">
+<div class="content">
+<img alt="object commit" src="resources/object-commit.png">
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all slide" style="width:100%">
+<colgroup>
+<col style="width:100%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>Identified by a SHA-1 hash :
+     <code>53b8</code> = <code>53b8</code>9fc7bb117aee396285f9bc6ce913599a6574 (short version ≥ 4 chars)</p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>Possibly: Author ≠ Committer</p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>DAG : <em>Directed Acyclic Graph</em></p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="dag illustration" src="resources/dag-illustration.png">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always"></div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">tag</dt>
+<dd>
+<p>Name associated with a commit (+ potential metadata)</p>
+<div class="imageblock">
+<div class="content">
+<img alt="object tag" src="resources/object-tag.png">
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="_git_data_model_wrap_up">
+<h2>Git Data Model : wrap up</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="git objects types" src="resources/git-objects-types.png">
+</div>
+</div>
+</section>
+<section class="slide canvas-image" id="_back_to_basics" style="background-image: url(resources/back-to-basics.png)">
+<div class="paragraph canvas-caption"><p class="left-up">Back to basics</p></div>
+</section>
+<section class="slide" id="_step_back">
+<h2>Step back</h2>
+<div class="paragraph"><p>Quiz: what does this?</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">$ git init pouet &amp;&amp; cd pouet
+$ git commit -m "initial commit" --allow-empty
+$ echo abc &gt; .git/refs/heads/paf</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Creates a branch! That&#8217;s right!</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">$ git init pouet &amp;&amp; cd pouet
+$ git commit -m "initial commit" --allow-empty
+$ echo abc &gt; .git/refs/heads/paf
+$ git branch
+* master
+  paf</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="applause" src="resources/applause.gif">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>So&#8230;&#8203; What are branches again?</p></div>
+</section>
+<section class="slide" id="_git_branches">
+<h2>Git branches</h2>
+<div class="ulist">
+<ul>
+<li>Simple pointer to a given commit (symlink, kind of)</li>
+<li>Git only references <em>heads</em></li>
+<li><p>
+Unreferenced commits will be garbaged <strong>eventually</strong><div class="ulist">
+<ul>
+<li><em>Dangling</em> or <em>detached HEAD</em></li>
+<li>Each time you rebase (without <strong>fast-forward</strong>)</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_pointers">
+<h2>Pointers?</h2>
+<div class="ulist">
+<ul>
+<li><code>HEAD</code>: shorthand to the latest commit of the current branch</li>
+<li><p>
+<code>HEAD~N</code>: N commit before the last one<div class="ulist">
+<ul>
+<li>(N=1 if omitted)</li>
+</ul>
+</div></p></li>
+<li><code>master</code> (or any branch): automatically bumped when new commit is done on it</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="pointers HEAD and co" src="resources/pointers-HEAD-and-co.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_resetting">
+<h2>Resetting</h2>
+<div class="paragraph"><p><code>git reset [--soft|--mixed|--hard] &lt;TARGET&gt;</code></p></div>
+<div class="ulist">
+<ul>
+<li>Works on the current branch pointer.</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all" style="width:100%">
+<colgroup>
+<col style="width:50%">
+<col style="width:50%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="dlist">
+<dl>
+<dt class="hdlist1">soft</dt>
+<dd>
+<p>keep all local changes</p>
+</dd>
+<dt class="hdlist1">mixed (default)</dt>
+<dd>
+<p>keep working but reset index</p>
+</dd>
+<dt class="hdlist1">hard</dt>
+<dd>
+<p>discard all working copy changes</p>
+</dd>
+</dl>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="The Index" src="resources/git-staging-area.png">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">git reset HEAD~</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>Latest commit becomes the previous one (kind of: HEAD=HEAD~).</li>
+<li>Index is empty</li>
+<li>Working copy is intact</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">git reset --hard HEAD~2</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>HEAD=HEAD~2</li>
+<li>Index is empty</li>
+<li>Working copy at the HEAD~2 state (any uncommitted change is lost)</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_merge_vs_rebase">
+<h2>Merge vs. Rebase</h2>
+<div class="paragraph"><p>What is it? How to choose one or another?</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>What do you want to do?</p></div>
+</section>
+<section class="slide" id="_step_back_what_do_you_want_to_actually_do">
+<h2>Step back, what do you want to actually do?</h2>
+<div class="quoteblock">
+<blockquote>
+Git lets you express what you did.
+</blockquote>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Correction</p></div>
+<div class="quoteblock">
+<blockquote>
+Git lets you express what you wanted to do.
+</blockquote>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Here&#8217;s what it&#8217;s all about:</p></div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph"><p>Good SCM history reveals intentions.</p></div>
+<div class="paragraph"><p>Like good code.</p></div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_ok_back_to_merge_vs_rebase">
+<h2>OK, back to Merge vs. Rebase</h2>
+<div class="paragraph"><p>What you want to express :</p></div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Rebase</dt>
+<dd>
+<p>when you don&#8217;t want your local history to be seen as side/sub-work</p>
+</dd>
+<dt class="hdlist1">Merge</dt>
+<dd>
+<p>it was side/sub-work</p>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide canvas-image" id="_rebase" style="background-image: url(resources/git-rebase-illustration-lol.gif)">
+<div class="paragraph canvas-caption"><p class="left-up">Git Rebase!</p></div>
+</section>
+<section class="slide" id="_rebase_2">
+<h2>Rebase</h2>
+<div class="paragraph"><p>(on feature) git rebase master</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="rebase before" src="resources/rebase-before.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Rewinding:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="rebase rewind1" src="resources/rebase-rewind1.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Rewinding:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="rebase rewind2" src="resources/rebase-rewind2.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Replaying:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="rebase replayed1" src="resources/rebase-replayed1.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Replayed:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="rebase replayed2" src="resources/rebase-replayed2.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Rebased:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="rebase after" src="resources/rebase-after.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_merge">
+<h2>Merge</h2>
+<div class="paragraph"><p>(on master) git merge feature</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="rebase before" src="resources/rebase-before.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>After (<code>merge commit</code> created):</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="merge" src="resources/merge.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_fast_forward_remember_pointers">
+<h2>Fast-Forward&#8201;&#8212;&#8201;Remember pointers?</h2>
+<div class="ulist">
+<ul>
+<li>When possible, Git will <strong>NOT</strong> create <em>merge-commits</em> and just <code>fast-forward</code>: bumping the <em>branch pointer</em></li>
+<li>You can prevent it using the <code>git merge --no-ff</code> option</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="imageblock">
+<div class="content">
+<img alt="Fast-forward illustration" src="resources/ff.png">
+</div>
+</div>
+<table class="tableblock frame-all grid-all" style="width:100%">
+<colgroup>
+<col style="width:50%">
+<col style="width:50%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Using Merge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Using Rebase</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock console">
+<div class="content">
+<pre class="highlight"><code class="console language-console">$ git checkout master
+$ git merge feature
+Updating 38d98a8..d92c9b5
+Fast-forward</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock console">
+<div class="content">
+<pre class="highlight"><code class="console language-console">$ git checkout master
+$ git rebase feature
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to feature.</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide" id="_tips_tricks">
+<h2>Tips &amp; tricks</h2>
+<div class="paragraph"><p>Git reflog can save your a$$: keeps track of everywhere you went by</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="help" src="resources/help.png">
+</div>
+</div>
+<div class="paragraph"><p>Example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">$ git reflog
+f7d3b1 HEAD@{0}: commit (amend): Added reset + compulsory lolcat
+440a3bf HEAD@{1}: commit (amend): Added reset + details
+c830885 HEAD@{2}: commit: Ajout reset
+36b4dce HEAD@{3}: commit: Passe sur les ajustements: ff, intro...
+5ef0aa8 HEAD@{4}: commit (amend): On sa mis dacor
+8e51635 HEAD@{5}: rebase -i (finish): returning to refs/heads/master
+8e51635 HEAD@{6}: rebase -i (fixup): On s'a mis dacor
+b6d8c99 HEAD@{7}: rebase -i (pick): On s'a mis dacor</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>What if you know you introduced a bug between one commit and another?</p></div>
+<div class="paragraph"><p>But there&#8217;s 1000 commits between them?</p></div>
+<div class="paragraph"><p>How to find out the offending one?</p></div>
+<div class="ulist">
+<ul>
+<li class="slide">Git bisect: search bug by dichotomy (<em>binary search</em>)!</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_repository_lifecycle_manipulations">
+<h2>Repository lifecycle &amp; manipulations</h2>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p><strong>Granularity</strong></p></div>
+<div class="paragraph"><p>One repository, one lifecycle.</p></div>
+<div class="ulist">
+<ul>
+<li>One version number</li>
+<li>If many <em>parts</em>, everything released each time</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p><strong>How to aggregate many repositories afterwards?</strong> Just merge!</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">git init repo1 &amp;&amp; cd repo1 &amp;&amp; git commit -m "Initial 1" --allow-empty &amp;&amp; cd ..
+git init repo2 &amp;&amp; cd repo2 &amp;&amp; git commit -m "Initial 2" --allow-empty
+git remote add other file://$PWD/../repo1
+git fetch other
+git merge other/master -m "let's merge them"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">git log --oneline --graph
+*   c2be901 let's merge them
+|\
+| * 1763514 Initial 1
+* 8208b0a Initial 2</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p><strong>How to explode one repository into multiple ones, remove some file from all commits&#8230;&#8203;</strong></p></div>
+<div class="paragraph"><p><strong>filter-branch</strong> is your friend.</p></div>
+</section>
+<section class="slide" id="_egit_jgit">
+<h2>EGit &amp; JGit</h2>
+<div class="ulist">
+<ul>
+<li><strong>E</strong>Git is the Git Plugin for Eclipse</li>
+<li><strong>J</strong>Git is the library in pure Java implementing the Git Version Control System</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>EGit has been pretty buggy in the past, but now has become definitely usable.</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Even supports some of the features where GUI actually makes a lot of sense: staging interactively the lines you want.</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="egit add p" src="resources/egit-add-p.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>JGit provides (among others) a fluent API to interact with Git repositories:</p></div>
+<div style="page-break-after: always"></div>
+<div class="listingblock">
+<div class="title">git clone example</div>
+<div class="content">
+<pre class="highlight"><code class="java language-java">Git.cloneRepository()
+   .setDirectory("/path/to/git/repository")
+   .setURI("git://gitserver/somerepo.git")
+   .setBare(false)
+   .call();</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="listingblock">
+<div class="title">git fetch example</div>
+<div class="content">
+<pre class="highlight"><code class="java language-java">Git.open("/some/repository")
+   .fetch()
+   .setRemoveDeletedRefs(true)
+   .setTagOpt(TagOpt.FETCH_TAGS)
+   .call();</code></pre>
+</div>
+</div>
+</section>
+<section class="slide canvas-image" id="_labs" style="background-image: url(resources/lab.png)">
+<div class="paragraph canvas-caption"><p class="left-up">Enough talk, <a href="labs/all-labs.html">let&#8217;s practice!</a></p></div>
+</section>
+<section class="slide" id="_conclusion_recommentations">
+<h2>Conclusion &amp; Recommentations</h2>
+<div class="ulist">
+<ul>
+<li>Git can be simple when used like Subversion</li>
+<li>But can become complex to master when using it thoroughly</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li class="slide">In case of errors or just logs, really read the output!</li>
+<li class="slide">With Git, always know where you&#8217;re in the graph and what you want to do</li>
+</ul>
+</div>
+<div class="quoteblock slide">
+<blockquote>
+Tell me and I forget, teach me and I may remember, involve me and I learn.
+<div class="attribution">
+<cite>Benjamin Franklin</cite>
+</div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_references_useful_links">
+<h2>References &amp; useful links</h2>
+<div class="ulist">
+<ul>
+<li><a class="bare" href="http://ndpsoftware.com/git-cheatsheet.html">http://ndpsoftware.com/git-cheatsheet.html</a></li>
+<li><a class="bare" href="https://training.github.com/">https://training.github.com/</a></li>
+<li>Great tool for learning &amp; understanding Git: <a class="bare" href="http://pcottle.github.io/learnGitBranching/">http://pcottle.github.io/learnGitBranching/</a></li>
+<li><a href="http://schacon.github.io/git/gitrepository-layout.html">Repository layout</a></li>
+<li>Special thanks to Scott Chacon for many illustrations reused here</li>
+<li><a href="http://alblue.bandlem.com/2013/11/embedding-jgit.html">Comprehensive article
+from Alex Blewitt about the different ways to embed JGit</a></li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="evaluate slide" src="resources/evaluate_slide.png">
+</div>
+</div>
+</section>
+<div aria-role="navigation">
+<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+</div>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+<form action="." class="goto-form" method="get">
+<label for="goto-slide">Go to Slide:</label>
+<input id="goto-slide" list="goto-datalist" name="slidenum" type="text">
+<datalist id="goto-data-list"></datalist>
+<input type="submit" value="Go">
+</form>
+</div>
+<script src="resources/.deck.js/jquery.min.js"></script>
+<script src="resources/.deck.js/core/deck.core.js"></script>
+<script src="resources/.deck.js/extensions/scale/deck.scale.js"></script>
+<script src="resources/.deck.js/extensions/goto/deck.goto.js"></script>
+<script src="resources/.deck.js/extensions/menu/deck.menu.js"></script>
+<script src="resources/.deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src="resources/.deck.js/extensions/split/deck.split.js"></script>
+<script src="resources/.deck.js/extensions/status/deck.status.js"></script>
+<script src="resources/custom.js"></script>
+<script>
+  (function($, deck, undefined) {
+    $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+    $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+  
+    $.extend(true, $[deck].defaults, {
+        countNested: false
+    });
+  
+    $.deck('.slide');
+  })(jQuery, 'deck');
+</script>
+<style>
+  .slide.canvas-image {
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-box;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -moz-box-align: start;
+  -webkit-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -ms-box-pack: start;
+  box-pack: start;}
+  
+  .bottom-left {
+    left: 1%;
+    bottom: 20%; }
+  
+  .top-left {
+    left: 1%;
+    top: 20%; }
+  
+  .bottom-right {
+    right: 1%;
+    bottom: 20%; }
+  
+  .top-right {
+    right: 1%;
+    top: 20%; }
+  
+  .center-up {
+    right: 50%;
+    top: 1%;
+  }
+  
+  .center-down {
+    right: 50%;
+    bottom: 1%;
+  }
+  .canvas-image .canvas-caption p {
+    text-align: center;
+    padding-top: 0;
+    padding: 0;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    display: inline;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 58px;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    -moz-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+    padding: 1rem;
+    color: white; }
+  kbd.keyseq { color: #555555; }
+  kbd:not(.keyseq) {
+    display: inline-block;
+    color: #222222;
+    font-size: 0.7em;
+    line-height: 1.4;
+    background-color: #F7F7F7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    margin: -0.15em 0.15em 0 0.15em;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  kbd kbd:first-child { margin-left: 0; }
+  kbd kbd:last-child { margin-right: 0; }
+</style>
+</body>
+</html>
