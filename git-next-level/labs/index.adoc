@@ -8,4 +8,5 @@ Please link:prerequisites.html[check the prerequisites] before starting the lab.
 
 == Lab
 
-link:all-labs.html[Unleash Hell!]
+* link:all-labs.html[Unleash Hell!] : all labs
+* link:labs-git-repositories.zip[Git repositories (zip archive) for labs 2, 3 & 4]

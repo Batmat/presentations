@@ -35,6 +35,6 @@ sed -i 's/http:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/highlight\.js\/7\.3\/styl
 sed -i 's/http:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/highlight\.js\/7\.3\/highlight\.min\.js/resources\/highlight.min.js/g' $DIST/prez.html
 
 echo "Copying Lab Git Repositories"
-cp labs/labs-git-repositories.zip $DIST
+cp labs/labs-git-repositories.zip $DIST/labs
 
 echo "Generation ended. Please watch `pwd`/$DIST or browsing locally file:///`pwd`/$DIST/"
