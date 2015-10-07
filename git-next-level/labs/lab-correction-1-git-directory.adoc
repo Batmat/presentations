@@ -58,14 +58,14 @@ Each file contains a SHA1 representing the commit it points to.
 In a Git repository, execute precisely the following commands to create a commit with a new file:
 
 [source]
-echo "Hi Eclipse Con France 2015" > pof
+echo "Hi Coquinous" > pof
 git add pof
 git commit -m "commit done"
 
 If your OS is Linux/Mac based, execute the following command :
 
 [source]
-echo -e "blob 27\0Hi Eclipse Con France 2015" | shasum
+echo -e "blob 13\0Hi Coquinous" | shasum
 
 CAUTION: For Windows and some Mac users, this command may not be available. No worries: for the record, it shows that git generates a SHA1 of the committed files to store them in the repository. This command should display `64e3fc24e6ed73f1af43ae4e0411d80c10c4d0f7`.
 *If you do not have the `shasum` command, don't run the command above and just go ahead with the following*.

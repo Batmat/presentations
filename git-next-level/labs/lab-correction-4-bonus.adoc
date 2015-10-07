@@ -83,19 +83,3 @@ index 8362737..b4fcccb 100644
 * use `git add -p` to do *two* commits:
 ** one for the modification at the beginning of the file
 ** one for the modification at the end of the file
-
-==== Use Eclipse EGit
-
-Goal: Redo the <<addpatch>> exercise, but this time staging interactively using EGit.
-
-Create a new repo and execute the following commmands:
-
-[source]
-git init interactivestaginggui && cd interactivestaginggui && git commit --allow-empty -m "Initial commit"
-echo -e "Some line\nfollowed by that one, more long\n\nanother one\n\nand another, biting the dust, for one.\n" > thefiletostage
-git add thefiletostage && git commit -m "File init"
-echo -e "sometext before\n\n$( cat thefiletostage )and some after\n and again" > thefiletostage
-
-* Import that directory as an Eclipse project
-* Create a file .gitignore to ignore the .project and .classpath
-** With modern build tool like Maven or Gradle, and associated Eclipse tooling like M2E, you should generally not commit those files into your repository

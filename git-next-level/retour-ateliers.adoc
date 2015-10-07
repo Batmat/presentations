@@ -9,7 +9,7 @@
 * 11h37 -> 11h50 : TP1
 * 11h50 -> 11h53 : TP2 -- Présentation
 * 11h53 -> 12h20 : TP2
-* 12h20 -> 12h30 : TP2 -- Correction rebase -i du milieu (édition/split de commit Eclipse pour add -p)
+* 12h20 -> 12h30 : TP2 -- Correction rebase -i du milieu
 * 12h30 -> 12h45 : TP3 Bisect
 * 12h45 -> 12h50 : TP3 -- Correction
 * 12h50 -> 13h00 : Conclusion
@@ -22,8 +22,6 @@
 * Batimsse : tips & tricks -> fin (prez labs) : 
 
 == TODO
-
-=== A faire pour EclipseCon
 
 ==== Corrections TP
 

@@ -1,7 +1,5 @@
 = Take your Git practice to the next level -- *Lab Prerequisites*
 
-Eclipse Con France 2015
-
 == Prerequisites
 
 * A laptop (no computer will be provided)
@@ -12,8 +10,3 @@ Eclipse Con France 2015
 [source]
 $ git --version
 git version 2.1.4
-
-
-* Better to have, but should be provided:
-** Eclipse with EGit installed
-
