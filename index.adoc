@@ -5,7 +5,7 @@ Baptiste Mathus <batmat@batmat.net>
 
 == A propos de ces présentations
 
-J'ai l'intention d'ajouter autant que possible mes présentations dans ce link:github.com/batmat/presentations[site]. 
+J'ai l'intention d'ajouter autant que possible mes présentations dans ce link:github.com/batmat/presentations[site].
 
 Je suis aussi un _bagger_. Si cela vous dit, je peux venir parler des sujets que je connais chez vous entre midi et deux. Pour plus de détails, regardez le site link:http://www.brownbaglunch.fr/baggers.html#Baptiste_Mathus_Toulouse[http://www.brownbaglunch.fr/].
 
@@ -33,3 +33,7 @@ but are still not very comfortable with it, and want to discover the real power 
 
 * link:git-next-level/prez.html[Presentation]
 * link:git-next-level/labs/index.html[Labs Index]
+
+== Forge/Jenkins aux amphétamines
+
+link:rex-forge-2015/prez.html[Support]

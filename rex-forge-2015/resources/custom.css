@@ -1,0 +1,59 @@
+/*
+   Workaround for admonitions
+   to https://github.com/asciidoctor/asciidoctor-backends/issues/119
+   TODO : Propose a PR when more time (after the conf at least :-)
+*/
+.icon:after {
+  content: ' : ';
+  margin-right: 0.5em;
+}
+
+.icon {
+  text-transform: uppercase;
+}
+
+.todo {
+	border: 2px solid red;
+}
+
+.todo:after {
+   content: "TODO !";
+   font-weight: 900;
+   color: red;
+}
+
+.tags {
+  position: fixed;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  bottom: 0;
+  left: 1em;
+  /*width: 25%;*/
+  font-family: monospace;
+}
+
+.not-ready {
+  text-decoration: line-through;
+}
+.not-ready:after {
+  content: ' Not Ready :-(';
+  position:relative;
+  font-size: 80%;
+  bottom:0.5em;
+  text-decoration: none !important;
+  color:red;
+}
+
+dd {
+  margin-left: 2em;
+}
+
+.halign-center {
+  text-align: center; /* workaround since it's not working at least with Deck.js backend */
+}
+
+.lead {
+  padding: 1em 1em 0 1em;
+  text-align: center;
+  font-size: 250%;
+}

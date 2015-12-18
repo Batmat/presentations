@@ -10,9 +10,9 @@ Baptiste Mathus <batmat@batmat.net>
 :deckjsdir: ./.deck.js
 
 //image::ressources/git-logo.png[Git]
-	
+
 == Qui suis-je ?
-			
+
 * Baptiste Mathus
 ** link:http://twitter.com/bmathus[@bmathus]
 ** link:http://batmat.net[http://batmat.net]
@@ -52,7 +52,7 @@ DVCS closed-source, licences offertes à l'OSS.
 
 * Avril 2005 : Fin annoncée de la licence gratuite
 
-Provoqué par un reverse-engineering du protocole BitKeeper par Andrew Tridgell 
+Provoqué par un reverse-engineering du protocole BitKeeper par Andrew Tridgell
 
 <<<
 * 7 Avril 2005 : Première version de Git
@@ -61,7 +61,7 @@ Provoqué par un reverse-engineering du protocole BitKeeper par Andrew Tridgell
 I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'.
 
 == Les quelques commandes de Git
-			
+
 image::ressources/commandes-git.png[]
 
 == Super ! Mais en vrai, on utilise quoi ?
@@ -92,48 +92,48 @@ image::ressources/git-stats.png[]
 
 image::ressources/snapshots-vs-delta.png[]
 
-		
+
 // Expliquer ce que sont les hash - sha1 everywhere :)
 
 == Les 4 types d'objets
 
 <<<
 
-blob:: Contenu d'un fichier identifié par un hash 
+blob:: Contenu d'un fichier identifié par un hash
 image::ressources/object-blob.png[]
 
 <<<
 
-tree:: Liste de références vers des hashes 
+tree:: Liste de références vers des hashes
 image::ressources/object-tree.png[]
 
 <<<
 
-commit:: Référence le hash d'un tree + métadonnées 
+commit:: Référence le hash d'un tree + métadonnées
 image::ressources/object-commit.png[]
 
 <<<
 
-tag:: Nom donné à un commit + métadonnées 
+tag:: Nom donné à un commit + métadonnées
 image::ressources/object-tag.png[]
-				
+
 == Les 4 types d'objets - Récap
-		
+
 image::ressources/git-objects-types.png[]
 
-		
+
 == Les commits Git
 
 * Identifié par un hash _SHA-1_
 * Version courte ≥ 4 caractères possible (si non ambiguë)
-		
+
 `53b8` = ``53b8``9fc7bb117aee396285f9bc6ce913599a6574
-				
+
 <<<
 
 * 1 à n parents
 
-* DAG : _Directed Acyclic Graph_ 
+* DAG : _Directed Acyclic Graph_
 
 image::ressources/dag-illustration.png[]
 
@@ -151,12 +151,12 @@ Quand ça plante pas
 image::ressources/merge-svn2.gif[]
 image::ressources/merge-svn3.gif[]
 
-		
+
 == Avec Git, les merges _just_ fonctionnent
 
 image::ressources/happy.gif[]
 
-		
+
 == Bref, les branches c'est la vie
 
 == Les branches ?
@@ -171,9 +171,9 @@ image::ressources/happy.gif[]
 image::ressources/dangling.png[]
 
 * Git a aussi un Garbage Collector ! :-)
-		
+
 == Bon, mais comment on démarre ?
-			
+
 [source]
 $ git config user.name "Baptiste Mathus"
 $ git config user.email batmat@batmat.net
@@ -189,10 +189,10 @@ $ git commit -m "Création du premier fichier indispensable."
 [master 2ce6ac4] Création du premier fichier indispensable.
 0 files changed
 create mode 100644 pouet
-		
+
 == En détails
-	
-<<<		
+
+<<<
     git commit -m "Initial commit" --allow-empty
 
 Conseil : *toujours* un commit racine vide
@@ -202,8 +202,8 @@ Conseil : *toujours* un commit racine vide
    git add
 
 Ajout dans *l'index*
-	
-			
+
+
 == L'index : espace de préparation du prochain commit
 
 image::ressources/git-staging-area.png[]
@@ -216,7 +216,7 @@ image::ressources/git-staging-area.png[]
 .What content has been committed for the _theFile_ file? (1) or (2)?
 ----
 echo "dingdingdingbabababaaaaa" >> theFile # (1)
-git add theFile 
+git add theFile
 echo "blah" > theFile # (2)
 git commit -m "done"
 ----
@@ -226,7 +226,7 @@ Right answer: (1)
 
 // Because git add adds the content when called, not only the
 // reference to the file like SVN does for example
-			
+
 == Les commandes essentielles : rebase & merge
 
 What you want to express :
@@ -288,10 +288,10 @@ image::ressources/rebase-before.png[]
 After (`merge commit` created):
 
 image::ressources/merge.png[]
-	
+
 == Concept très important : le *fast-forward*
 
-Si possible, Git cherche à ne pas créer de _commit de merge_ même si on lui demande un _merge_ 
+Si possible, Git cherche à ne pas créer de _commit de merge_ même si on lui demande un _merge_
 
 image::ressources/ff.png[Fast-forward illustration]
 
@@ -306,7 +306,7 @@ Fast-forward
 [source,role="console"]
 ----
 $ git rebase -i HEAD~3
-  
+
 pick 910f70a Message antépénultième commit
 pick 0e7f74d Message avant-dernier commit
 pick 77aab98 Message dernier commit
@@ -328,12 +328,12 @@ pick 77aab98 Message dernier commit
 # However, if you remove everything, the rebase will be aborted.
 #
 # Note that empty commits are commented out
-----  
-	
-			
+----
+
+
 == Quelques autres commandes intéressantes
-	
-			
+
+
 * git _reflog_ : un filet de sécurité qui peut vous sauver la vie
 
 [source,role="console"]
@@ -344,7 +344,7 @@ $ git reflog
 53b89fc HEAD@{3}: checkout: moving from master to 53b89fc
 2ce6ac4 HEAD@{4}: commit: Création du premier fichier indispensable.
 53b89fc HEAD@{5}: commit (initial): Initial commit
- 
+
 
 == Bisect
 === killer-feature : recherche d'un commit problématique par dichotomie
@@ -368,29 +368,29 @@ Date:   Sat Jul 30 09:59:07 2011 -0700
     when tried stand-alone, I learned that those dependencies cannot be really excluded.
 
 :040000 040000 afe7deb89dae782db89ee79e36d767f348b6f1b5 e2be3a211e5a211ad0d91fee8e32095a888d4786 M      core
----- 
- 
+----
+
 // TODO submodules
 
 == Les points faibles
 
 * Courbe d'apprentissage ardue pour les cas sortant du svn-like
-* Noms ou utilisation de commandes parfois déroutantes, notamment quand on vient de Svn 
+* Noms ou utilisation de commandes parfois déroutantes, notamment quand on vient de Svn
 ** git checkout = svn switch, ou revert pour un seul fichier...
 ** git reset --hard = svn revert -R *
 ** reset : pourrait nécessiter une présentation entière...
 ** add : résoudre un conflit, ajouter tout ou partie d'un fichier...
 
-		
+
 == Démo
 
 image::ressources/two-thumbs-up.jpg[]
- 
+
 
 == Conclusion &amp; Conseils
 
 * Git reste simple si on fait du svn-like
-* Commit, push, pull, commit, push, et voilà... 
+* Commit, push, pull, commit, push, et voilà...
 
 [options="step"]
 * En cas d'erreur, lisez ce qui est affiché...
@@ -405,24 +405,23 @@ L'homme qui augmente sa capacité de comprendre augmente sa puissance d'agir.
 
 * Page web interactive mnémotechnique
 ** http://ndpsoftware.com/git-cheatsheet.html
-		
+
 
 * Apprendre Git en ligne
 **	http://pcottle.github.com/learnGitBranching/
 ** http://try.github.com/levels/1/challenges/1
-		
+
 * Présentations de Sébastien Douche au ParisJUG
 ** http://www.parleys.com/#id=2366&amp;st=5
 ** http://www.parleys.com/#st=5&amp;id=2368
-		
+
 * Présentation de David Gageot au BreizhJug
 ** http://www.parleys.com/#st=5&amp;id=2117&amp;sl=2
-		
+
 * Présentations de Scott Chacon
 ** https://github.com/schacon/git-presentations
-		
+
 * Présentation Git par Linus Torvalds chez Google
 ** http://www.youtube.com/watch?v=4XpnKHJAok8
-		
+
 * Un merci général à Internet pour certains graphes de cette présentation ;-)
-		
