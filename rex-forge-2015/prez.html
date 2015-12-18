@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Asciidoctor 1.5.2" name="generator">
+<meta content="Baptiste Mathus" name="author">
+<title>Jenkins aux amphét'</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<link href="resources/.deck.js/core/deck.core.css" rel="stylesheet">
+<link href="resources/.deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/goto/deck.goto.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/menu/deck.menu.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/navigation/deck.navigation.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/themes/style/swiss.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/themes/transition/fade.css" media="screen" rel="stylesheet">
+<link href="resources/custom.css" rel="stylesheet">
+<link href="resources/.deck.js/core/print.css" media="print" rel="stylesheet">
+<script src="resources/.deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>Jenkins aux amphét'</h1>
+<span id="author">Baptiste Mathus</span>
+<br>
+<span id="email">@bmathus</span>
+<br>
+</section>
+<section class="slide" id="_a_propos_de_moi">
+<h2>A propos de moi</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="console language-console">def BaptisteMathus =
+       people.filter(p -&gt; p.isHacker())
+             .filter(p -&gt; p.isOpenSourceFan())
+             .filter(p -&gt; p.isCommitterOn("Jenkins"))
+             .filter(p -&gt; p.isCommitterOn("MojoHaus"))
+             .filter(p -&gt; p.strivesToBeDeveloperCatalyst())
+             .filter(p -&gt; p.isShadowITSpecialist())
+             .uniqueResult()</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="batmat about" src="resources/batmat-about.png" width="500">
+</div>
+</div>
+<div class="paragraph tags"><p>#jenkins #java #docker #maven #automation #devops #nexus #sonarqube #passion</p></div>
+</section>
+<section class="slide" id="_au_programme">
+<h2>Au programme</h2>
+<div class="paragraph lead"><p>Arrêter les croneries</p></div>
+<div style="page-break-after: always"></div>
+<div class="ulist lead">
+<ul>
+<li>Papi, raconte-nous comment tout ça est arrivé !</li>
+</ul>
+</div>
+<div class="ulist lead">
+<ul>
+<li>Trucs &amp; astuces de gestion de cluster Jenkins</li>
+</ul>
+</div>
+<div class="ulist lead">
+<ul>
+<li>Aujourd&#8217;hui et demain</li>
+</ul>
+</div>
+</section>
+<section class="slide canvas-image" id="_retour_aux_sources" style="background-image: url(resources/back-to-future.jpg)">
+<div class="paragraph canvas-caption"><p class="left-up">On rembobine</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>2007 : Apache Continuum&#8201;&#8212;&#8201;nos débuts dans l&#8217;Intégration Continue</p></div>
+<div class="ulist">
+<ul>
+<li>quelques <em>jobs</em></li>
+<li>1 machine AIX</li>
+<li>gestion "en plus"</li>
+<li>pour 10 à 30 personnes</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>2009 : passage à Hudson, parce que&#8230;&#8203;</p></div>
+<div class="quoteblock">
+<blockquote>
+Simple things should be simple, complex things should be possible.
+<div class="attribution">
+<cite>Alan Kay</cite>
+</div>
+</blockquote>
+</div>
+<div class="paragraph lead"><p>2009 : Sonar, Inspection Continue - Qualité du code.</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>2011 : Oracle forke la communauté Hudson, nous restons sur Jenkins</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="Jenkins Toulousaing!" height="center" src="resources/jenkins_rugby.png" width="350">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>(Au fait : pour ceux qui penseraient encore qu&#8217;Hudson est en concurrence avec Jenkins)</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="number of plugins" src="resources/number-of-plugins.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Fast-Forward : 2015</p></div>
+<div class="ulist">
+<ul>
+<li><strong>1000</strong> jobs</li>
+<li><strong>50 heures</strong> de build par jour en moyenne</li>
+<li><strong>20</strong> noeuds Red Hat, AIX, Windows&#8230;&#8203;</li>
+<li><strong>1, puis 2</strong> personnes à plein temps</li>
+<li><strong>20 millions</strong> de lignes de logs / semaine</li>
+<li>pour environ 100 à 200 personnes*</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="forge logs per week 30 days" src="resources/forge-logs-per-week-30-days.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_suivi_de_l_état_des_jobs_d_une_équipe">
+<h2>Suivi de l&#8217;état des jobs d&#8217;une équipe</h2>
+<div class="paragraph lead"><p>Avant : jobs globalement suivis, mais pouvaient rester <em>rouge</em> pendant longtemps.</p></div>
+<div class="paragraph lead"><p>Pas toujours jugé important.</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Introduire des <em>Radiateurs d&#8217;Information</em> ?</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Au début&#8230;&#8203; Accueil mitigé&#8230;&#8203;</p></div>
+<div class="imageblock middle center stretch-y">
+<div class="content">
+<img alt="rejet radiator" src="resources/radiators/rejet-radiator.png" width="95%">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Aujourd&#8217;hui</p></div>
+<div class="imageblock middle stretch-y">
+<div class="content">
+<img alt="radiators ok" src="resources/radiators/radiators-ok.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_mais_comment">
+<h2>Mais comment ?</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="boss vs leader" src="resources/boss-vs-leader.png" width="95%">
+</div>
+</div>
+</section>
+<section class="slide" id="_code_review">
+<h2>Code Review</h2>
+<div class="paragraph lead"><p>Avant : un peu outillé, mais pas trop. Processus <em>daté</em></p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Aujourd&#8217;hui :</p></div>
+<div class="ulist">
+<ul>
+<li>Jobs Sonar dans les walls</li>
+<li>Gerrit : revue automatique des nouveaux commits (en "cours" de généralisation)</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="gerrit review" src="resources/gerrit-review.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_vraiment_utile_et_ça_plaît">
+<h2>Vraiment utile ? Et ça plaît ?</h2>
+<div style="page-break-after: always"></div>
+<div class="quoteblock">
+<blockquote>
+Franchement, si je devais rebosser dans une boîte où
+ya pas d&#8217;IC, pas d&#8217;automatisation, ce serait&#8230;&#8203; Déprimant !
+<div class="attribution">
+<cite>Entendu au café</cite>
+</div>
+</blockquote>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="depressing" src="resources/depressing.gif">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Sondages fin 2014 :</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="sondage frequence utilisation" src="resources/sondage-frequence-utilisation.png">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="sondage frequence satisfaction" src="resources/sondage-frequence-satisfaction.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Sans ces outils, pas d&#8217;Agilité.</p></div>
+<div class="paragraph lead"><p>Repasser tous les tests de non-régression à la main toutes les 2 semaines ?</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="LOL" src="resources/lolcat.jpg">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="quoteblock">
+<blockquote>
+Deliver as fast as possible
+<div class="attribution">
+<cite>The speed paradox – fast delivery also gives superb quality</cite>
+</div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_lean_software_development">
+<h2>Lean Software Development</h2>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<em>Éliminer les gaspillages</em>
+</li>
+<li>
+Améliorer l&#8217;apprentissage
+</li>
+<li>
+Retarder l&#8217;engagement
+</li>
+<li>
+<strong>Livrer aussi vite que possible</strong>
+</li>
+<li>
+<strong>Donner le pouvoir à l&#8217;équipe</strong>
+</li>
+<li>
+<strong>Intégrer la qualité dès la conception</strong>
+</li>
+<li>
+Considérer le produit dans sa globalité
+</li>
+</ol>
+</div>
+</section>
+<section class="slide" id="_donnez_le_pouvoir_soyez_devops">
+<h2>Donnez le pouvoir - soyez DevOps !</h2>
+<div class="paragraph lead"><p>Pourquoi ?</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Comme le management, l&#8217;outillage doit être un soutien, un catalyseur, pas un frein !<br>
+Faire confiance. Accompagner au lieu de contrôler.</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Accompagner les utilisateurs/dévelopeurs vers l&#8217;autonomie</p></div>
+<div class="paragraph lead"><p>Fournir des produits <strong>facultatifs</strong> permettant d&#8217;accélérer, plutôt que de faire pour l&#8217;équipe.</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Vous connaissez Netflix ?</p></div>
+<div class="quoteblock">
+<blockquote>
+Netflix has a superstar development team, we don’t!
+<div class="attribution">
+<cite>a Fortune 100 CTO to Adrian Cockroft (Directeur chez Netflix)</cite>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+Netflix hired them from you, and got out of their way.
+<div class="attribution">
+<cite>Adrian Cockroft, <a class="bare" href="http://readwrite.com/2014/10/06/developers-care-feeding-cloud-open-source">http://readwrite.com/2014/10/06/developers-care-feeding-cloud-open-source</a></cite>
+</div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="__prenez_le_pouvoir">
+<h2>(Prenez le pouvoir)</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="better apologize" src="resources/better-apologize.png">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+Il est plus facile de demander pardon que de demander l&#8217;autorisation !
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_autres_intérêts_d_une_forge">
+<h2>Autres intérêts d&#8217;une forge</h2>
+<div class="paragraph lead"><p>Excellent laboratoire pour tester de nouvelles choses dans des conditions exigeantes,
+sans pour autant être directement face au client.</p></div>
+</section>
+<section class="slide canvas-image" id="_deeper" style="background-image: url(resources/cats-drilldown.jpg)">
+<div class="paragraph canvas-caption"><p class="left-up">OK, passons à la technique maintenant !</p></div>
+</section>
+<section class="slide" id="_architecture_typique_d_une_forge">
+<h2>Architecture typique d&#8217;une forge</h2>
+<div class="paragraph"><p>Courante :</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="forge simple" src="resources/forge-simple.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Intermédiaire :</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="forge intermediate" src="resources/forge-intermediate.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Avancée</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="forge full" src="resources/forge-full.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_revue_de_code">
+<h2>Revue de code</h2>
+<div class="ulist">
+<ul>
+<li>Gerrit,
+intégration Jenkins via le <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger">Gerrit Trigger Plugin</a></li>
+<li>GitHub Pull-Requests,
+intégration Jenkins via le <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+pull+request+builder+plugin">GitHub pull request builder plugin</a></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_versionner_ses_jobs">
+<h2>Versionner ses jobs</h2>
+<div class="paragraph"><p>Gêné par le fait que les jobs configurés dans l&#8217;IHM ne soient pas identiques, pas versionnés, etc. ?</p></div>
+<div class="paragraph"><p>Utilisation d&#8217;une syntaxe déclarative pour décrire ses jobs</p></div>
+<div class="listingblock">
+<div class="title">Exemple : Génération de 11 jobs sur le même modèle en une simple boucle</div>
+<div class="content">
+<pre class="highlight"><code class="groovy language-groovy">def giturl = 'https://github.com/quidryan/aws-sdk-test.git'
+for(i in 0..10) {
+    job("DSL-Tutorial-1-Test-${i}") {
+        scm {
+            git(giturl)
+        }
+        steps {
+            maven("test -Dtest.suite=${i}")
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_décrire_un_processus_de_déploiement_complexe">
+<h2>Décrire un processus de déploiement complexe</h2>
+<div class="paragraph"><p>Depuis 2014, nouveau plugin <code>Workflow</code>. On peut décrire le processus que l&#8217;on souhaite via un <code>Domain Specific Language</code></p></div>
+<div class="paragraph"><p>Facilitation du <code>Continuous Delivery</code> dans Jenkins</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="groovy language-groovy">node('remote') {
+  input 'Ready to go?'
+  def mvnHome = tool 'M3'
+  sh "${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify"
+}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_jenkins_conseils_et_astuces">
+<h2>Jenkins : conseils et astuces</h2>
+<div class="ulist">
+<ul>
+<li>Ne jamais affecter un job à un noeud, toujours à un label</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li>Utiliser Jenkins pour installer automatiquement les outils (Maven, JDK&#8230;&#8203;)</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li>Utiliser <em>Docker</em> pour définir un environnement précis pour une <code>step</code> d&#8217;un job
+(exemple : telle étape <strong>doit</strong> se dérouler sur une <code>Fedora</code> : très simple avec <code>Docker</code>)</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li>les <code>System Groovy Script</code></li>
+</ul>
+</div>
+<div class="paragraph"><p>Très pratique pour faire des choses par lot (renommages en masse, etc.)</p></div>
+<div class="paragraph"><p>Alternatives : jenkins CLI, API REST&#8230;&#8203;</p></div>
+<div class="listingblock">
+<div class="title">Script qui cherche les builds dont l&#8217;ancienneté est plus faible que la valeur indiquée, puis calcule le temps d&#8217;exécution total de tous les builds identifiés.</div>
+<div class="content">
+<pre class="highlight"><code class="Groovy language-Groovy">def numberOfHoursBack = 7*24
+
+def totalBuildTime =
+  Jenkins.instance.getItems(Job.class).collect { job -&gt;
+    job.getBuilds().byTimestamp(
+                System.currentTimeMillis()-numberOfHoursBack*60*60*1000,
+                System.currentTimeMillis()
+    )
+  }
+  .flatten()
+  .collect { build -&gt; build.getDuration() }
+  .sum()
+
+def totalBuildTimeInMinutes = (int)totalBuildTime/(60*1000)
+
+println "During the last $numberOfHoursBack hours"
+println "\t $totalBuildTimeInMinutes minutes total"
+println "\t ${totalBuildTimeInMinutes/numberOfHoursBack} minutes per hour in average"</code></pre>
+</div>
+</div>
+<div class="paragraph"><p>Affiche :</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="shell language-shell">During the last 168 hours
+	 22490 minutes total
+	 133.8690476190 minutes per hour in average</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_la_gestion_des_noeuds_de_build">
+<h2>La gestion des noeuds de build</h2>
+<div class="ulist">
+<ul>
+<li>Avant : VM statique(s)</li>
+<li>Aujourd&#8217;hui : cluster Docker Swarm - autoscaling extrêmement simple</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_docker_en_un_slide">
+<h2>Docker en un slide ?</h2>
+<div class="paragraph"><p>Pour simplifier : VM allégée, qui démarre en quelques millisecondes</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="docker short" src="resources/docker-short.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_création_d_un_cluster_swarm_via_docker_machine">
+<h2>Création d&#8217;un cluster swarm via Docker Machine</h2>
+<div class="listingblock">
+<div class="title">Création d&#8217;un cluster de 100 machines !</div>
+<div class="content">
+<pre class="highlight"><code class="console language-console">$ TOKEN=$(docker run --rm swarm create)
+$ DIGITALOCEAN_SIZE=64gb
+$ docker-machine create \
+            --driver digitalocean --digitalocean-access-token=... \
+            --swarm --swarm-master --swarm-strategy "binpack" \
+            --swarm-discovery token://$TOKEN \
+            swarm-master
+
+$ for nodeNumber in $(seq -w 1 100)
+  do
+    docker-machine create \
+            --driver digitalocean --digitalocean-access-token=... \
+            --swarm --swarm-discovery token://$TOKEN \
+            swarm-node-$nodeNumber
+  done</code></pre>
+</div>
+</div>
+<div class="paragraph"><p>C&#8217;est prêt, on peut lancer quelques <em>builds</em> via le plugin <em>Docker</em> de Jenkins ! :-)</p></div>
+</section>
+<section class="slide" id="_démo">
+<h2>Démo !</h2>
+<div class="paragraph lead"><p>Préambule : archi Docker Swarm</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="docker swarm cluster" src="resources/docker-swarm-cluster.png">
+</div>
+</div>
+<div class="paragraph"><p><a href="http://blog.arungupta.me/clustering-docker-swarm-techtip85/">Image credit</a></p></div>
+<div style="page-break-after: always"></div>
+<div class="imageblock">
+<div class="content">
+<img alt="demo 3" src="resources/demo-3.gif">
+</div>
+</div>
+</section>
+<section class="slide" id="_docker_swarm_jenkins_docker_plugin">
+<h2>Docker Swarm + Jenkins Docker Plugin</h2>
+<div class="ulist">
+<ul>
+<li>Docker in Docker : attention aux bind mount en mode sibling (<a href="https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/">recommandé</a>)!</li>
+</ul>
+</div>
+<div class="paragraph"><p>Oubliez</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="shell language-shell">docker run -v a:b someimage</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li><p>
+Container leak<div class="ulist">
+<ul>
+<li>Problème : Swarm finira par refuser de démarrer de nouveaux conteneurs !</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li><a href="https://gist.github.com/batmat/e67e661656c3d31ed36f">Remplissage cluster : monitoring</a></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_conclusion">
+<h2>Conclusion</h2>
+<div class="quoteblock">
+<blockquote>
+Consacrer le temps humain à ce que les machines ne savent pas faire.
+</blockquote>
+</div>
+<div style="page-break-after: always"></div>
+<div class="quoteblock">
+<blockquote>
+Aujourd&#8217;hui, avec le cloud, il est devenu beaucoup plus facile de monter une infrastructure intéressante pour la CI.
+</blockquote>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Investir dans l&#8217;outillage : c&#8217;est pouvoir aller plus vite, garder ou attirer les bonnes personnes dans votre entreprise !</p></div>
+</section>
+<div aria-role="navigation">
+<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+</div>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+<form action="." class="goto-form" method="get">
+<label for="goto-slide">Go to Slide:</label>
+<input id="goto-slide" list="goto-datalist" name="slidenum" type="text">
+<datalist id="goto-data-list"></datalist>
+<input type="submit" value="Go">
+</form>
+</div>
+<script src="resources/.deck.js/jquery.min.js"></script>
+<script src="resources/.deck.js/core/deck.core.js"></script>
+<script src="resources/.deck.js/extensions/scale/deck.scale.js"></script>
+<script src="resources/.deck.js/extensions/goto/deck.goto.js"></script>
+<script src="resources/.deck.js/extensions/menu/deck.menu.js"></script>
+<script src="resources/.deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src="resources/.deck.js/extensions/split/deck.split.js"></script>
+<script src="resources/.deck.js/extensions/status/deck.status.js"></script>
+<script src="resources/custom.js"></script>
+<script>
+  (function($, deck, undefined) {
+    $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+    $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+  
+    $.extend(true, $[deck].defaults, {
+        countNested: false
+    });
+  
+    $.deck('.slide');
+  })(jQuery, 'deck');
+</script>
+<style>
+  .slide.canvas-image {
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-box;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -moz-box-align: start;
+  -webkit-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -ms-box-pack: start;
+  box-pack: start;}
+  
+  .bottom-left {
+    left: 1%;
+    bottom: 20%; }
+  
+  .top-left {
+    left: 1%;
+    top: 20%; }
+  
+  .bottom-right {
+    right: 1%;
+    bottom: 20%; }
+  
+  .top-right {
+    right: 1%;
+    top: 20%; }
+  
+  .center-up {
+    right: 50%;
+    top: 1%;
+  }
+  
+  .center-down {
+    right: 50%;
+    bottom: 1%;
+  }
+  .canvas-image .canvas-caption p {
+    text-align: center;
+    padding-top: 0;
+    padding: 0;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    display: inline;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 58px;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    -moz-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+    padding: 1rem;
+    color: white; }
+  kbd.keyseq { color: #555555; }
+  kbd:not(.keyseq) {
+    display: inline-block;
+    color: #222222;
+    font-size: 0.7em;
+    line-height: 1.4;
+    background-color: #F7F7F7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    margin: -0.15em 0.15em 0 0.15em;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  kbd kbd:first-child { margin-left: 0; }
+  kbd kbd:last-child { margin-right: 0; }
+</style>
+</body>
+</html>
