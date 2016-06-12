@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Asciidoctor 1.5.2" name="generator">
+<meta content="Baptiste Mathus" name="author">
+<title>Jenkins Pipeline As Code</title>
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{font-weight: normal}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#00}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+<link href="resources/.deck.js/core/deck.core.css" rel="stylesheet">
+<link href="resources/.deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/goto/deck.goto.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/menu/deck.menu.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/navigation/deck.navigation.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/themes/style/swiss.css" media="screen" rel="stylesheet">
+<link href="resources/.deck.js/themes/transition/fade.css" media="screen" rel="stylesheet">
+<link href="resources/custom.css" rel="stylesheet">
+<link href="resources/.deck.js/core/print.css" media="print" rel="stylesheet">
+<script src="resources/.deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>Jenkins Pipeline As Code</h1>
+<span id="author">Baptiste Mathus</span>
+<br>
+<span id="email">@bmathus</span>
+<br>
+</section>
+<section class="slide" id="_about_me">
+<h2>About Me</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy"><span class="keyword">def</span> BaptisteMathus =
+    people.filter(p -&gt; p.isHacker())
+          .filter(p -&gt; p.isOpenSourceFan())
+          .filter(p -&gt; p.lovesCommunities())
+          .filter(p -&gt; p.isCommitterOn(<span class="string"><span class="delimiter">&quot;</span><span class="content">Jenkins</span><span class="delimiter">&quot;</span></span>))
+          .filter(p -&gt; p.isCommitterOn(<span class="string"><span class="delimiter">&quot;</span><span class="content">MojoHaus</span><span class="delimiter">&quot;</span></span>))
+          .filter(p -&gt; p.doesRidiculousJokes())
+          .uniqueResult()</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="batmat about" src="resources/batmat-about.png" width="500">
+</div>
+</div>
+<div class="paragraph tags"><p>#jenkins #java #docker #maven #automation #devops #passion</p></div>
+</section>
+<section class="slide" id="_agenda">
+<h2>Agenda</h2>
+<div class="ulist">
+<ul>
+<li>Quick History Of Jenkins</li>
+<li>Build Jenkins!</li>
+<li>Build Jenkins, again! Quicker.</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_a_bit_of_history">
+<h2>A bit of history</h2>
+<div class="paragraph"><p>2005 : Hudson created by Kohsuke Kawaguchi</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>2011 : Oracle forks the project.</p></div>
+<div class="paragraph"><p>The community renames the project to Jenkins and goes away</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>2016 : Jenkins Project Still Vibrant</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="jenkins infographics" src="resources/jenkins-infographics.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_let_s_build_jenkins">
+<h2>Let&#8217;s build&#8230;&#8203; Jenkins</h2>
+<div class="paragraph"><p>Typically. You would do:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="freestyle 1" src="resources/freestyle-1.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="imageblock">
+<div class="content">
+<img alt="freestyle 2" src="resources/freestyle-2.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="ulist">
+<ul>
+<li>Deploy to test environment? User Acceptance Testing?</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="freestyle 3" src="resources/freestyle-3.png">
+</div>
+</div>
+<div class="paragraph"><p>Or, create a bunch of jobs.</p></div>
+</section>
+<section class="slide" id="_wait_what_if_i_want_to">
+<h2>Wait. What if I want to</h2>
+<div class="ulist">
+<ul>
+<li class="slide">Wait for user input?</li>
+<li class="slide"><p>
+Parallelize some of the steps?<div class="ulist">
+<ul>
+<li>fail-fast?</li>
+</ul>
+</div></p></li>
+<li class="slide"><p>
+Deploy to a testing environment<div class="ulist">
+<ul>
+<li>after successful standard tests,</li>
+<li>but before UA Testing is finished?</li>
+<li>If UAT fails, rollback to previous version?</li>
+</ul>
+</div></p></li>
+<li class="slide">And more&#8230;&#8203;</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_pipeline_from_code_to_deployed_app">
+<h2>Pipeline: From Code To Deployed App</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="pipeline concept" src="resources/pipeline-concept.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_but_what_about_maintenance">
+<h2>But what about maintenance?</h2>
+<div class="ulist">
+<ul>
+<li>Versioning?</li>
+<li>Readability?</li>
+<li>Robustness?</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_everything_as_code">
+<h2>Everything As Code</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="infra as code tools" src="resources/all-as-code/infra-as-code-tools.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>When everything is code, then versioning comes (almost) for free.</p></div>
+<div class="paragraph"><p>Also, rollback.</p></div>
+<div class="paragraph lead"><p>Go faster!</p></div>
+</section>
+<section class="slide" id="_deliver_as_fast_as_possible">
+<h2>Deliver As Fast As Possible!</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="speed" src="resources/speed.jpg">
+</div>
+</div>
+<div class="paragraph lead"><p>What is a commit that is not running in production?</p></div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>A Commit Not Yet In Production Is Stock!</p></div>
+</section>
+<section class="slide" id="_the_jenkins_pipeline_plugin_s">
+<h2>The Jenkins Pipeline Plugin(s)</h2>
+<div class="ulist">
+<ul>
+<li>Scripted&#8201;&#8212;&#8201;Domain Specific Language</li>
+<li>Pausable</li>
+<li>Extensible</li>
+<li>Fist public beta release: June 2014</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_so_now_let_s_get_back_to_building_jenkins">
+<h2>So, now. Let&#8217;s get back to building Jenkins</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">node (<span class="string"><span class="delimiter">'</span><span class="content">label</span><span class="delimiter">'</span></span>) {
+
+  git <span class="string"><span class="delimiter">&quot;</span><span class="content">https://github.com/jenkinsci/jenkins.git</span><span class="delimiter">&quot;</span></span>
+
+  <span class="comment">// triggers the tool install as usual</span>
+  <span class="keyword">def</span> java  = tool <span class="string"><span class="delimiter">'</span><span class="content">jdk-1.8.0</span><span class="delimiter">'</span></span>
+  <span class="keyword">def</span> maven = tool <span class="string"><span class="delimiter">'</span><span class="content">maven-3</span><span class="delimiter">'</span></span>
+
+  withEnv([<span class="string"><span class="delimiter">&quot;</span><span class="content">JAVA_HOME=</span><span class="inline"><span class="inline-delimiter">$</span>java</span><span class="delimiter">&quot;</span></span>,
+           <span class="string"><span class="delimiter">&quot;</span><span class="content">PATH+MAVEN=</span><span class="inline"><span class="inline-delimiter">$</span>maven</span><span class="content">/bin:</span></span><span class="error">
+</span>           <span class="error">$</span>{env.JAVA_HOME}/bin<span class="string"><span class="delimiter">&quot;</span><span class="content">]) {</span></span><span class="error">
+</span>
+    sh <span class="string"><span class="delimiter">&quot;</span><span class="content">mvn clean deploy ...</span><span class="delimiter">&quot;</span></span>
+
+  }
+}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_question_to_the_user">
+<h2>Question to the user?</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">input <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Deploy to prod?</span><span class="delimiter">&quot;</span></span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">input <span class="key">message</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Deploy to prod?</span><span class="delimiter">&quot;</span></span>,
+  <span class="key">parameters</span>:[[<span class="error">$</span><span class="type">class</span>:<span class="string"><span class="delimiter">'</span><span class="content">StringParameterDefinition</span><span class="delimiter">'</span></span>,
+               <span class="class">defaultValue</span>: <span class="string"><span class="delimiter">'</span><span class="content">NOW</span><span class="delimiter">'</span></span>,
+               <span class="key">description</span>: <span class="string"><span class="delimiter">'</span><span class="content">...</span><span class="delimiter">'</span></span>,
+               <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">hour</span><span class="delimiter">'</span></span>
+               ]]
+}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_multi_nodes">
+<h2>Multi-nodes</h2>
+<div class="paragraph"><p><code>stash</code>: To pass things around</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">stash <span class="key">includes</span>: <span class="string"><span class="delimiter">'</span><span class="content">**/*.jar,war/target/*.war</span><span class="delimiter">'</span></span>,
+      <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">bucket</span><span class="delimiter">'</span></span>
+
+...
+
+unstash <span class="string"><span class="delimiter">'</span><span class="content">bucket</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_parallelism">
+<h2>Parallelism</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">parallel <span class="key">core</span>: {
+
+},       <span class="key">tests</span>: {
+
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Fail fast?</p></div>
+<div style="page-break-after: always"></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>parallel core: {
+
+},       tests: {
+
+}, failFast: true</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p><code>parallel</code> actually takes a <code>Map</code></p></div>
+<table class="tableblock frame-all grid-all" style="width:100%">
+<colgroup>
+<col style="width:83%">
+<col style="width:16%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy"><span class="keyword">def</span> execs = [:] <span class="comment">// creates empty map</span>
+<span class="keyword">for</span> (<span class="type">int</span> i=<span class="integer">0</span>;i&lt;<span class="integer">10</span>;++i) {
+
+    <span class="keyword">def</span> index = i
+    execs [i] = {
+
+        node {
+            echo <span class="string"><span class="delimiter">&quot;</span><span class="content">Executing for </span><span class="inline"><span class="inline-delimiter">$</span>index</span><span class="delimiter">&quot;</span></span>
+            sleep <span class="integer">10</span>
+        }
+    }
+}
+execs.failFast = <span class="predefined-constant">true</span>
+parallel execs</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="parallel execs example" src="resources/parallel-execs-example.png">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide" id="_visualization">
+<h2>Visualization?</h2>
+<div class="paragraph"><p><code>stage</code> lets you define logical steps of your pipeline.</p></div>
+<div class="paragraph"><p>Today:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">stage <span class="string"><span class="delimiter">&quot;</span><span class="content">Checkout</span><span class="delimiter">&quot;</span></span>
+...
+...
+stage <span class="string"><span class="delimiter">&quot;</span><span class="content">Prebuild</span><span class="delimiter">&quot;</span></span>
+...
+...</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p><a href="https://issues.jenkins-ci.org/browse/JENKINS-26107">Soon</a>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">stage (<span class="string"><span class="delimiter">&quot;</span><span class="content">Prebuild</span><span class="delimiter">&quot;</span></span>) {
+  ...
+  ...
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph"><p>The Stage View Plugin</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="stage view" src="resources/stage-view.png">
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide" id="_but_then_again">
+<h2>But then again&#8230;&#8203;</h2>
+<div class="ulist">
+<ul>
+<li>What about versioning?</li>
+<li>How to handle many [feature] Branches?</li>
+</ul>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph lead"><p>Jenkinsfile!</p></div>
+</section>
+<section class="slide" id="_multibranch_pipeline">
+<h2>Multibranch Pipeline</h2>
+<div class="ulist">
+<ul>
+<li>Define Pipeline in a <code>Jenkinsfile</code> in the repo and create job:</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="multibranch" src="resources/multibranch.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_editing_facilities">
+<h2>Editing facilities?</h2>
+<div class="ulist">
+<ul>
+<li>Snippet Generator</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="snippet generator" src="resources/snippet-generator.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>IntelliJ GDSL: bringing autocompletion to DSL</li>
+<li>More To Come</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_demo">
+<h2>Demo!</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="demo" src="resources/demo.gif" width="60%">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Infrastructure:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="jenkins docker swarm" src="resources/jenkins-docker-swarm.png">
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Rationale: from linear to (naively) parallel</p></div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+prebuild things
+</li>
+<li>
+stash them
+</li>
+<li>
+split tests per starting letter
+</li>
+<li>
+spawn them on one node
+</li>
+</ol>
+</div>
+</section>
+<section class="slide" id="_code">
+<h2>Code</h2>
+<div class="paragraph"><p>Prebuild:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy">node (<span class="string"><span class="delimiter">'</span><span class="content">demo</span><span class="delimiter">'</span></span>) {
+  <span class="key">stage</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Clone</span><span class="delimiter">&quot;</span></span>
+  git <span class="string"><span class="delimiter">'</span><span class="content">https://github.com/jenkinsci/jenkins.git</span><span class="delimiter">'</span></span>
+
+  stage <span class="string"><span class="delimiter">&quot;</span><span class="content">Install Maven</span><span class="delimiter">&quot;</span></span>
+
+  stage <span class="string"><span class="delimiter">&quot;</span><span class="content">Prebuild</span><span class="delimiter">&quot;</span></span>
+  withEnv([<span class="string"><span class="delimiter">&quot;</span><span class="content">PATH+MAVEN=</span><span class="inline"><span class="inline-delimiter">${</span>tool <span class="string"><span class="delimiter">'</span><span class="content">maven-3</span><span class="delimiter">'</span></span><span class="inline-delimiter">}</span></span><span class="content">/bin</span><span class="delimiter">&quot;</span></span>]) {
+    sh <span class="string"><span class="delimiter">&quot;</span><span class="content">mvn ... package -DskipTests...</span><span class="delimiter">&quot;</span></span>
+  }
+  stash <span class="key">includes</span>: <span class="string"><span class="delimiter">'</span><span class="content">**</span><span class="delimiter">'</span></span>, <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">prebuilt</span><span class="delimiter">'</span></span>
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always"></div>
+<div class="paragraph"><p>Prepare tests:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="groovy language-groovy"><span class="keyword">def</span> tests = [:]
+<span class="keyword">for</span> (<span class="type">char</span> letter=<span class="string"><span class="delimiter">'</span><span class="content">A</span><span class="delimiter">'</span></span>;letter&lt;<span class="string"><span class="delimiter">'</span><span class="content">Z</span><span class="delimiter">'</span></span>;++letter) {
+  tests[<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">$</span>letter</span><span class="content"> tests</span><span class="delimiter">&quot;</span></span>] = {
+    node (<span class="string"><span class="delimiter">'</span><span class="content">demo</span><span class="delimiter">'</span></span>) {
+      unstash <span class="string"><span class="delimiter">'</span><span class="content">prebuilt</span><span class="delimiter">'</span></span>
+
+      withEnv([<span class="string"><span class="delimiter">&quot;</span><span class="content">PATH+MAVEN=</span><span class="inline"><span class="inline-delimiter">${</span> tool <span class="string"><span class="delimiter">'</span><span class="content">maven-3</span><span class="delimiter">'</span></span> <span class="inline-delimiter">}</span></span><span class="content">/bin</span><span class="delimiter">&quot;</span></span>]) {
+        sh <span class="string"><span class="delimiter">&quot;</span><span class="content">mvn ... package '-Dtest=</span><span class="inline"><span class="inline-delimiter">$</span>letter</span><span class="content">*Test'</span><span class="delimiter">&quot;</span></span>
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_gotchas">
+<h2>Gotchas</h2>
+<div class="ulist">
+<ul>
+<li>C-style loops only - no functional Groovy yet (JENKINS-26481)</li>
+<li>Script approval can be cumbersome (aka <em>whitelisting</em>)</li>
+<li>Existing plugins support&#8201;&#8212;&#8201;Though quickly improving</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_the_future">
+<h2>The Future</h2>
+<div class="ulist">
+<ul>
+<li>Still early days, but already very usable</li>
+<li>More and more real world feedback</li>
+<li>Visual Designer</li>
+<li>IDE support (Eclipse anyone?)</li>
+<li><a href="https://jenkins.io/projects/blueocean/">BlueOcean!</a> Developer Experience Revisited</li>
+</ul>
+</div>
+<div class="paragraph lead"><p>Come to us. We have cookies.</p></div>
+</section>
+<section class="slide" id="_thanks">
+<h2>Thanks</h2>
+<table class="tableblock frame-all grid-all" style="width:100%">
+<colgroup>
+<col style="width:50%">
+<col style="width:50%">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="do logo" src="resources/do_logo.png">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img alt="mipih logo" src="resources/mipih_logo.png">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">For the Cloud Credits</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">We&#8217;re hiring!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img alt="econ feedback2" src="resources/econ_feedback2.png">
+</div>
+</div>
+</section>
+<section class="slide" id="_references">
+<h2>References</h2>
+<div class="ulist">
+<ul>
+<li><a href="https://jenkins.io/doc/pipeline/">Official documentation</a></li>
+<li><a href="https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md">Introduction Tutorial</a></li>
+<li><a href="https://github.com/jenkinsci/pipeline-examples">Pipeline Scripts Examples</a></li>
+<li><a href="https://github.com/batmat/jez/">Toy Project demoing how to quickly set up a Jenkins Build cluster using Docker Swarm</a></li>
+<li><a href="https://cloudbees.zendesk.com/hc/en-us/articles/204690520-Why-do-slaves-show-as-suspended-while-jobs-wait-in-the-queue-">
+Why sometime the build queue is growing, and no new agent is quickly provisioned</a></li>
+<li><a href="https://github.com/jenkinsci/pipeline-plugin/blob/master/TUTORIAL.md#creating-multiple-threads">
+Parallel Test Executor Plugin example</a></li>
+</ul>
+</div>
+</section>
+<div aria-role="navigation">
+<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+</div>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+<form action="." class="goto-form" method="get">
+<label for="goto-slide">Go to Slide:</label>
+<input id="goto-slide" list="goto-datalist" name="slidenum" type="text">
+<datalist id="goto-data-list"></datalist>
+<input type="submit" value="Go">
+</form>
+</div>
+<script src="resources/.deck.js/jquery.min.js"></script>
+<script src="resources/.deck.js/core/deck.core.js"></script>
+<script src="resources/.deck.js/extensions/scale/deck.scale.js"></script>
+<script src="resources/.deck.js/extensions/goto/deck.goto.js"></script>
+<script src="resources/.deck.js/extensions/menu/deck.menu.js"></script>
+<script src="resources/.deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src="resources/.deck.js/extensions/split/deck.split.js"></script>
+<script src="resources/.deck.js/extensions/status/deck.status.js"></script>
+<script src="resources/custom.js"></script>
+<script>
+  (function($, deck, undefined) {
+    $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+    $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+  
+    $.extend(true, $[deck].defaults, {
+        countNested: false
+    });
+  
+    $.deck('.slide');
+  })(jQuery, 'deck');
+</script>
+<style>
+  .slide.canvas-image {
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-box;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -moz-box-align: start;
+  -webkit-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -ms-box-pack: start;
+  box-pack: start;}
+  
+  .bottom-left {
+    left: 1%;
+    bottom: 20%; }
+  
+  .top-left {
+    left: 1%;
+    top: 20%; }
+  
+  .bottom-right {
+    right: 1%;
+    bottom: 20%; }
+  
+  .top-right {
+    right: 1%;
+    top: 20%; }
+  
+  .center-up {
+    right: 50%;
+    top: 1%;
+  }
+  
+  .center-down {
+    right: 50%;
+    bottom: 1%;
+  }
+  .canvas-image .canvas-caption p {
+    text-align: center;
+    padding-top: 0;
+    padding: 0;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    display: inline;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 58px;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    -moz-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+    padding: 1rem;
+    color: white; }
+  kbd.keyseq { color: #555555; }
+  kbd:not(.keyseq) {
+    display: inline-block;
+    color: #222222;
+    font-size: 0.7em;
+    line-height: 1.4;
+    background-color: #F7F7F7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    margin: -0.15em 0.15em 0 0.15em;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  kbd kbd:first-child { margin-left: 0; }
+  kbd kbd:last-child { margin-right: 0; }
+</style>
+</body>
+</html>
