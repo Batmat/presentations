@@ -37,3 +37,7 @@ but are still not very comfortable with it, and want to discover the real power 
 == Forge/Jenkins aux amphétamines
 
 link:rex-forge-2015/prez.html[Support]
+
+== link:jenkins-pipeline-as-code/prez.html[Pipeline As Code With jenkins]
+
+Talk given at the link:https://www.eclipsecon.org/france2016/node/2652[Eclipse Con France 2016].
